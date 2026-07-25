@@ -1,4 +1,3 @@
-import { Eyebrow } from "./Eyebrow";
 import { Reveal } from "./Reveal";
 
 const PARAGRAPHS = [
@@ -9,16 +8,12 @@ const PARAGRAPHS = [
 
 export function Philosophy() {
   return (
-    <section className="mx-auto max-w-3xl px-6 py-32 sm:py-40" aria-labelledby="philosophy-heading">
-      <Reveal>
-        <Eyebrow>The philosophy</Eyebrow>
-      </Reveal>
-
+    <section className="mx-auto max-w-3xl px-6 pt-32 sm:pt-40" aria-labelledby="philosophy-heading">
       <h2 id="philosophy-heading" className="sr-only">
         The philosophy behind the system
       </h2>
 
-      <div className="mt-8 space-y-6">
+      <div className="space-y-6">
         {PARAGRAPHS.map((p, i) => (
           <Reveal key={i} delayMs={i * 100} as="p">
             <p className="text-lg leading-relaxed text-white/70 first:text-white">{p}</p>

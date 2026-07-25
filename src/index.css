@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap");
 @import "tailwindcss";
 
 @theme {
+  --font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
   --animate-marquee: marquee 28s linear infinite;
 
   @keyframes marquee {

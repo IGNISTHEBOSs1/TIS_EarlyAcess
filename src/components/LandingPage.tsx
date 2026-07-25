@@ -2,8 +2,9 @@ import { Navbar } from "./Navbar";
 import { Hero } from "./Hero";
 import { MarqueeBelt } from "./MarqueeBelt";
 import { Philosophy } from "./Philosophy";
-import { FeaturePitch } from "./FeaturePitch";
+import { FourBeliefs } from "./FourBeliefs";
 import { MomentsShowcase } from "./MomentsShowcase";
+import { BuildingInPublic } from "./BuildingInPublic";
 import { FAQ } from "./FAQ";
 import { ClosingStatement } from "./ClosingStatement";
 import { WaitlistForm } from "./WaitlistForm";
@@ -33,8 +34,9 @@ export default function LandingPage() {
         <Hero />
         <MarqueeBelt />
         <Philosophy />
-        <FeaturePitch />
+        <FourBeliefs />
         <MomentsShowcase />
+        <BuildingInPublic />
         <FAQ />
         <ClosingStatement />
         <WaitlistForm onSubmit={handleWaitlistSubmit} />

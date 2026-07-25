@@ -41,7 +41,7 @@ export function FAQ() {
       </Reveal>
 
       <Reveal delayMs={80}>
-        <h2 id="faq-heading" className="mt-6 text-4xl font-bold text-white sm:text-5xl">
+        <h2 id="faq-heading" className="font-display mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
           Fair questions.
         </h2>
       </Reveal>

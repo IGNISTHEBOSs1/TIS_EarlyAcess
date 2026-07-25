@@ -42,7 +42,7 @@ export function MomentsShowcase() {
       <Reveal delayMs={80}>
         <h2
           id="moments-heading"
-          className="mt-6 max-w-2xl text-4xl font-bold leading-tight text-white sm:text-5xl"
+          className="font-display mt-6 max-w-2xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl"
         >
           Three moments that matter.
         </h2>
@@ -52,7 +52,7 @@ export function MomentsShowcase() {
         <Reveal delayMs={40} className="grid items-center gap-10 sm:grid-cols-2">
           <div>
             <p className="font-mono text-xs text-white/40">{MOMENTS[0].label}</p>
-            <h3 className="mt-3 text-2xl font-semibold text-white">{MOMENTS[0].title}</h3>
+            <h3 className="font-display mt-3 text-2xl font-semibold tracking-tight text-white">{MOMENTS[0].title}</h3>
             <p className="mt-3 max-w-md text-white/60">{MOMENTS[0].body}</p>
           </div>
           <div
@@ -103,7 +103,7 @@ export function MomentsShowcase() {
           </div>
           <div className="order-1 sm:order-2">
             <p className="font-mono text-xs text-white/40">{MOMENTS[1].label}</p>
-            <h3 className="mt-3 text-2xl font-semibold text-white">{MOMENTS[1].title}</h3>
+            <h3 className="font-display mt-3 text-2xl font-semibold tracking-tight text-white">{MOMENTS[1].title}</h3>
             <p className="mt-3 max-w-md text-white/60">{MOMENTS[1].body}</p>
           </div>
         </Reveal>
@@ -111,7 +111,7 @@ export function MomentsShowcase() {
         <Reveal delayMs={40} className="grid items-center gap-10 sm:grid-cols-2">
           <div>
             <p className="font-mono text-xs text-white/40">{MOMENTS[2].label}</p>
-            <h3 className="mt-3 text-2xl font-semibold text-white">{MOMENTS[2].title}</h3>
+            <h3 className="font-display mt-3 text-2xl font-semibold tracking-tight text-white">{MOMENTS[2].title}</h3>
           </div>
           <blockquote className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-lg text-white/70">
             {MOMENTS[2].body}
