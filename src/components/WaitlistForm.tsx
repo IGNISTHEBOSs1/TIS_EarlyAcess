@@ -38,7 +38,7 @@ export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
 
   if (status === "success") {
     return (
-      <section className="mx-auto max-w-3xl px-6 py-28" aria-live="polite">
+      <section className="mx-auto max-w-3xl px-6 py-32 sm:py-40" aria-live="polite">
         <p className="text-2xl font-semibold text-white">You're on the list.</p>
         <p className="mt-2 text-white/60">We'll be in touch before public launch.</p>
       </section>
@@ -46,7 +46,7 @@ export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
   }
 
   return (
-    <section className="mx-auto max-w-3xl px-6 py-28" aria-labelledby="waitlist-heading">
+    <section className="mx-auto max-w-3xl px-6 py-32 sm:py-40" aria-labelledby="waitlist-heading">
       <Reveal>
         <Eyebrow>The waitlist</Eyebrow>
       </Reveal>

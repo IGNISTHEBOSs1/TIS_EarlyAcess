@@ -35,7 +35,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="mx-auto max-w-3xl px-6 py-28" aria-labelledby="faq-heading">
+    <section className="mx-auto max-w-3xl px-6 py-32 sm:py-40" aria-labelledby="faq-heading">
       <Reveal>
         <Eyebrow>Before you ask</Eyebrow>
       </Reveal>

@@ -18,7 +18,7 @@ const FEATURES: Feature[] = [
 
 export function FeaturePitch() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-16" aria-label="Product principles">
+    <section className="mx-auto max-w-6xl px-6 py-24 sm:py-32" aria-label="Product principles">
       <div className="grid gap-12 sm:grid-cols-2">
         {FEATURES.map((f, i) => (
           <Reveal key={f.title} delayMs={i * 100}>

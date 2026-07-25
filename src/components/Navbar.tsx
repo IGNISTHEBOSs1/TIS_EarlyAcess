@@ -26,17 +26,21 @@ export function Navbar({ waitlistCount }: NavbarProps) {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10" : "bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 border-b transition-all duration-300 backdrop-blur-xl backdrop-saturate-150 ${
+        scrolled
+          ? "bg-white/[0.06] border-white/10 shadow-[0_1px_0_0_rgba(255,255,255,0.05)]"
+          : "bg-white/[0.02] border-white/5"
       }`}
     >
+      {/* subtle top highlight to sell the glass edge, like light catching the top of a pane */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4"
         aria-label="Primary"
       >
         <a href="#top" className="flex items-center gap-2 font-semibold text-white">
           <span
-            className="flex h-6 w-6 items-center justify-center rounded-md border border-white/20 text-xs"
+            className="flex h-6 w-6 items-center justify-center rounded-md border border-white/20 bg-white/5 text-xs backdrop-blur-sm"
             aria-hidden="true"
           >
             T

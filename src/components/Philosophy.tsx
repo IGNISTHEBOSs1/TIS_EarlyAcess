@@ -9,7 +9,7 @@ const PARAGRAPHS = [
 
 export function Philosophy() {
   return (
-    <section className="mx-auto max-w-3xl px-6 py-28" aria-labelledby="philosophy-heading">
+    <section className="mx-auto max-w-3xl px-6 py-32 sm:py-40" aria-labelledby="philosophy-heading">
       <Reveal>
         <Eyebrow>The philosophy</Eyebrow>
       </Reveal>

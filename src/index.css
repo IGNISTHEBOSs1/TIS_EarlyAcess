@@ -19,4 +19,23 @@ html {
 
 body {
   background-color: #000;
+  position: relative;
+}
+
+/*
+  Grain texture: SVG feTurbulence noise as a fixed, full-viewport overlay.
+  mix-blend-mode: overlay lets it read as film grain rather than a flat
+  gray wash. Kept as a pseudo-element on body (not a DOM node) so it
+  never intercepts clicks and never re-renders with React.
+*/
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-repeat: repeat;
 }

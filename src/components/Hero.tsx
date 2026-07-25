@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative mx-auto max-w-7xl px-6 pt-40 pb-24 sm:pt-48"
+      className="relative mx-auto max-w-7xl px-6 pt-40 pb-32 sm:pt-52 sm:pb-40"
       aria-labelledby="hero-heading"
     >
       <Reveal>
