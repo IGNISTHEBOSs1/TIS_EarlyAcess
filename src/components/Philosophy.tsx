@@ -1,9 +1,9 @@
 import { Reveal } from "./Reveal";
 
-const PARAGRAPHS = [
-  "Most systems for improving quietly become another thing to manage. The streak breaks, the guilt arrives, and you start over — again.",
-  "The real problem isn't motivation. It's that your progress is invisible. You can't feel it, so you stop trusting it. And what you can't feel, you eventually abandon.",
-  "Growth shouldn't require you to hold everything in your head. Something should be holding it for you.",
+const POINTS = [
+  "Improving quietly becomes another thing to manage. The streak breaks, the guilt arrives, you start over.",
+  "The real problem isn't motivation — it's that progress is invisible. What you can't feel, you eventually abandon.",
+  "Growth shouldn't require you to hold it all in your head. Something should be holding it for you.",
 ];
 
 export function Philosophy() {
@@ -13,10 +13,12 @@ export function Philosophy() {
         The philosophy behind the system
       </h2>
 
-      <div className="space-y-6">
-        {PARAGRAPHS.map((p, i) => (
-          <Reveal key={i} delayMs={i * 100} as="p">
-            <p className="text-lg leading-relaxed text-white/70 first:text-white">{p}</p>
+      <div className="space-y-5">
+        {POINTS.map((point, i) => (
+          <Reveal key={i} delayMs={i * 90} as="p">
+            <p className="font-display text-2xl font-semibold leading-snug tracking-tight text-white/90 sm:text-3xl">
+              {point}
+            </p>
           </Reveal>
         ))}
       </div>

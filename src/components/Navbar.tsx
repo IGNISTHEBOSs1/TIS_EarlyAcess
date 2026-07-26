@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "./Button";
 
-interface NavbarProps {
-  waitlistCount: number;
-}
-
-export function Navbar({ waitlistCount }: NavbarProps) {
+export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -49,8 +45,9 @@ export function Navbar({ waitlistCount }: NavbarProps) {
         </a>
 
         <div className="flex items-center gap-4">
-          <span className="hidden sm:inline font-mono text-xs text-white/50">
-            {waitlistCount} on the waitlist
+          <span className="hidden items-center gap-1.5 sm:flex">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/80" />
+            <span className="font-mono text-xs text-white/50">Pre-launch</span>
           </span>
           <Button variant="primary" className="text-black">
             Request access

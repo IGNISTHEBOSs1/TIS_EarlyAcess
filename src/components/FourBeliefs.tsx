@@ -51,7 +51,7 @@ export function FourBeliefs() {
           <Reveal key={b.number} delayMs={i * 60}>
             <span
               aria-hidden="true"
-              className="font-display block text-6xl font-bold text-white/10 sm:text-7xl"
+              className="font-display inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-white/15 bg-white/[0.06] text-2xl font-bold text-white/70 backdrop-blur-md shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] sm:h-20 sm:w-20 sm:text-3xl"
             >
               {b.number}
             </span>

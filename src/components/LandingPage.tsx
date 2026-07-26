@@ -16,8 +16,6 @@ import { Footer } from "./Footer";
  * state, so this stays a plain layout component with no logic of its own.
  */
 export default function LandingPage() {
-  const waitlistCount = 1;
-
   const handleWaitlistSubmit = async (email: string, context: string) => {
     // Wire this up to your actual signup endpoint.
     await fetch("/api/waitlist", {
@@ -29,7 +27,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-black text-white antialiased">
-      <Navbar waitlistCount={waitlistCount} />
+      <Navbar />
       <main>
         <Hero />
         <MarqueeBelt />

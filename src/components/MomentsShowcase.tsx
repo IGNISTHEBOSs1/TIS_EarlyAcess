@@ -113,9 +113,31 @@ export function MomentsShowcase() {
             <p className="font-mono text-xs text-white/40">{MOMENTS[2].label}</p>
             <h3 className="font-display mt-3 text-2xl font-semibold tracking-tight text-white">{MOMENTS[2].title}</h3>
           </div>
-          <blockquote className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-lg text-white/70">
-            {MOMENTS[2].body}
-          </blockquote>
+          <div
+            aria-hidden="true"
+            className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+          >
+            <p className="font-mono text-xs uppercase tracking-wide text-white/40 border-b border-white/10 pb-3">
+              A quiet signal
+            </p>
+            <blockquote className="mt-4 flex items-start gap-3 text-white/80">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/70" />
+              <span>
+                You've kept your word to yourself six days running. This is
+                what momentum feels like before it looks like anything.
+              </span>
+            </blockquote>
+            <div className="mt-5 flex gap-2">
+              {["clarity", "resistance", "honest"].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-white/10 px-2.5 py-0.5 font-mono text-[11px] text-white/40"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>
