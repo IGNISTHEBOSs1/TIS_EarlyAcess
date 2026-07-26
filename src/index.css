@@ -20,85 +20,49 @@ html {
 }
 
 /* ==========================================================================
-   Application background system
+   Application background system — rebuilt from scratch, not patched.
    --------------------------------------------------------------------------
-   The permanent surface the app lives on. Studio-lighting-on-graphite,
-   not a textured surface — depth should register before texture does.
+   Everything here is a single background-image stack on `body`, nothing
+   else:
 
-   Layers, bottom to top (all painted as one background-image stack on
-   `body` itself — first-listed gradient paints on top):
-     1. Near-invisible static grain (opacity baked into the dots — see
-        note below on why this isn't a separate element)
-     2. Soft, gentle vignette
-     3. Rich charcoal tonal variation (multi-stop, gives the graphite
-        actual body instead of reading as flat color)
-     4. Strong-ish soft central illumination (the dominant visual cue)
-     5. Deep charcoal base color
+     - Solid charcoal base color
+     - Two linear gradients for soft lighting variation (no radial
+       gradients anywhere — a radial reads as a visible circle no matter
+       how soft; linear gradients fake directional light without ever
+       having an edge to notice)
+     - One tiled 256x256 PNG for grain (public/grain.png — a real static
+       asset, not an embedded SVG data URI; its subtlety is baked into
+       the PNG's own per-pixel alpha, generated once, so no CSS opacity
+       trick is needed on top of it)
 
-   Everything is default (scrolling) attachment — nothing `fixed`,
-   nothing blended, nothing filter-generated at paint time. That
-   combination (fixed position + mix-blend-mode + a filter-rendered
-   image) was forcing a recomposite on every scroll frame, which is what
-   caused the shimmer. A plain scrolling background costs nothing extra.
+   Explicitly absent, on purpose: background-attachment: fixed,
+   mix-blend-mode, any filter, any SVG data URI, and any pseudo-element.
+   All of those were previously implicated in scroll-repaint cost. A
+   plain background-image stack on body with default (scrolling)
+   attachment is the cheapest possible thing the browser can paint here
+   — it's composited once and scrolls with the page like any other
+   background, no recomposite-per-frame, no extra stacking context, no
+   extra paint layer.
 
-   The grain is deliberately NOT a separate pseudo-element. An earlier
-   version used one, positioned to sit behind content — but a positioned
-   pseudo-element (even at z-index 0) paints ABOVE static in-flow content
-   per the CSS stacking order, not behind it, which would have covered
-   the page. Folding it into body's own background-image list sidesteps
-   that entirely: backgrounds on body are inherently behind all content,
-   no stacking context needed. The tradeoff is that a merged layer can't
-   have its own CSS `opacity` — so the ~1-2% target opacity is baked
-   directly into each dot's fill-opacity at generation time instead.
-
-   All values are custom properties so a future theme is a variable
-   change, not a gradient rewrite.
+   Custom properties below so retuning is a variable change, not a
+   rewrite.
    ========================================================================== */
 :root {
-  /* Layer 1 — grain (opacity baked into the source SVG, see above) */
-  --bg-grain-size: 160px;
-
-  /* Layer 2 — vignette (soft) */
-  --bg-vignette-color: rgba(0, 0, 0, 0.26);
-  --bg-vignette-inner-stop: 68%;
-
-  /* Layer 3 — charcoal tonal variation (richer, multi-stop) */
-  --bg-tonal-angle: 125deg;
-  --bg-tonal-highlight: rgba(255, 255, 255, 0.022);
-  --bg-tonal-mid: rgba(255, 255, 255, 0.006);
-  --bg-tonal-shadow: rgba(0, 0, 0, 0.03);
-
-  /* Layer 4 — illumination (stronger, the dominant cue) */
-  --bg-illumination-color: rgba(255, 255, 255, 0.055);
-  --bg-illumination-size: 1600px 1150px;
-  --bg-illumination-position: 50% 32%;
-
-  /* Layer 5 — base */
   --bg-base-color: #0a0a0a;
+
+  --bg-light-top: rgba(255, 255, 255, 0.045);
+  --bg-light-diagonal: rgba(255, 255, 255, 0.02);
+
+  --bg-grain-url: url("/grain.png");
+  --bg-grain-size: 256px;
 }
 
 body {
-  position: relative;
   background-color: var(--bg-base-color);
-  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  background-repeat: no-repeat, no-repeat, repeat;
   background-image:
-    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22160%22%20height%3D%22160%22%20viewBox%3D%220%200%20160%20160%22%3E%3Ccircle%20cx%3D%2251.8%22%20cy%3D%2224.1%22%20r%3D%220.79%22%20fill%3D%22white%22%20opacity%3D%220.009%22/%3E%3Ccircle%20cx%3D%2285.7%22%20cy%3D%2258.5%22%20r%3D%220.43%22%20fill%3D%22white%22%20opacity%3D%220.014%22/%3E%3Ccircle%20cx%3D%226.0%22%20cy%3D%2269.4%22%20r%3D%220.44%22%20fill%3D%22white%22%20opacity%3D%220.009%22/%3E%3Ccircle%20cx%3D%2267.9%22%20cy%3D%22132.3%22%20r%3D%220.47%22%20fill%3D%22white%22%20opacity%3D%220.011%22/%3E%3Ccircle%20cx%3D%22100.4%22%20cy%3D%22151.6%22%20r%3D%220.75%22%20fill%3D%22white%22%20opacity%3D%220.013%22/%3E%3Ccircle%20cx%3D%22156.2%22%20cy%3D%227.5%22%20r%3D%220.92%22%20fill%3D%22white%22%20opacity%3D%220.011%22/%3E%3Ccircle%20cx%3D%2223.1%22%20cy%3D%2218.8%22%20r%3D%220.59%22%20fill%3D%22white%22%20opacity%3D%220.018%22/%3E%3Ccircle%20cx%3D%2228.9%22%20cy%3D%2293.1%22%20r%3D%220.78%22%20fill%3D%22white%22%20opacity%3D%220.012%22/%3E%3Ccircle%20cx%3D%2287.6%22%20cy%3D%2210.0%22%20r%3D%220.44%22%20fill%3D%22white%22%20opacity%3D%220.01%22/%3E%3Ccircle%20cx%3D%22108.9%22%20cy%3D%2268.4%22%20r%3D%220.59%22%20fill%3D%22white%22%20opacity%3D%220.015%22/%3E%3Ccircle%20cx%3D%2272.5%22%20cy%3D%2248.0%22%20r%3D%220.88%22%20fill%3D%22white%22%20opacity%3D%220.016%22/%3E%3Ccircle%20cx%3D%2239.1%22%20cy%3D%2291.9%22%20r%3D%220.72%22%20fill%3D%22white%22%20opacity%3D%220.019%22/%3E%3Ccircle%20cx%3D%22116.7%22%20cy%3D%2246.1%22%20r%3D%220.99%22%20fill%3D%22white%22%20opacity%3D%220.009%22/%3E%3Ccircle%20cx%3D%2266.9%22%20cy%3D%22121.1%22%20r%3D%220.49%22%20fill%3D%22white%22%20opacity%3D%220.014%22/%3E%3Ccircle%20cx%3D%226.3%22%20cy%3D%22106.9%22%20r%3D%220.86%22%20fill%3D%22white%22%20opacity%3D%220.015%22/%3E%3Ccircle%20cx%3D%22140.1%22%20cy%3D%2250.2%22%20r%3D%220.82%22%20fill%3D%22white%22%20opacity%3D%220.015%22/%3E%3Ccircle%20cx%3D%2292.8%22%20cy%3D%2273.0%22%20r%3D%220.9%22%20fill%3D%22white%22%20opacity%3D%220.019%22/%3E%3Ccircle%20cx%3D%2275.9%22%20cy%3D%22106.3%22%20r%3D%220.44%22%20fill%3D%22white%22%20opacity%3D%220.016%22/%3E%3Ccircle%20cx%3D%22103.5%22%20cy%3D%22158.9%22%20r%3D%220.89%22%20fill%3D%22white%22%20opacity%3D%220.011%22/%3E%3Ccircle%20cx%3D%2261.7%22%20cy%3D%22107.0%22%20r%3D%220.41%22%20fill%3D%22white%22%20opacity%3D%220.014%22/%3E%3Ccircle%20cx%3D%2226.9%22%20cy%3D%2218.7%22%20r%3D%220.44%22%20fill%3D%22white%22%20opacity%3D%220.017%22/%3E%3Ccircle%20cx%3D%2220.7%22%20cy%3D%2239.6%22%20r%3D%220.63%22%20fill%3D%22white%22%20opacity%3D%220.018%22/%3E%3Ccircle%20cx%3D%2212.9%22%20cy%3D%2271.9%22%20r%3D%220.73%22%20fill%3D%22white%22%20opacity%3D%220.019%22/%3E%3Ccircle%20cx%3D%22131.1%22%20cy%3D%22138.2%22%20r%3D%220.57%22%20fill%3D%22white%22%20opacity%3D%220.013%22/%3E%3Ccircle%20cx%3D%2257.4%22%20cy%3D%22141.5%22%20r%3D%220.97%22%20fill%3D%22white%22%20opacity%3D%220.01%22/%3E%3Ccircle%20cx%3D%2228.2%22%20cy%3D%2237.1%22%20r%3D%220.54%22%20fill%3D%22white%22%20opacity%3D%220.014%22/%3E%3Ccircle%20cx%3D%2294.3%22%20cy%3D%2242.0%22%20r%3D%220.4%22%20fill%3D%22white%22%20opacity%3D%220.013%22/%3E%3Ccircle%20cx%3D%2259.1%22%20cy%3D%2290.6%22%20r%3D%220.97%22%20fill%3D%22white%22%20opacity%3D%220.016%22/%3E%3Ccircle%20cx%3D%2282.5%22%20cy%3D%2298.8%22%20r%3D%220.81%22%20fill%3D%22white%22%20opacity%3D%220.009%22/%3E%3Ccircle%20cx%3D%22143.9%22%20cy%3D%22124.8%22%20r%3D%220.92%22%20fill%3D%22white%22%20opacity%3D%220.018%22/%3E%3Ccircle%20cx%3D%2262.8%22%20cy%3D%2263.8%22%20r%3D%220.46%22%20fill%3D%22white%22%20opacity%3D%220.016%22/%3E%3Ccircle%20cx%3D%2210.0%22%20cy%3D%2210.8%22%20r%3D%220.53%22%20fill%3D%22white%22%20opacity%3D%220.01%22/%3E%3Ccircle%20cx%3D%2254.4%22%20cy%3D%228.4%22%20r%3D%220.4%22%20fill%3D%22white%22%20opacity%3D%220.01%22/%3E%3Ccircle%20cx%3D%2216.2%22%20cy%3D%2258.2%22%20r%3D%220.42%22%20fill%3D%22white%22%20opacity%3D%220.018%22/%3E%3Ccircle%20cx%3D%2298.3%22%20cy%3D%2223.8%22%20r%3D%220.55%22%20fill%3D%22white%22%20opacity%3D%220.012%22/%3E%3Ccircle%20cx%3D%2258.3%22%20cy%3D%2219.7%22%20r%3D%220.91%22%20fill%3D%22white%22%20opacity%3D%220.02%22/%3E%3Ccircle%20cx%3D%2274.6%22%20cy%3D%2277.4%22%20r%3D%220.45%22%20fill%3D%22white%22%20opacity%3D%220.009%22/%3E%3Ccircle%20cx%3D%2254.8%22%20cy%3D%2242.4%22%20r%3D%220.9%22%20fill%3D%22white%22%20opacity%3D%220.01%22/%3E%3Ccircle%20cx%3D%223.7%22%20cy%3D%22152.2%22%20r%3D%220.72%22%20fill%3D%22white%22%20opacity%3D%220.01%22/%3E%3Ccircle%20cx%3D%2286.9%22%20cy%3D%224.3%22%20r%3D%220.72%22%20fill%3D%22white%22%20opacity%3D%220.02%22/%3E%3Ccircle%20cx%3D%22138.1%22%20cy%3D%22111.4%22%20r%3D%220.56%22%20fill%3D%22white%22%20opacity%3D%220.012%22/%3E%3Ccircle%20cx%3D%2226.7%22%20cy%3D%22123.5%22%20r%3D%220.72%22%20fill%3D%22white%22%20opacity%3D%220.017%22/%3E%3Ccircle%20cx%3D%2252.7%22%20cy%3D%2235.7%22%20r%3D%220.89%22%20fill%3D%22white%22%20opacity%3D%220.02%22/%3E%3Ccircle%20cx%3D%22136.4%22%20cy%3D%22129.0%22%20r%3D%220.89%22%20fill%3D%22white%22%20opacity%3D%220.017%22/%3E%3Ccircle%20cx%3D%2236.3%22%20cy%3D%2282.8%22%20r%3D%220.61%22%20fill%3D%22white%22%20opacity%3D%220.008%22/%3E%3Ccircle%20cx%3D%224.5%22%20cy%3D%2244.7%22%20r%3D%220.56%22%20fill%3D%22white%22%20opacity%3D%220.016%22/%3E%3Ccircle%20cx%3D%22153.0%22%20cy%3D%2271.6%22%20r%3D%220.96%22%20fill%3D%22white%22%20opacity%3D%220.02%22/%3E%3Ccircle%20cx%3D%22152.8%22%20cy%3D%2258.3%22%20r%3D%220.53%22%20fill%3D%22white%22%20opacity%3D%220.011%22/%3E%3Ccircle%20cx%3D%2231.5%22%20cy%3D%2232.7%22%20r%3D%220.77%22%20fill%3D%22white%22%20opacity%3D%220.019%22/%3E%3Ccircle%20cx%3D%22134.5%22%20cy%3D%2276.7%22%20r%3D%220.79%22%20fill%3D%22white%22%20opacity%3D%220.018%22/%3E%3Ccircle%20cx%3D%2213.6%22%20cy%3D%22105.7%22%20r%3D%220.95%22%20fill%3D%22white%22%20opacity%3D%220.017%22/%3E%3Ccircle%20cx%3D%22120.0%22%20cy%3D%2276.5%22%20r%3D%220.51%22%20fill%3D%22white%22%20opacity%3D%220.017%22/%3E%3Ccircle%20cx%3D%2253.2%22%20cy%3D%22128.1%22%20r%3D%220.98%22%20fill%3D%22white%22%20opacity%3D%220.013%22/%3E%3Ccircle%20cx%3D%2264.2%22%20cy%3D%22151.5%22%20r%3D%220.83%22%20fill%3D%22white%22%20opacity%3D%220.01%22/%3E%3Ccircle%20cx%3D%2220.3%22%20cy%3D%2224.2%22%20r%3D%220.94%22%20fill%3D%22white%22%20opacity%3D%220.018%22/%3E%3Ccircle%20cx%3D%2223.4%22%20cy%3D%22132.2%22%20r%3D%220.99%22%20fill%3D%22white%22%20opacity%3D%220.016%22/%3E%3Ccircle%20cx%3D%2256.1%22%20cy%3D%2287.8%22%20r%3D%220.48%22%20fill%3D%22white%22%20opacity%3D%220.008%22/%3E%3Ccircle%20cx%3D%22155.3%22%20cy%3D%22103.9%22%20r%3D%220.72%22%20fill%3D%22white%22%20opacity%3D%220.019%22/%3E%3Ccircle%20cx%3D%2269.4%22%20cy%3D%22139.5%22%20r%3D%220.9%22%20fill%3D%22white%22%20opacity%3D%220.011%22/%3E%3Ccircle%20cx%3D%2240.3%22%20cy%3D%2246.9%22%20r%3D%220.54%22%20fill%3D%22white%22%20opacity%3D%220.015%22/%3E%3Ccircle%20cx%3D%2241.5%22%20cy%3D%2267.0%22%20r%3D%220.48%22%20fill%3D%22white%22%20opacity%3D%220.019%22/%3E%3Ccircle%20cx%3D%2256.6%22%20cy%3D%2273.3%22%20r%3D%220.75%22%20fill%3D%22white%22%20opacity%3D%220.019%22/%3E%3Ccircle%20cx%3D%2267.3%22%20cy%3D%22146.8%22%20r%3D%220.7%22%20fill%3D%22white%22%20opacity%3D%220.014%22/%3E%3Ccircle%20cx%3D%2283.8%22%20cy%3D%223.0%22%20r%3D%220.66%22%20fill%3D%22white%22%20opacity%3D%220.01%22/%3E%3Ccircle%20cx%3D%220.6%22%20cy%3D%22127.9%22%20r%3D%220.5%22%20fill%3D%22white%22%20opacity%3D%220.014%22/%3E%3Ccircle%20cx%3D%22116.0%22%20cy%3D%2289.0%22%20r%3D%220.6%22%20fill%3D%22white%22%20opacity%3D%220.014%22/%3E%3Ccircle%20cx%3D%2288.9%22%20cy%3D%22125.5%22%20r%3D%220.46%22%20fill%3D%22white%22%20opacity%3D%220.015%22/%3E%3Ccircle%20cx%3D%2239.8%22%20cy%3D%2244.3%22%20r%3D%220.86%22%20fill%3D%22white%22%20opacity%3D%220.014%22/%3E%3Ccircle%20cx%3D%2289.9%22%20cy%3D%22121.6%22%20r%3D%220.95%22%20fill%3D%22white%22%20opacity%3D%220.013%22/%3E%3Ccircle%20cx%3D%2298.0%22%20cy%3D%2280.9%22%20r%3D%220.71%22%20fill%3D%22white%22%20opacity%3D%220.016%22/%3E%3Ccircle%20cx%3D%2272.4%22%20cy%3D%2285.3%22%20r%3D%220.69%22%20fill%3D%22white%22%20opacity%3D%220.019%22/%3E%3Ccircle%20cx%3D%22111.9%22%20cy%3D%22140.2%22%20r%3D%220.97%22%20fill%3D%22white%22%20opacity%3D%220.011%22/%3E%3Ccircle%20cx%3D%2289.5%22%20cy%3D%22150.9%22%20r%3D%220.9%22%20fill%3D%22white%22%20opacity%3D%220.01%22/%3E%3Ccircle%20cx%3D%2219.5%22%20cy%3D%2270.7%22%20r%3D%220.44%22%20fill%3D%22white%22%20opacity%3D%220.011%22/%3E%3Ccircle%20cx%3D%2211.7%22%20cy%3D%22107.1%22%20r%3D%220.87%22%20fill%3D%22white%22%20opacity%3D%220.019%22/%3E%3Ccircle%20cx%3D%2224.7%22%20cy%3D%22114.6%22%20r%3D%220.8%22%20fill%3D%22white%22%20opacity%3D%220.01%22/%3E%3Ccircle%20cx%3D%22141.3%22%20cy%3D%22154.8%22%20r%3D%220.53%22%20fill%3D%22white%22%20opacity%3D%220.019%22/%3E%3Ccircle%20cx%3D%2263.7%22%20cy%3D%2278.0%22%20r%3D%220.99%22%20fill%3D%22white%22%20opacity%3D%220.018%22/%3E%3Ccircle%20cx%3D%2225.8%22%20cy%3D%2269.0%22%20r%3D%220.71%22%20fill%3D%22white%22%20opacity%3D%220.012%22/%3E%3Ccircle%20cx%3D%2231.3%22%20cy%3D%2251.0%22%20r%3D%220.83%22%20fill%3D%22white%22%20opacity%3D%220.008%22/%3E%3Ccircle%20cx%3D%2288.6%22%20cy%3D%2270.5%22%20r%3D%220.41%22%20fill%3D%22white%22%20opacity%3D%220.012%22/%3E%3Ccircle%20cx%3D%2299.8%22%20cy%3D%2282.0%22%20r%3D%220.44%22%20fill%3D%22white%22%20opacity%3D%220.02%22/%3E%3Ccircle%20cx%3D%22126.1%22%20cy%3D%22155.5%22%20r%3D%220.46%22%20fill%3D%22white%22%20opacity%3D%220.011%22/%3E%3Ccircle%20cx%3D%226.3%22%20cy%3D%22124.6%22%20r%3D%220.56%22%20fill%3D%22white%22%20opacity%3D%220.01%22/%3E%3Ccircle%20cx%3D%2267.6%22%20cy%3D%22145.8%22%20r%3D%220.89%22%20fill%3D%22white%22%20opacity%3D%220.011%22/%3E%3Ccircle%20cx%3D%2223.9%22%20cy%3D%22147.1%22%20r%3D%220.74%22%20fill%3D%22white%22%20opacity%3D%220.016%22/%3E%3Ccircle%20cx%3D%2214.3%22%20cy%3D%229.2%22%20r%3D%220.81%22%20fill%3D%22white%22%20opacity%3D%220.013%22/%3E%3Ccircle%20cx%3D%2211.6%22%20cy%3D%22150.1%22%20r%3D%220.78%22%20fill%3D%22white%22%20opacity%3D%220.018%22/%3E%3Ccircle%20cx%3D%2213.4%22%20cy%3D%22137.0%22%20r%3D%220.44%22%20fill%3D%22white%22%20opacity%3D%220.018%22/%3E%3Ccircle%20cx%3D%2272.6%22%20cy%3D%2254.3%22%20r%3D%220.73%22%20fill%3D%22white%22%20opacity%3D%220.019%22/%3E%3C/svg%3E"),
-    radial-gradient(
-      ellipse 170% 130% at 50% 50%,
-      transparent var(--bg-vignette-inner-stop),
-      var(--bg-vignette-color) 100%
-    ),
-    linear-gradient(
-      var(--bg-tonal-angle),
-      var(--bg-tonal-highlight) 0%,
-      var(--bg-tonal-mid) 35%,
-      transparent 55%,
-      var(--bg-tonal-shadow) 100%
-    ),
-    radial-gradient(
-      ellipse var(--bg-illumination-size) at var(--bg-illumination-position),
-      var(--bg-illumination-color),
-      transparent 68%
-    );
-  background-size: var(--bg-grain-size) var(--bg-grain-size), auto, auto, auto;
+    linear-gradient(180deg, var(--bg-light-top) 0%, transparent 45%),
+    linear-gradient(115deg, var(--bg-light-diagonal) 0%, transparent 55%),
+    var(--bg-grain-url);
+  background-size: 100% 100%, 100% 100%, var(--bg-grain-size) var(--bg-grain-size);
 }
