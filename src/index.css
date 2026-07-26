@@ -51,7 +51,9 @@ html {
   --bg-base-color: #0a0a0a;
 
   --bg-light-top: rgba(255, 255, 255, 0.07);
-  --bg-light-diagonal: rgba(255, 255, 255, 0.02);
+  --bg-light-diagonal: rgba(255, 255, 255, 0.022);
+  --bg-shadow-diagonal: rgba(0, 0, 0, 0.05);
+  --bg-shadow-bottom: rgba(0, 0, 0, 0.06);
 
   --bg-grain-url: url("/grain.png");
   --bg-grain-size: 256px;
@@ -61,8 +63,8 @@ body {
   background-color: var(--bg-base-color);
   background-repeat: no-repeat, no-repeat, repeat;
   background-image:
-    linear-gradient(180deg, var(--bg-light-top) 0%, transparent 45%),
-    linear-gradient(115deg, var(--bg-light-diagonal) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-light-top) 0%, transparent 45%, var(--bg-shadow-bottom) 100%),
+    linear-gradient(115deg, var(--bg-light-diagonal) 0%, transparent 40%, var(--bg-shadow-diagonal) 100%),
     var(--bg-grain-url);
   background-size: 100% 100%, 100% 100%, var(--bg-grain-size) var(--bg-grain-size);
 }

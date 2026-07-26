@@ -22,10 +22,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 border-b transition-all duration-300 backdrop-blur-xl backdrop-saturate-150 ${
+      className={`fixed top-0 inset-x-0 z-50 border-b transition-colors duration-300 ${
         scrolled
-          ? "bg-white/[0.06] border-white/10 shadow-[0_1px_0_0_rgba(255,255,255,0.05)]"
-          : "bg-white/[0.02] border-white/5"
+          ? "bg-[#0d0d0d]/95 border-white/10 shadow-[0_1px_0_0_rgba(255,255,255,0.05)]"
+          : "bg-[#0a0a0a]/80 border-white/5"
       }`}
     >
       {/* subtle top highlight to sell the glass edge, like light catching the top of a pane */}
@@ -36,7 +36,7 @@ export function Navbar() {
       >
         <a href="#top" className="flex items-center gap-2 font-semibold text-white">
           <span
-            className="flex h-6 w-6 items-center justify-center rounded-md border border-white/20 bg-white/5 text-xs backdrop-blur-sm"
+            className="flex h-6 w-6 items-center justify-center rounded-md border border-white/20 bg-white/5 text-xs"
             aria-hidden="true"
           >
             T
