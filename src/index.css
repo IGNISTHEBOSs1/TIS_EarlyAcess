@@ -50,7 +50,7 @@ html {
 :root {
   --bg-base-color: #0a0a0a;
 
-  --bg-light-top: rgba(255, 255, 255, 0.045);
+  --bg-light-top: rgba(255, 255, 255, 0.07);
   --bg-light-diagonal: rgba(255, 255, 255, 0.02);
 
   --bg-grain-url: url("/grain.png");
