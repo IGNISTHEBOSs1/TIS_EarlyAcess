@@ -26,7 +26,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white antialiased">
+    <div className="min-h-screen text-white antialiased">
       <Navbar />
       <main>
         <Hero />

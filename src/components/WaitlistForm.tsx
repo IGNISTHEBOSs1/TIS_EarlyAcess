@@ -3,6 +3,7 @@ import type { FormEvent } from "react";
 import { Eyebrow } from "./Eyebrow";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
+import { SmoothInput } from "./SmoothInput";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -66,7 +67,7 @@ export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
           <label htmlFor={emailId} className="sr-only">
             Email address
           </label>
-          <input
+          <SmoothInput
             id={emailId}
             type="email"
             required
@@ -76,7 +77,8 @@ export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
             onChange={(e) => setEmail(e.target.value)}
             aria-invalid={!!error}
             aria-describedby={error ? `${emailId}-error` : undefined}
-            className="w-full border-b border-white/20 bg-transparent pb-3 text-lg text-white placeholder:text-white/30 focus:outline-none focus:border-white/60 transition-colors"
+            wrapperClassName="border-b border-white/20 pb-3 focus-within:border-white/60 transition-colors"
+            className="text-lg text-white placeholder:text-white/30"
           />
           {error && (
             <p id={`${emailId}-error`} className="mt-2 text-sm text-red-400" role="alert">
