@@ -19,30 +19,85 @@ html {
   color-scheme: dark;
 }
 
+/* ==========================================================================
+   Application background system
+   --------------------------------------------------------------------------
+   This is the permanent visual surface the whole app lives on — not a
+   hero decoration. Five layers, bottom to top:
+
+     1. Deep charcoal base color
+     2. Large, very soft central illumination (no visible "spotlight")
+     3. Fine monochrome film grain (SVG turbulence, seamless — no tiling)
+     4. Barely-there directional graphite sweep (material depth, not a
+        visible pattern — not brushed metal, not concrete)
+     5. Gentle edge vignette (focuses attention, doesn't frame the page)
+
+   Layers 1, 2, 4 and 5 are plain CSS gradients stacked on `body`'s own
+   background — gradients painted this way are inherently behind all
+   content with zero extra paint cost or DOM nodes. Layer 3 (grain) is a
+   fixed pseudo-element with mix-blend-mode, since blending noise against
+   *everything above it* (including glass components) is what makes grain
+   read as a property of the surface material rather than a flat overlay.
+
+   All tunable via custom properties below — a future theme can restyle
+   this whole system without touching the gradient/blend logic.
+   ========================================================================== */
+:root {
+  /* Layer 1 — base */
+  --bg-base-color: #090909;
+
+  /* Layer 2 — illumination */
+  --bg-illumination-color: rgba(255, 255, 255, 0.028);
+  --bg-illumination-size: 1400px 1000px;
+  --bg-illumination-position: 50% 38%;
+
+  /* Layer 3 — grain */
+  --bg-grain-opacity: 0.035;
+
+  /* Layer 4 — directional graphite variation */
+  --bg-graphite-angle: 115deg;
+  --bg-graphite-highlight: rgba(255, 255, 255, 0.012);
+  --bg-graphite-shadow: rgba(0, 0, 0, 0.018);
+
+  /* Layer 5 — vignette */
+  --bg-vignette-color: rgba(0, 0, 0, 0.4);
+  --bg-vignette-inner-stop: 60%;
+}
+
 body {
   position: relative;
-  background-color: #060606;
-  /*
-    Soft, off-center radial glows instead of flat black. Kept very
-    low-contrast (dark charcoal/navy, not visible "spotlights") so it
-    reads as depth and texture rather than a design element you notice
-    directly. Fixed attachment so it doesn't repeat/tile as the page
-    scrolls — one continuous backdrop behind all sections.
-  */
-  background-image:
-    radial-gradient(ellipse 900px 600px at 15% 0%, rgba(99, 102, 241, 0.10), transparent 60%),
-    radial-gradient(ellipse 800px 700px at 85% 15%, rgba(255, 255, 255, 0.05), transparent 55%),
-    radial-gradient(ellipse 1000px 800px at 50% 100%, rgba(56, 60, 90, 0.12), transparent 60%);
+  background-color: var(--bg-base-color);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  /* Painted first-listed-on-top: vignette, then graphite sweep, then
+     illumination, then the base color underneath everything. */
+  background-image:
+    radial-gradient(
+      ellipse 160% 120% at 50% 50%,
+      transparent var(--bg-vignette-inner-stop),
+      var(--bg-vignette-color) 100%
+    ),
+    linear-gradient(
+      var(--bg-graphite-angle),
+      var(--bg-graphite-highlight) 0%,
+      transparent 30%,
+      transparent 55%,
+      var(--bg-graphite-shadow) 100%
+    ),
+    radial-gradient(
+      ellipse var(--bg-illumination-size) at var(--bg-illumination-position),
+      var(--bg-illumination-color),
+      transparent 65%
+    );
 }
 
 /*
-  Grain texture: SVG feTurbulence noise as a fixed, full-viewport overlay.
-  mix-blend-mode: overlay lets it read as film grain rather than a flat
-  gray wash, and reacts to the radial glows above instead of sitting on
-  dead-flat black. Kept as a pseudo-element on body (not a DOM node) so
-  it never intercepts clicks and never re-renders with React.
+  Grain: SVG feTurbulence noise, stitched so it tiles with no visible
+  seam at any viewport size — scales infinitely without a repeating
+  pattern becoming apparent. Fixed + mix-blend-mode: overlay so it reads
+  as texture in the material itself (affecting glass cards too) rather
+  than a flat layer sitting on top of the page. Pseudo-element, not a
+  DOM node — no re-render cost, never intercepts pointer events.
 */
 body::before {
   content: "";
@@ -50,8 +105,8 @@ body::before {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.07;
+  opacity: var(--bg-grain-opacity);
   mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   background-repeat: repeat;
 }
