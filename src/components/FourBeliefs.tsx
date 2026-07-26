@@ -1,5 +1,6 @@
 import { Eyebrow } from "./Eyebrow";
 import { Reveal } from "./Reveal";
+import { GlassNumber } from "./GlassNumber";
 
 interface Belief {
   number: string;
@@ -49,13 +50,7 @@ export function FourBeliefs() {
       <div className="mt-20 grid gap-x-12 gap-y-16 sm:grid-cols-2">
         {BELIEFS.map((b, i) => (
           <Reveal key={b.number} delayMs={i * 60}>
-            <span
-              aria-hidden="true"
-              className="font-display block text-6xl font-bold leading-none tracking-tight sm:text-7xl bg-gradient-to-br from-white/90 via-white/50 to-white/10 bg-clip-text text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.18)] drop-shadow-[0_1px_1px_rgba(255,255,255,0.1)]"
-              style={{ filter: "blur(0.2px)" }}
-            >
-              {b.number}
-            </span>
+            <GlassNumber value={b.number} size={80} className="block" />
             <h3 className="font-display mt-2 text-xl font-semibold tracking-tight text-white">
               {b.title}
             </h3>

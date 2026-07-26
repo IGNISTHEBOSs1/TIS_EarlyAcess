@@ -48,27 +48,38 @@ export function BuildingInPublic() {
         </p>
       </Reveal>
 
-      <ol className="mt-16 border-l border-white/10 pl-8">
-        {ENTRIES.map((entry, i) => (
-          <Reveal
-            key={entry.when}
-            delayMs={i * 80}
-            as="li"
-            className={`relative ${i !== ENTRIES.length - 1 ? "pb-12" : ""}`}
-          >
-            <span
-              aria-hidden="true"
-              className="absolute -left-[calc(2rem+4.5px)] top-1.5 h-2 w-2 rounded-full bg-white/70"
-            />
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="font-mono text-xs text-white/40">{entry.when}</span>
-              <span className="rounded-full border border-white/15 px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wide text-white/50">
-                {entry.tag}
-              </span>
-            </div>
-            <p className="mt-3 max-w-xl text-white/70">{entry.body}</p>
-          </Reveal>
-        ))}
+      <ol className="mt-16 pl-8">
+        {ENTRIES.map((entry, i) => {
+          const isLast = i === ENTRIES.length - 1;
+          return (
+            <Reveal
+              key={entry.when}
+              delayMs={i * 80}
+              as="li"
+              className={`relative ${!isLast ? "pb-12" : ""}`}
+            >
+              {/* dot */}
+              <span
+                aria-hidden="true"
+                className="absolute -left-8 top-1.5 h-2 w-2 rounded-full bg-white/70"
+              />
+              {/* connector: only between this dot and the next one, never past the last item */}
+              {!isLast && (
+                <span
+                  aria-hidden="true"
+                  className="absolute -left-8 top-3.5 bottom-0 ml-[3px] w-px bg-white/10"
+                />
+              )}
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="font-mono text-xs text-white/40">{entry.when}</span>
+                <span className="rounded-full border border-white/15 px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wide text-white/50">
+                  {entry.tag}
+                </span>
+              </div>
+              <p className="mt-3 max-w-xl text-white/70">{entry.body}</p>
+            </Reveal>
+          );
+        })}
       </ol>
     </section>
   );
