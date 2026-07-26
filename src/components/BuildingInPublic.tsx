@@ -28,7 +28,7 @@ const ENTRIES: TimelineEntry[] = [
 export function BuildingInPublic() {
   return (
     <section
-      className="mx-auto max-w-3xl px-6 py-32 sm:py-40"
+      className="mx-auto max-w-3xl px-6 pt-32 pb-16 sm:pt-40 sm:pb-20"
       aria-labelledby="building-in-public-heading"
     >
       <Reveal>
