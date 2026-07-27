@@ -51,8 +51,6 @@ export function GlassNumber({ value, size = 88, className = "" }: GlassNumberPro
           style={{
             width: "100%",
             height: "100%",
-            backdropFilter: "blur(6px) saturate(140%)",
-            WebkitBackdropFilter: "blur(6px) saturate(140%)",
             background:
               "linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.04))",
           }}
