@@ -35,9 +35,9 @@ export default function LandingPage() {
         <FourBeliefs />
         <MomentsShowcase />
         <BuildingInPublic />
+        <WaitlistForm onSubmit={handleWaitlistSubmit} />
         <FAQ />
         <ClosingStatement />
-        <WaitlistForm onSubmit={handleWaitlistSubmit} />
       </main>
       <Footer />
     </div>

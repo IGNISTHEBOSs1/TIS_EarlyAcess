@@ -1,6 +1,7 @@
 import { Eyebrow } from "./Eyebrow";
 import { Button } from "./Button";
 import { Reveal } from "./Reveal";
+import { DashboardMockup } from "./DashboardMockup";
 
 export function Hero() {
   return (
@@ -16,7 +17,7 @@ export function Hero() {
       <Reveal delayMs={80}>
         <h1
           id="hero-heading"
-          className="font-display mt-6 max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl"
+          className="heading-fringe font-display mt-6 max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl"
         >
           A quieter way to become who you're trying to be.
         </h1>
@@ -39,6 +40,10 @@ export function Hero() {
             One email. No spam. Leave whenever.
           </span>
         </div>
+      </Reveal>
+
+      <Reveal delayMs={320} className="mt-16">
+        <DashboardMockup />
       </Reveal>
     </section>
   );

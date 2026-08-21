@@ -68,3 +68,17 @@ body {
     var(--bg-grain-url);
   background-size: 100% 100%, 100% 100%, var(--bg-grain-size) var(--bg-grain-size);
 }
+
+/*
+  Subtle chromatic-aberration/fringe effect for major headings — confirmed
+  present consistently across every large heading in the reference
+  screenshots (not compression artifact: same red/cyan offset pattern
+  repeats independently on multiple unrelated headings). Implemented as
+  dual text-shadow offsets, kept to 1px so it reads as a print/glitch
+  texture rather than a legibility problem.
+*/
+.heading-fringe {
+  text-shadow:
+    -1px 0 rgba(255, 80, 80, 0.35),
+    1px 0 rgba(80, 180, 255, 0.35);
+}

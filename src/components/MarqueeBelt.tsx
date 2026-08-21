@@ -1,4 +1,4 @@
-const WORDS = ["Follow-through", "Identity", "Direction", "Momentum"];
+const WORDS = ["Progress", "Follow-through", "Identity", "Direction", "Momentum"];
 
 /**
  * Continuous horizontal marquee. Duplicating the word list once and

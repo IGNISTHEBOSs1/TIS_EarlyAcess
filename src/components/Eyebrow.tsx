@@ -12,7 +12,7 @@ interface EyebrowProps {
 export function Eyebrow({ children, className = "" }: EyebrowProps) {
   return (
     <p
-      className={`font-mono text-[11px] tracking-[0.2em] text-white/40 uppercase border-b border-white/15 pb-2 inline-block ${className}`}
+      className={`font-mono text-[11px] tracking-[0.2em] text-indigo-300/60 uppercase border-t border-white/15 pt-2 inline-block ${className}`}
     >
       {children}
     </p>
