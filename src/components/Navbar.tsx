@@ -22,21 +22,21 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 border-b transition-colors duration-300 ${
-        scrolled
-          ? "bg-[#0d0d0d]/95 border-white/10 shadow-[0_1px_0_0_rgba(255,255,255,0.05)]"
-          : "bg-[#0a0a0a]/80 border-white/5"
+      className={`fixed top-0 inset-x-0 z-[var(--z-sticky)] border-b border-[var(--color-border-default)] bg-[var(--color-bg-page)] transition-shadow duration-[var(--duration-base)] ${
+        scrolled ? "shadow-[var(--shadow-sm)]" : ""
       }`}
     >
-      {/* subtle top highlight to sell the glass edge, like light catching the top of a pane */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4"
+        className="mx-auto flex max-w-7xl items-center justify-between px-6"
+        style={{ paddingBlock: "var(--space-4)" }}
         aria-label="Primary"
       >
-        <a href="#top" className="flex items-center gap-2 font-semibold text-white">
+        <a
+          href="#top"
+          className="flex items-center gap-2 font-[var(--font-weight-semibold)] text-[var(--color-text-primary)]"
+        >
           <span
-            className="flex h-6 w-6 items-center justify-center rounded-md border border-white/20 bg-white/5 text-xs"
+            className="flex h-6 w-6 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-xs"
             aria-hidden="true"
           >
             T
@@ -46,12 +46,12 @@ export function Navbar() {
 
         <div className="flex items-center gap-4">
           <span className="hidden items-center gap-1.5 sm:flex">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/80" />
-            <span className="font-mono text-xs text-white/50">Pre-launch</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-success-600)]" />
+            <span className="font-[var(--font-mono)] text-[var(--font-size-xs)] text-[var(--color-text-secondary)]">
+              Pre-launch
+            </span>
           </span>
-          <Button variant="primary" className="text-black">
-            Request access
-          </Button>
+          <Button variant="primary">Request access</Button>
         </div>
       </nav>
     </header>

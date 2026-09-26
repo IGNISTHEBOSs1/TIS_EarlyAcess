@@ -1,8 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap");
+@import "./theme.css";
 @import "tailwindcss";
 
+/* ==========================================================================
+   This app now uses the UX4G design system (theme.css) as its single
+   source of truth for color, type, spacing, radius, elevation, motion,
+   and focus tokens — imported unmodified, not edited or merged with
+   anything from this project's prior dark/glass visual direction.
+
+   Everything below this line is intentionally minimal: only what's
+   needed to wire Tailwind's utility classes to theme.css's tokens via
+   arbitrary-value syntax (e.g. bg-[var(--color-bg-surface)]), plus the
+   marquee keyframe, which is decorative motion, not a design token, and
+   already respects prefers-reduced-motion via theme.css's global media
+   query above.
+   ========================================================================== */
 @theme {
-  --font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
   --animate-marquee: marquee 28s linear infinite;
 
   @keyframes marquee {
@@ -13,72 +25,4 @@
       transform: translateX(-50%);
     }
   }
-}
-
-html {
-  color-scheme: dark;
-}
-
-/* ==========================================================================
-   Application background system — rebuilt from scratch, not patched.
-   --------------------------------------------------------------------------
-   Everything here is a single background-image stack on `body`, nothing
-   else:
-
-     - Solid charcoal base color
-     - Two linear gradients for soft lighting variation (no radial
-       gradients anywhere — a radial reads as a visible circle no matter
-       how soft; linear gradients fake directional light without ever
-       having an edge to notice)
-     - One tiled 256x256 PNG for grain (public/grain.png — a real static
-       asset, not an embedded SVG data URI; its subtlety is baked into
-       the PNG's own per-pixel alpha, generated once, so no CSS opacity
-       trick is needed on top of it)
-
-   Explicitly absent, on purpose: background-attachment: fixed,
-   mix-blend-mode, any filter, any SVG data URI, and any pseudo-element.
-   All of those were previously implicated in scroll-repaint cost. A
-   plain background-image stack on body with default (scrolling)
-   attachment is the cheapest possible thing the browser can paint here
-   — it's composited once and scrolls with the page like any other
-   background, no recomposite-per-frame, no extra stacking context, no
-   extra paint layer.
-
-   Custom properties below so retuning is a variable change, not a
-   rewrite.
-   ========================================================================== */
-:root {
-  --bg-base-color: #0a0a0a;
-
-  --bg-light-top: rgba(255, 255, 255, 0.07);
-  --bg-light-diagonal: rgba(255, 255, 255, 0.022);
-  --bg-shadow-diagonal: rgba(0, 0, 0, 0.05);
-  --bg-shadow-bottom: rgba(0, 0, 0, 0.06);
-
-  --bg-grain-url: url("/grain.png");
-  --bg-grain-size: 256px;
-}
-
-body {
-  background-color: var(--bg-base-color);
-  background-repeat: no-repeat, no-repeat, repeat;
-  background-image:
-    linear-gradient(180deg, var(--bg-light-top) 0%, transparent 45%, var(--bg-shadow-bottom) 100%),
-    linear-gradient(115deg, var(--bg-light-diagonal) 0%, transparent 40%, var(--bg-shadow-diagonal) 100%),
-    var(--bg-grain-url);
-  background-size: 100% 100%, 100% 100%, var(--bg-grain-size) var(--bg-grain-size);
-}
-
-/*
-  Subtle chromatic-aberration/fringe effect for major headings — confirmed
-  present consistently across every large heading in the reference
-  screenshots (not compression artifact: same red/cyan offset pattern
-  repeats independently on multiple unrelated headings). Implemented as
-  dual text-shadow offsets, kept to 1px so it reads as a print/glitch
-  texture rather than a legibility problem.
-*/
-.heading-fringe {
-  text-shadow:
-    -1px 0 rgba(255, 80, 80, 0.35),
-    1px 0 rgba(80, 180, 255, 0.35);
 }

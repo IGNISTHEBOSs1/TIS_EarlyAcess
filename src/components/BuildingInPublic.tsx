@@ -28,7 +28,7 @@ const ENTRIES: TimelineEntry[] = [
 export function BuildingInPublic() {
   return (
     <section
-      className="mx-auto max-w-3xl px-6 pt-32 pb-16 sm:pt-40 sm:pb-20"
+      className="mx-auto max-w-3xl px-6 pt-16 pb-12 sm:pt-16 sm:pb-10"
       aria-labelledby="building-in-public-heading"
     >
       <Reveal>
@@ -38,11 +38,11 @@ export function BuildingInPublic() {
       <Reveal delayMs={80}>
         <h2
           id="building-in-public-heading"
-          className="heading-fringe font-display mt-6 max-w-xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl"
+          className="mt-6 max-w-xl text-4xl font-bold leading-tight tracking-tight text-[var(--color-text-primary)] sm:text-5xl"
         >
-          No users yet. No fake reviews. <span className="text-white/40">Just honest progress.</span>
+          No users yet. No fake reviews. <span className="text-[var(--color-neutral-500)]">Just honest progress.</span>
         </h2>
-        <p className="mt-4 max-w-md text-white/60">
+        <p className="mt-4 max-w-md text-[var(--color-text-secondary)]">
           We'd rather show you where we actually are than borrow credibility
           we haven't earned. Here's the work, in the open.
         </p>
@@ -61,22 +61,22 @@ export function BuildingInPublic() {
               {/* dot */}
               <span
                 aria-hidden="true"
-                className="absolute -left-8 top-1.5 h-2 w-2 rounded-full bg-white/70"
+                className="absolute -left-8 top-1.5 h-2 w-2 rounded-full bg-[var(--color-primary-600)]"
               />
               {/* connector: only between this dot and the next one, never past the last item */}
               {!isLast && (
                 <span
                   aria-hidden="true"
-                  className="absolute -left-8 top-3.5 bottom-0 ml-[3px] w-px bg-white/10"
+                  className="absolute -left-8 top-3.5 bottom-0 ml-[3px] w-px bg-[var(--color-bg-surface)]"
                 />
               )}
               <div className="flex flex-wrap items-center gap-3">
-                <span className="font-mono text-xs text-white/40">{entry.when}</span>
-                <span className="rounded-full border border-white/15 px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wide text-white/50">
+                <span className="font-[var(--font-mono)] text-xs text-[var(--color-neutral-500)]">{entry.when}</span>
+                <span className="rounded-full border border-[var(--color-border-default)] px-2.5 py-0.5 font-[var(--font-mono)] text-[11px] uppercase tracking-wide text-[var(--color-text-secondary)]">
                   {entry.tag}
                 </span>
               </div>
-              <p className="mt-3 max-w-xl text-white/70">{entry.body}</p>
+              <p className="mt-3 max-w-xl text-[var(--color-text-secondary)]">{entry.body}</p>
             </Reveal>
           );
         })}

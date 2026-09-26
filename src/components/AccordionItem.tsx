@@ -12,7 +12,7 @@ export function AccordionItem({ question, answer, isOpen, onToggle }: AccordionI
   const buttonId = useId();
 
   return (
-    <div className="border-b border-white/10">
+    <div className="border-b border-[var(--color-border-default)]">
       <h3>
         <button
           id={buttonId}
@@ -20,7 +20,7 @@ export function AccordionItem({ question, answer, isOpen, onToggle }: AccordionI
           aria-expanded={isOpen}
           aria-controls={panelId}
           onClick={onToggle}
-          className="flex w-full items-center justify-between gap-4 py-6 text-left text-lg font-medium text-white/90 hover:text-white transition-colors"
+          className="flex w-full items-center justify-between gap-4 py-6 text-left text-lg font-medium text-[var(--color-text-primary)] hover:text-[var(--color-text-primary)] transition-colors"
         >
           {question}
           <svg
@@ -50,7 +50,7 @@ export function AccordionItem({ question, answer, isOpen, onToggle }: AccordionI
         }`}
       >
         <div className="min-h-0 overflow-hidden">
-          <p className="text-white/60">{answer}</p>
+          <p className="text-[var(--color-text-secondary)]">{answer}</p>
         </div>
       </div>
     </div>

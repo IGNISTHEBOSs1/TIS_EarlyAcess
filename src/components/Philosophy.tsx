@@ -9,7 +9,7 @@ const PARAGRAPHS = [
 
 export function Philosophy() {
   return (
-    <section className="mx-auto max-w-3xl px-6 pt-32 sm:pt-40" aria-labelledby="philosophy-heading">
+    <section className="mx-auto max-w-3xl px-6 pt-16 sm:pt-16" aria-labelledby="philosophy-heading">
       <Reveal>
         <Eyebrow>Why nothing sticks</Eyebrow>
       </Reveal>
@@ -17,17 +17,17 @@ export function Philosophy() {
       <Reveal delayMs={80}>
         <h2
           id="philosophy-heading"
-          className="heading-fringe font-display mt-6 max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl"
+          className="mt-6 max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl"
         >
-          <span className="text-white">You don't have a discipline problem. You</span>{" "}
-          <span className="text-white/40">have a system problem.</span>
+          <span className="text-[var(--color-text-primary)]">You don't have a discipline problem. You</span>{" "}
+          <span className="text-[var(--color-neutral-500)]">have a system problem.</span>
         </h2>
       </Reveal>
 
       <div className="mt-8 space-y-6">
         {PARAGRAPHS.map((p, i) => (
           <Reveal key={i} delayMs={120 + i * 90} as="p">
-            <p className="max-w-xl text-white/60">{p}</p>
+            <p className="max-w-xl text-[var(--color-text-secondary)]">{p}</p>
           </Reveal>
         ))}
       </div>

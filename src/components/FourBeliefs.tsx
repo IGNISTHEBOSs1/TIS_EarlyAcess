@@ -1,6 +1,5 @@
 import { Eyebrow } from "./Eyebrow";
 import { Reveal } from "./Reveal";
-import { GlassNumber } from "./GlassNumber";
 
 interface Belief {
   number: string;
@@ -33,7 +32,7 @@ const BELIEFS: Belief[] = [
 
 export function FourBeliefs() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-32 sm:py-40" aria-labelledby="beliefs-heading">
+    <section className="mx-auto max-w-6xl px-6 py-16 sm:py-24" aria-labelledby="beliefs-heading">
       <Reveal>
         <Eyebrow>The philosophy</Eyebrow>
       </Reveal>
@@ -41,20 +40,25 @@ export function FourBeliefs() {
       <Reveal delayMs={80}>
         <h2
           id="beliefs-heading"
-          className="heading-fringe font-display mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl"
+          className="mt-6 text-[var(--font-size-3xl)] font-[var(--font-weight-bold)] text-[var(--color-text-primary)]"
         >
           Built on four beliefs.
         </h2>
       </Reveal>
 
-      <div className="mt-20 grid gap-x-12 gap-y-16 sm:grid-cols-2">
+      <div className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2">
         {BELIEFS.map((b, i) => (
           <Reveal key={b.number} delayMs={i * 60}>
-            <GlassNumber value={b.number} size={80} className="block" />
-            <h3 className="font-display mt-2 text-xl font-semibold tracking-tight text-white">
+            <span
+              aria-hidden="true"
+              className="block font-[var(--font-weight-bold)] text-[var(--font-size-2xl)] text-[var(--color-primary-500)]"
+            >
+              {b.number}
+            </span>
+            <h3 className="mt-2 text-[var(--font-size-lg)] font-[var(--font-weight-semibold)] text-[var(--color-text-primary)]">
               {b.title}
             </h3>
-            <p className="mt-3 max-w-md text-white/60">{b.body}</p>
+            <p className="mt-3 max-w-md text-[var(--color-text-secondary)]">{b.body}</p>
           </Reveal>
         ))}
       </div>

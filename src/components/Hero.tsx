@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative mx-auto max-w-7xl px-6 pt-40 pb-32 sm:pt-52 sm:pb-40"
+      className="relative mx-auto max-w-7xl px-6 pt-16 pb-12 sm:pt-24 sm:pb-12"
       aria-labelledby="hero-heading"
     >
       <Reveal>
@@ -17,14 +17,14 @@ export function Hero() {
       <Reveal delayMs={80}>
         <h1
           id="hero-heading"
-          className="heading-fringe font-display mt-6 max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl"
+          className="mt-6 max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight text-[var(--color-text-primary)] sm:text-6xl md:text-7xl"
         >
           A quieter way to become who you're trying to be.
         </h1>
       </Reveal>
 
       <Reveal delayMs={160}>
-        <p className="mt-6 max-w-xl text-lg text-white/60">
+        <p className="mt-6 max-w-xl text-lg text-[var(--color-text-secondary)]">
           Not another tracker to manage. A personal system that holds your
           direction, notices your progress, and gives it back to you as
           something you can feel.
@@ -33,10 +33,10 @@ export function Hero() {
 
       <Reveal delayMs={240}>
         <div className="mt-8 flex flex-wrap items-center gap-4">
-          <Button variant="primary" icon className="group text-black">
+          <Button variant="primary" icon className="group">
             Request early access
           </Button>
-          <span className="font-mono text-xs text-white/40">
+          <span className="font-[var(--font-mono)] text-xs text-[var(--color-neutral-500)]">
             One email. No spam. Leave whenever.
           </span>
         </div>

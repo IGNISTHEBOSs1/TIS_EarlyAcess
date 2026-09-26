@@ -35,13 +35,13 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="mx-auto max-w-3xl px-6 py-32 sm:py-40" aria-labelledby="faq-heading">
+    <section className="mx-auto max-w-3xl px-6 py-16 sm:py-16" aria-labelledby="faq-heading">
       <Reveal>
         <Eyebrow>Before you ask</Eyebrow>
       </Reveal>
 
       <Reveal delayMs={80}>
-        <h2 id="faq-heading" className="heading-fringe font-display mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+        <h2 id="faq-heading" className="mt-6 text-4xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-5xl">
           Got questions? We got answers.
         </h2>
       </Reveal>

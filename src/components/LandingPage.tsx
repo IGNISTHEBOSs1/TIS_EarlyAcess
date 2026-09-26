@@ -26,9 +26,12 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen text-white antialiased">
+    <div className="min-h-screen text-[var(--color-text-primary)] antialiased">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <MarqueeBelt />
         <Philosophy />

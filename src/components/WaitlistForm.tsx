@@ -39,24 +39,24 @@ export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
 
   if (status === "success") {
     return (
-      <section className="mx-auto max-w-3xl px-6 py-32 sm:py-40" aria-live="polite">
-        <p className="font-display text-2xl font-semibold tracking-tight text-white">You're on the list.</p>
-        <p className="mt-2 text-white/60">We'll be in touch before public launch.</p>
+      <section className="mx-auto max-w-3xl px-6 py-16 sm:py-16" aria-live="polite">
+        <p className="text-2xl font-semibold tracking-tight text-[var(--color-text-primary)]">You're on the list.</p>
+        <p className="mt-2 text-[var(--color-text-secondary)]">We'll be in touch before public launch.</p>
       </section>
     );
   }
 
   return (
-    <section className="mx-auto max-w-3xl px-6 py-32 sm:py-40" aria-labelledby="waitlist-heading">
+    <section className="mx-auto max-w-3xl px-6 py-16 sm:py-16" aria-labelledby="waitlist-heading">
       <Reveal>
         <Eyebrow>The waitlist</Eyebrow>
       </Reveal>
 
       <Reveal delayMs={80}>
-        <h2 id="waitlist-heading" className="heading-fringe font-display mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+        <h2 id="waitlist-heading" className="mt-6 text-4xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-5xl">
           Be early. Shape it.
         </h2>
-        <p className="mt-4 max-w-md text-white/60">
+        <p className="mt-4 max-w-md text-[var(--color-text-secondary)]">
           One field to join. The rest is optional — but it genuinely helps us
           build the right thing first.
         </p>
@@ -77,11 +77,11 @@ export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
             onChange={(e) => setEmail(e.target.value)}
             aria-invalid={!!error}
             aria-describedby={error ? `${emailId}-error` : undefined}
-            wrapperClassName="border-b border-white/20 pb-3 focus-within:border-white/60 transition-colors"
-            className="text-lg text-white placeholder:text-white/30"
+            wrapperClassName="border-b border-[var(--color-border-default)] pb-3 focus-within:border-[var(--color-border-focus)] transition-colors"
+            className="text-lg text-[var(--color-text-primary)] placeholder:text-[var(--color-neutral-500)]"
           />
           {error && (
-            <p id={`${emailId}-error`} className="mt-2 text-sm text-red-400" role="alert">
+            <p id={`${emailId}-error`} className="mt-2 text-sm text-[var(--color-error-600)]" role="alert">
               {error}
             </p>
           )}
@@ -92,7 +92,7 @@ export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
               onClick={() => setShowOptional((v) => !v)}
               aria-expanded={showOptional}
               aria-controls={contextId}
-              className="flex items-center gap-1.5 font-mono text-xs text-white/50 hover:text-white/80 transition-colors"
+              className="flex items-center gap-1.5 font-[var(--font-mono)] text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
             >
               <svg
                 width="12"
@@ -107,7 +107,7 @@ export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
               Help us build the right thing (optional)
             </button>
 
-            <Button type="submit" variant="primary" icon disabled={status === "submitting"} className="group text-black">
+            <Button type="submit" variant="primary" icon disabled={status === "submitting"} className="group">
               {status === "submitting" ? "Joining…" : "Join the waitlist"}
             </Button>
           </div>
@@ -128,7 +128,7 @@ export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
                 onChange={(e) => setContext(e.target.value)}
                 rows={3}
                 placeholder="What are you hoping this helps you with?"
-                className="w-full resize-none rounded-lg border border-white/15 bg-white/[0.03] p-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-white/40"
+                className="w-full resize-none rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] p-3 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-neutral-500)] focus:outline-none focus:border-[var(--color-border-focus)]"
               />
             </div>
           </div>

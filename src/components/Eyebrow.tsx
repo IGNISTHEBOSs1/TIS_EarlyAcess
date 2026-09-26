@@ -4,15 +4,15 @@ interface EyebrowProps {
 }
 
 /**
- * The small tracked-out monospace labels above section headings
- * ("PRE-LAUNCH · BUILDING IN PUBLIC", "THE PHILOSOPHY", "A LOOK INSIDE",
- * "BEFORE YOU ASK", "THE WAITLIST"). Extracted since the same visual
- * pattern repeats before nearly every section.
+ * Small tracked-out label above section headings. Restyled to theme.css
+ * tokens: neutral secondary text, standard border color, the system's
+ * defined wide letter-spacing token rather than an arbitrary value.
  */
 export function Eyebrow({ children, className = "" }: EyebrowProps) {
   return (
     <p
-      className={`font-mono text-[11px] tracking-[0.2em] text-indigo-300/60 uppercase border-t border-white/15 pt-2 inline-block ${className}`}
+      className={`font-[var(--font-mono)] text-[var(--font-size-xs)] uppercase text-[var(--color-text-secondary)] border-t border-[var(--color-border-default)] pt-[var(--space-2)] inline-block ${className}`}
+      style={{ letterSpacing: "var(--letter-spacing-wide)" }}
     >
       {children}
     </p>

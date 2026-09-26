@@ -264,7 +264,7 @@ export const SmoothInput = ({
           className="pointer-events-none invisible absolute top-0 left-0 whitespace-pre"
         />
         <motion.div
-          className="bg-white pointer-events-none col-start-1 col-end-2 row-start-1 row-end-2 h-[1em] w-0.5 self-center"
+          className="bg-[var(--color-primary-600)] pointer-events-none col-start-1 col-end-2 row-start-1 row-end-2 h-[1em] w-0.5 self-center"
           style={{ x: springCaretX, opacity: caretOpacity }}
         />
       </div>

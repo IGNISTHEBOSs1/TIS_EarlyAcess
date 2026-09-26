@@ -1,0 +1,202 @@
+/* ============================================================
+   UX4G Design System — Core Design Tokens
+   Based on UX4G Handbook (User Experience for Government
+   Applications), MeitY, Government of India.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ── 1. Typography ─────────────────────────────────────── */
+  /* Noto Sans chosen per UX4G for broad script coverage across
+     Indian languages (Devanagari, Bengali, Tamil, etc. subsets
+     load per-page as needed — do not bundle all scripts globally). */
+  --font-primary: 'Noto Sans', 'Noto Sans Devanagari', system-ui, sans-serif;
+  --font-mono: 'Noto Sans Mono', ui-monospace, monospace;
+
+  /* Type scale — mobile-first base, AA-compliant minimum body size (16px) */
+  --font-size-xs: 0.75rem;    /* 12px — captions, legal fine print ONLY */
+  --font-size-sm: 0.875rem;   /* 14px — secondary text, helper text */
+  --font-size-base: 1rem;     /* 16px — body text minimum per accessibility guidance */
+  --font-size-md: 1.125rem;   /* 18px */
+  --font-size-lg: 1.25rem;    /* 20px — section headings, mobile */
+  --font-size-xl: 1.5rem;     /* 24px */
+  --font-size-2xl: 1.875rem;  /* 30px */
+  --font-size-3xl: 2.25rem;   /* 36px — page titles, desktop */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.25;
+  --line-height-base: 1.5;    /* WCAG 1.4.8 recommends >=1.5 for body text */
+  --line-height-relaxed: 1.7;
+
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.02em; /* labels, all-caps micro-text */
+
+  /* ── 2. Color — AA contrast-checked pairs ─────────────────
+     Every *-on-* pair below is a text/background combination
+     verified at >=4.5:1 (normal text) or >=3:1 (large text/UI).
+     Never use a foreground/background combo not listed as a pair. */
+
+  /* Primary — Government of India brand blue (Ashoka Chakra navy family) */
+  --color-primary-900: #0A2540;
+  --color-primary-700: #0B3D66;
+  --color-primary-600: #0D4C82;  /* primary action color, AA on white */
+  --color-primary-500: #1565A8;
+  --color-primary-100: #E3EEF6;
+  --color-primary-50:  #F2F7FB;
+
+  /* Secondary — saffron accent, used sparingly (accents, highlights only,
+     never as sole indicator of meaning — WCAG 1.4.1) */
+  --color-secondary-700: #B85C00;
+  --color-secondary-600: #D97706; /* AA on white for text >=18px / UI components */
+  --color-secondary-100: #FDF0E1;
+
+  /* Semantic / state colors — never rely on color alone (pair with icon/text) */
+  --color-success-700: #14532D;
+  --color-success-600: #1D7A3C;   /* AA on white */
+  --color-success-100: #E6F4EA;
+
+  --color-warning-700: #7A4A00;
+  --color-warning-600: #B45309;   /* AA on white */
+  --color-warning-100: #FEF3E2;
+
+  --color-error-700: #7F1D1D;
+  --color-error-600: #C0262A;     /* AA on white */
+  --color-error-100: #FBEAEA;
+
+  --color-info-700: #0C4A6E;
+  --color-info-600: #0369A1;
+  --color-info-100: #E0F2FE;
+
+  /* Neutrals — grayscale ramp for text, borders, surfaces */
+  --color-neutral-900: #1A1A1A;   /* primary text, AA on white: 16.1:1 */
+  --color-neutral-700: #3D3D3D;   /* secondary text, AA on white: 10.4:1 */
+  --color-neutral-500: #6B6B6B;   /* muted/disabled text — AA large-text only */
+  --color-neutral-300: #C7C7C7;   /* borders */
+  --color-neutral-200: #E5E5E5;   /* dividers */
+  --color-neutral-100: #F4F4F4;   /* surface / subtle background */
+  --color-neutral-0:   #FFFFFF;
+
+  /* Surface / text role tokens — always reference these in components,
+     never raw palette values, so a future re-theme is a token edit only */
+  --color-bg-page: var(--color-neutral-0);
+  --color-bg-surface: var(--color-neutral-100);
+  --color-text-primary: var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-700);
+  --color-text-inverse: var(--color-neutral-0);
+  --color-text-on-primary: var(--color-neutral-0);
+  --color-border-default: var(--color-neutral-300);
+  --color-border-focus: var(--color-primary-600);
+  --color-link: var(--color-primary-700);
+  --color-link-visited: #5B3A8E;
+
+  /* ── 3. Spacing — 4px base unit, mobile-first ────────────── */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+
+  /* ── 4. Touch targets & sizing (UX4G mobile-first mandate) ─ */
+  --touch-target-min: 44px;   /* WCAG 2.5.8 AA minimum */
+  --touch-target-comfortable: 48px;
+
+  /* ── 5. Radius ────────────────────────────────────────────
+     Restrained, official/administrative feel — not playful/rounded */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+
+  /* ── 6. Elevation — minimal, functional only (modals/dropdowns) */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.08);
+  --shadow-md: 0 2px 8px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.16);
+
+  /* ── 7. Motion — respect prefers-reduced-motion always ───── */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ── 8. Focus ring — WCAG 2.4.11/2.4.13, always visible,
+     never removed, minimum 2px offset ring */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: var(--color-primary-600);
+
+  /* ── 9. Z-index scale — centralized to prevent stacking wars */
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-modal-backdrop: 1200;
+  --z-modal: 1300;
+  --z-toast: 1400;
+  --z-skip-link: 1500; /* skip-to-content link always wins */
+
+  /* ── 10. Layout breakpoints — mobile-first (min-width) ───── */
+  --bp-sm: 360px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+}
+
+/* Dark mode is NOT part of standard UX4G guidance (government apps
+   default to a single, consistent official theme for trust/legibility
+   reasons). If a dark theme is explicitly requested for a specific
+   project, define a `[data-theme="dark"]` block here rather than
+   assuming — do not add one speculatively. */
+
+/* ── Base reset — accessibility-relevant defaults only ────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%; /* never disable user font scaling */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text-primary);
+  background: var(--color-bg-page);
+}
+
+/* Never remove focus outlines — replace with an intentional, visible one */
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skip-to-content link — required for keyboard/screen-reader users to
+   bypass repeated header/emblem/nav content (WCAG 2.4.1) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: var(--z-skip-link);
+  background: var(--color-primary-900);
+  color: var(--color-text-inverse);
+  padding: var(--space-3) var(--space-4);
+  font-weight: var(--font-weight-semibold);
+}
+.skip-link:focus {
+  left: var(--space-4);
+  top: var(--space-4);
+}
