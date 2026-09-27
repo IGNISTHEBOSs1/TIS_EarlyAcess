@@ -53,7 +53,7 @@ export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
       </Reveal>
 
       <Reveal delayMs={80}>
-        <h2 id="waitlist-heading" className="mt-6 text-4xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-5xl">
+        <h2 id="waitlist-heading" className="font-[var(--font-display)] mt-6 text-4xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-5xl">
           Be early. Shape it.
         </h2>
         <p className="mt-4 max-w-md text-[var(--color-text-secondary)]">

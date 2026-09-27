@@ -6,13 +6,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: boolean;
 }
 
-/**
- * Single button implementation for the whole page, styled from the
- * UX4G design system tokens (theme.css) via arbitrary-value classes —
- * no hardcoded colors. Focus ring is intentionally NOT set here:
- * theme.css defines a global :focus-visible rule, so every interactive
- * element gets a consistent, compliant ring automatically.
- */
 export function Button({
   variant = "primary",
   children,
@@ -21,9 +14,8 @@ export function Button({
   ...rest
 }: ButtonProps) {
   const base =
-    "inline-flex items-center gap-2 rounded-[var(--radius-md)] px-6 font-[var(--font-weight-medium)] transition-all duration-[var(--duration-base)] ease-[var(--easing-standard)] disabled:opacity-50 disabled:cursor-not-allowed";
-  // Minimum touch target height per theme.css's --touch-target-min (44px)
-  const sizing = "min-h-[var(--touch-target-min)]";
+    "inline-flex items-center gap-2 rounded-[var(--radius-full)] px-6 font-[var(--font-weight-semibold)] transition-all duration-[var(--duration-base)] ease-[var(--easing-standard)] disabled:opacity-50 disabled:cursor-not-allowed";
+  const sizing = "min-h-[var(--touch-target-min)] text-sm";
 
   const variants: Record<string, string> = {
     primary:

@@ -17,7 +17,7 @@ export function Philosophy() {
       <Reveal delayMs={80}>
         <h2
           id="philosophy-heading"
-          className="mt-6 max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl"
+          className="font-[var(--font-display)] mt-6 max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl"
         >
           <span className="text-[var(--color-text-primary)]">You don't have a discipline problem. You</span>{" "}
           <span className="text-[var(--color-neutral-500)]">have a system problem.</span>

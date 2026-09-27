@@ -5,7 +5,7 @@ export function ClosingStatement() {
   return (
     <section className="border-t border-[var(--color-border-default)] px-6 py-16 sm:py-16 text-center" aria-label="Closing statement">
       <Reveal>
-        <p className="mx-auto max-w-3xl text-3xl font-semibold leading-snug tracking-tight text-[var(--color-text-primary)] sm:text-4xl">
+        <p className="font-[var(--font-display)] mx-auto max-w-3xl text-3xl font-semibold leading-snug tracking-tight text-[var(--color-text-primary)] sm:text-4xl">
           You've started over enough. This time, let something hold the line
           with you.
         </p>

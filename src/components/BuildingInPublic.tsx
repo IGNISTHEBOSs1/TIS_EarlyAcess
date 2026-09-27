@@ -38,7 +38,7 @@ export function BuildingInPublic() {
       <Reveal delayMs={80}>
         <h2
           id="building-in-public-heading"
-          className="mt-6 max-w-xl text-4xl font-bold leading-tight tracking-tight text-[var(--color-text-primary)] sm:text-5xl"
+          className="font-[var(--font-display)] mt-6 max-w-xl text-4xl font-bold leading-tight tracking-tight text-[var(--color-text-primary)] sm:text-5xl"
         >
           No users yet. No fake reviews. <span className="text-[var(--color-neutral-500)]">Just honest progress.</span>
         </h2>

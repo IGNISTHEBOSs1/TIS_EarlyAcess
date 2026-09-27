@@ -2,10 +2,11 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   This app now uses the UX4G design system (theme.css) as its single
-   source of truth for color, type, spacing, radius, elevation, motion,
-   and focus tokens — imported unmodified, not edited or merged with
-   anything from this project's prior dark/glass visual direction.
+   theme.css holds this product's real design tokens — extracted from the
+   actual app's light/dark landing page screenshots, superseding the
+   earlier UX4G government token file (confirmed not to represent this
+   product). Imported here as the single source of truth for color,
+   type, spacing, radius, elevation, motion, and focus tokens.
 
    Everything below this line is intentionally minimal: only what's
    needed to wire Tailwind's utility classes to theme.css's tokens via

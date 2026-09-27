@@ -12,7 +12,7 @@ export function MomentsShowcase() {
       <Reveal delayMs={80}>
         <h2
           id="moments-heading"
-          className="mt-6 max-w-2xl text-4xl font-bold leading-tight tracking-tight text-[var(--color-text-primary)] sm:text-5xl"
+          className="font-[var(--font-display)] mt-6 max-w-2xl text-4xl font-bold leading-tight tracking-tight text-[var(--color-text-primary)] sm:text-5xl"
         >
           Three moments that matter.
         </h2>

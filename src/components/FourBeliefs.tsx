@@ -40,7 +40,7 @@ export function FourBeliefs() {
       <Reveal delayMs={80}>
         <h2
           id="beliefs-heading"
-          className="mt-6 text-[var(--font-size-3xl)] font-[var(--font-weight-bold)] text-[var(--color-text-primary)]"
+          className="font-[var(--font-display)] mt-6 text-[var(--font-size-3xl)] font-[var(--font-weight-bold)] text-[var(--color-text-primary)]"
         >
           Built on four beliefs.
         </h2>
