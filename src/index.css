@@ -1,22 +1,8 @@
 @import "./theme.css";
 @import "tailwindcss";
 
-/* ==========================================================================
-   theme.css holds this product's real design tokens — extracted from the
-   actual app's light/dark landing page screenshots, superseding the
-   earlier UX4G government token file (confirmed not to represent this
-   product). Imported here as the single source of truth for color,
-   type, spacing, radius, elevation, motion, and focus tokens.
-
-   Everything below this line is intentionally minimal: only what's
-   needed to wire Tailwind's utility classes to theme.css's tokens via
-   arbitrary-value syntax (e.g. bg-[var(--color-bg-surface)]), plus the
-   marquee keyframe, which is decorative motion, not a design token, and
-   already respects prefers-reduced-motion via theme.css's global media
-   query above.
-   ========================================================================== */
 @theme {
-  --animate-marquee: marquee 28s linear infinite;
+  --animate-marquee: marquee 32s linear infinite;
 
   @keyframes marquee {
     0% {
@@ -26,4 +12,213 @@
       transform: translateX(-50%);
     }
   }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   KINETIC NEOSKEUOMORPHIC & LIQUID FROSTED GLASS SYSTEM
+   Canonical UI specification from The Improvement System
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Typography Utility Classes ── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-tech-mono {
+  font-family: var(--font-mono);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+.text-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.text-display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+}
+
+.text-display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.text-body-lg {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.text-body-md {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-body-sm {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.text-caption {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.text-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+/* ── Neoskeuomorphic Depth & Tactile Classes ── */
+.tactile-press {
+  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 120ms ease;
+}
+
+.tactile-press:active {
+  transform: scale(0.98) translateY(1px);
+}
+
+.hairline-bevel {
+  border: 1px solid var(--color-border-default);
+}
+
+.specular-top {
+  box-shadow: var(--specular-top-highlight);
+}
+
+/* Floating Glass Island (Navbar / Island Docks) */
+.kinetic-glass-island {
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(245, 245, 248, 0.82) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top-color: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04),
+    0 12px 32px -4px rgba(0, 0, 0, 0.07),
+    0 1px 3px 0 rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .kinetic-glass-island,
+.dark .kinetic-glass-island {
+  background: linear-gradient(180deg, rgba(20, 22, 28, 0.88) 0%, rgba(12, 14, 18, 0.76) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-top-color: rgba(255, 255, 255, 0.22);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4),
+    0 16px 40px -4px rgba(0, 0, 0, 0.65),
+    0 2px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Neoskeuomorphic Specular Box (Cards & Interactive Modules) */
+.kinetic-specular-box {
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-default);
+  box-shadow:
+    0 12px 32px -4px rgba(0, 0, 0, 0.06),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
+    0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  border-radius: var(--radius-lg);
+  position: relative;
+  transition: all var(--duration-base) var(--easing-standard);
+}
+
+[data-theme="dark"] .kinetic-specular-box,
+.dark .kinetic-specular-box {
+  background-color: var(--color-bg-surface);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow:
+    0 16px 40px -4px rgba(0, 0, 0, 0.55),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Obsidian Card Layer */
+.obsidian-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-lg);
+}
+
+/* Frosted Liquid Glass Card */
+.liquid-glass {
+  backdrop-filter: blur(24px) saturate(185%);
+  -webkit-backdrop-filter: blur(24px) saturate(185%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(245, 245, 248, 0.65) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.9),
+    0 12px 36px -6px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .liquid-glass,
+.dark .liquid-glass {
+  background: linear-gradient(180deg, rgba(22, 25, 34, 0.78) 0%, rgba(14, 16, 22, 0.62) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4),
+    0 16px 40px -8px rgba(0, 0, 0, 0.65);
+}
+
+/* Monochromatic Specular Glow */
+.specular-glow {
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.18),
+    0 0 40px rgba(255, 255, 255, 0.06);
+}
+
+/* Subtle Coordinate Grid */
+.bg-grid-subtle {
+  background-size: 28px 28px;
+  background-image:
+    linear-gradient(to right, var(--color-border-default) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-border-default) 1px, transparent 1px);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
 }

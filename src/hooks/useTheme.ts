@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-type Theme = "light" | "dark";
+export type Theme = "light" | "dark";
 
 const STORAGE_KEY = "tis-theme";
 
@@ -8,26 +8,33 @@ function getInitialTheme(): Theme {
   if (typeof window === "undefined") return "light";
   const stored = window.localStorage.getItem(STORAGE_KEY);
   if (stored === "light" || stored === "dark") return stored;
-  // Respect system preference on first visit, default to light per the
-  // reference (light screenshot is the primary/first-listed variant).
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 /**
- * Applies the theme as a data-attribute on <html> (matched by
- * [data-theme="dark"] in theme.css) and persists the choice. Runs the
- * initial application synchronously on first render via useState's
- * initializer so there's no flash of the wrong theme on mount.
+ * Manages dual-mode SOLAR (clean paper canvas) and LUNAR (deep obsidian canvas).
+ * Synchronizes documentElement dataset.theme and the 'dark' CSS class so both
+ * Tailwind dark: utilities and custom neoskeuomorphic CSS tokens respond instantly.
  */
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [theme, setThemeState] = useState<Theme>(getInitialTheme);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem(STORAGE_KEY, theme);
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    try {
+      window.localStorage.setItem(STORAGE_KEY, theme);
+    } catch {
+      // Ignore private storage restrictions
+    }
   }, [theme]);
 
-  const toggle = () => setTheme((t) => (t === "light" ? "dark" : "light"));
+  const toggle = () => setThemeState((t) => (t === "light" ? "dark" : "light"));
+  const setTheme = (t: Theme) => setThemeState(t);
 
-  return { theme, toggle };
+  return { theme, toggle, setTheme, isDark: theme === "dark" };
 }

@@ -1,20 +1,33 @@
+import type { ReactNode } from "react";
+
 interface EyebrowProps {
-  children: string;
+  children: ReactNode;
+  variant?: "line" | "badge";
   className?: string;
 }
 
 /**
- * Small tracked-out label above section headings. Restyled to theme.css
- * tokens: neutral secondary text, standard border color, the system's
- * defined wide letter-spacing token rather than an arbitrary value.
+ * Technical Eyebrow Label
+ * Displays telemetry tags and section identifiers in JetBrains Mono with wide tracking.
  */
-export function Eyebrow({ children, className = "" }: EyebrowProps) {
+export function Eyebrow({ children, variant = "line", className = "" }: EyebrowProps) {
+  if (variant === "badge") {
+    return (
+      <div
+        className={`inline-flex items-center gap-2 rounded-full border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] px-3 py-1 font-[var(--font-mono)] text-xs text-[var(--color-text-secondary)] shadow-xs ${className}`}
+      >
+        <span className="h-1.5 w-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100" />
+        <span className="uppercase tracking-widest">{children}</span>
+      </div>
+    );
+  }
+
   return (
-    <p
-      className={`font-[var(--font-mono)] text-[var(--font-size-xs)] uppercase text-[var(--color-text-secondary)] border-t border-[var(--color-border-default)] pt-[var(--space-2)] inline-block ${className}`}
-      style={{ letterSpacing: "var(--letter-spacing-wide)" }}
+    <div
+      className={`inline-flex items-center gap-2 font-[var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-text-secondary)] border-t border-[var(--color-border-default)] pt-2 ${className}`}
     >
-      {children}
-    </p>
+      <span className="h-1 w-1 rounded-full bg-[var(--color-text-secondary)]" />
+      <span>{children}</span>
+    </div>
   );
 }

@@ -1,24 +1,15 @@
-/* ============================================================
-   The Improvement System — Design Tokens
-   Extracted from the actual product's light/dark landing page
-   screenshots (supersedes the earlier UX4G government token file,
-   which the person has now clarified does not represent this
-   product). Same variable names/shape as before so components
-   don't need per-file rewrites — only the values changed.
-   ============================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* ==========================================================================
+   Kinetic · The Improvement System — Canonical Design Tokens
+   Monochromatic Neoskeuomorphic Visual System
+   Strict Invariant: Monochromatic (Deep Obsidian / Pure White / Slate / Zinc).
+   Dual-Mode: SOLAR (clean paper canvas) and LUNAR (deep obsidian pitch black canvas).
+   ========================================================================== */
 
 :root {
-  /* ── Typography ─────────────────────────────────────────
-     Three-font technical system matched to the reference:
-     a bold geometric display face for headings, a clean sans
-     for body copy, and monospace for every label/metric/eyebrow
-     — the mono-everywhere-for-UI-chrome look is a defining trait
-     of the reference screenshots, not incidental. */
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-primary: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -28,45 +19,56 @@
   --font-size-xl: 1.5rem;
   --font-size-2xl: 1.875rem;
   --font-size-3xl: 2.5rem;
+  --font-size-4xl: 3.25rem;
 
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
 
-  --line-height-tight: 1.15;
-  --line-height-base: 1.55;
-  --line-height-relaxed: 1.7;
+  --line-height-tight: 1.08;
+  --line-height-snug: 1.25;
+  --line-height-base: 1.6;
+  --line-height-relaxed: 1.75;
 
+  --letter-spacing-tight: -0.025em;
   --letter-spacing-normal: 0;
-  --letter-spacing-wide: 0.08em; /* wide-tracked mono labels, matches reference */
+  --letter-spacing-wide: 0.08em;
+  --letter-spacing-widest: 0.16em;
 
-  /* ── Color — light mode (default) ──────────────────────── */
-  --color-bg-page: #fdfdfc;
-  --color-bg-surface: #f6f6f5;
+  /* ── Color — SOLAR (Light Mode: Clean Paper Canvas) ─────── */
+  --color-bg-page: #fafafa;
+  --color-bg-surface: #f4f4f5;
   --color-bg-elevated: #ffffff;
+  --color-bg-subtle: #f1f1f3;
 
-  --color-text-primary: #111111;
-  --color-text-secondary: #55554f;
+  --color-text-primary: #12141a;
+  --color-text-secondary: #52525b;
+  --color-text-muted: #71717a;
   --color-text-on-primary: #ffffff;
 
-  --color-border-default: #e3e2de;
-  --color-border-focus: #111111;
+  --color-border-default: #e4e4e7;
+  --color-border-subtle: #eeeeef;
+  --color-border-focus: #18181b;
 
-  /* monochrome "primary" — the reference has essentially no hue,
-     black IS the primary action color in light mode */
-  --color-primary-100: #ececea;
-  --color-primary-500: #3a3a37;
-  --color-primary-600: #111111;
-  --color-primary-700: #000000;
+  --color-primary-100: #e4e4e7;
+  --color-primary-500: #27272a;
+  --color-primary-600: #18181b;
+  --color-primary-700: #09090b;
 
-  --color-neutral-500: #8a8a83;
-  --color-neutral-300: #d8d7d2;
+  --color-neutral-300: #d4d4d8;
+  --color-neutral-400: #a1a1aa;
+  --color-neutral-500: #71717a;
+  --color-neutral-700: #3f3f46;
 
-  --color-success-600: #1d7a3c;
-  --color-error-600: #c0262a;
+  /* Strictly Monochromatic semantic tokens */
+  --color-success-600: #18181b;
+  --color-success-bg: #e4e4e7;
+  --color-error-600: #18181b;
+  --color-error-bg: #e4e4e7;
 
-  /* ── Spacing (unchanged — same 4px-based scale, reused) ─── */
+  /* ── Spacing Scale ──────────────────────────────────────── */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -77,90 +79,113 @@
   --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
 
   --touch-target-min: 44px;
 
-  /* ── Radius — pill buttons/badges, medium cards ─────────── */
-  --radius-sm: 6px;
-  --radius-md: 10px;
+  /* ── Continuous Curvature Radii ─────────────────────────── */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
   --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  /* ── Elevation & Optical Shadows (SOLAR) ────────────────── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+  --shadow-elevated: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px -4px rgba(0, 0, 0, 0.07), 0 20px 32px -8px rgba(0, 0, 0, 0.04);
+  --specular-top-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
 
   --duration-fast: 120ms;
-  --duration-base: 200ms;
-  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --duration-base: 220ms;
+  --duration-slow: 350ms;
+  --easing-standard: cubic-bezier(0.16, 1, 0.3, 1);
 
   --focus-ring-width: 2px;
   --focus-ring-offset: 2px;
-  --focus-ring-color: var(--color-border-focus);
+  --focus-ring-color: #18181b;
 
-  --z-dropdown: 1000;
   --z-sticky: 1100;
-  --z-modal-backdrop: 1200;
   --z-modal: 1300;
-  --z-toast: 1400;
   --z-skip-link: 1500;
 
-  /* background texture: faint grid lines (light mode) */
-  --bg-texture-color: rgba(17, 17, 17, 0.05);
+  --bg-texture-color: rgba(24, 24, 27, 0.04);
 }
 
-/* ── Color — dark mode ────────────────────────────────────
-   Toggled via [data-theme="dark"] on <html>, set by the theme
-   toggle in the navbar and persisted to localStorage. */
-[data-theme="dark"] {
-  --color-bg-page: #0a0a0a;
-  --color-bg-surface: #121212;
-  --color-bg-elevated: #171717;
+/* ── Color — LUNAR (Dark Mode: Deep Obsidian Pitch Black Canvas) ── */
+[data-theme="dark"],
+.dark {
+  --color-bg-page: #090a0f;
+  --color-bg-surface: #12141a;
+  --color-bg-elevated: #181b24;
+  --color-bg-subtle: #0f1015;
 
-  --color-text-primary: #f5f5f4;
-  --color-text-secondary: #a3a29c;
-  --color-text-on-primary: #0a0a0a;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-text-on-primary: #090a0f;
 
-  --color-border-default: #262625;
-  --color-border-focus: #f5f5f4;
+  --color-border-default: rgba(148, 163, 184, 0.12);
+  --color-border-subtle: rgba(148, 163, 184, 0.07);
+  --color-border-focus: #f8fafc;
 
-  --color-primary-100: #1e1e1c;
-  --color-primary-500: #d4d4cf;
-  --color-primary-600: #f5f5f4;
+  --color-primary-100: #181b24;
+  --color-primary-500: #e2e8f0;
+  --color-primary-600: #f8fafc;
   --color-primary-700: #ffffff;
 
-  --color-neutral-500: #71716a;
-  --color-neutral-300: #33332f;
+  --color-neutral-300: #334155;
+  --color-neutral-400: #64748b;
+  --color-neutral-500: #94a3b8;
+  --color-neutral-700: #cbd5e1;
 
-  /* background texture: faint constellation dots (dark mode) */
-  --bg-texture-color: rgba(255, 255, 255, 0.09);
+  /* Strictly Monochromatic semantic tokens (Pure White / Slate) */
+  --color-success-600: #ffffff;
+  --color-success-bg: rgba(255, 255, 255, 0.1);
+  --color-error-600: #f8fafc;
+  --color-error-bg: rgba(255, 255, 255, 0.1);
+
+  /* Optical Physics: Specular highlights + Deep Ambient Occlusion */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.75);
+  --shadow-card: 0 0 0 1px rgba(148, 163, 184, 0.12), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.55);
+  --shadow-elevated: 0 0 0 1px rgba(148, 163, 184, 0.15), inset 0 1px 1px 0 rgba(255, 255, 255, 0.20), 0 16px 40px rgba(0, 0, 0, 0.70);
+  --specular-top-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+
+  --focus-ring-color: #f8fafc;
+  --bg-texture-color: rgba(255, 255, 255, 0.05);
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 html {
   -webkit-text-size-adjust: 100%;
+  color-scheme: light dark;
 }
 
 body {
   margin: 0;
-  font-family: var(--font-primary);
+  font-family: var(--font-body);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   color: var(--color-text-primary);
   background-color: var(--color-bg-page);
   transition: background-color var(--duration-base) var(--easing-standard),
     color var(--duration-base) var(--easing-standard);
+  overflow-x: hidden;
 }
 
-/* Background texture — one mechanism, two looks: a fine dot grid that
-   reads as graph paper in light mode and a faint constellation in dark
-   mode, purely from --bg-texture-color changing. Fixed size, no
-   filter/blend-mode, cheap to paint, doesn't scroll-repaint since it's
-   a plain repeating background on body (default/scrolling attachment). */
+/* Technical Coordinate Grid Canvas Background */
 body {
   background-image: radial-gradient(var(--bg-texture-color) 1px, transparent 1px);
-  background-size: 28px 28px;
+  background-size: 32px 32px;
 }
 
 :focus-visible {
@@ -185,6 +210,7 @@ body {
   color: var(--color-text-on-primary);
   padding: var(--space-3) var(--space-4);
   font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-sm);
 }
 .skip-link:focus {
   left: var(--space-4);

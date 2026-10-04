@@ -4,83 +4,78 @@ import { Reveal } from "./Reveal";
 interface TimelineEntry {
   when: string;
   tag: string;
+  title: string;
   body: string;
 }
 
 const ENTRIES: TimelineEntry[] = [
   {
-    when: "Now",
-    tag: "Waitlist open",
-    body: "We're validating the positioning before writing another line of product. If this resonates, your email genuinely shapes what we build first.",
+    when: "PHASE 01 // NOW",
+    tag: "COHORT 01 ENROLLMENT",
+    title: "Waitlist validation & architecture audit",
+    body: "We're validating our core invariants before shipping the desktop and web builds. If this philosophy resonates with you, your early feedback directly shapes our v1 engine.",
   },
   {
-    when: "This month",
-    tag: "Core loop",
-    body: "Designing the daily loop: how the system chooses a few meaningful moves with you, and how it reflects momentum back without turning life into a scoreboard.",
+    when: "PHASE 02 // IN PROGRESS",
+    tag: "CORE RUNTIME ALPHA",
+    title: "1 Focus + 2 Routines + Buffer cone engine",
+    body: "Implementing the mathematical buffer corridor: calculating velocity curves, quiet morning focus selection, and evening capture without scoreboard gamification.",
   },
   {
-    when: "Earlier",
-    tag: "Principles",
-    body: "Settled the non-negotiables — invisible system, tangible progress, no gamification. Everything is measured against these four beliefs.",
+    when: "PHASE 03 // UPCOMING",
+    tag: "SECURITY VAULT",
+    title: "Client-side WebCrypto & offline zero-leak vault",
+    body: "Finalizing encrypted browser storage (IndexedDB) with zero external telemetry endpoints. Verifiable through open developer tools before broad public distribution.",
   },
 ];
 
 export function BuildingInPublic() {
   return (
     <section
-      className="mx-auto max-w-3xl px-6 pt-16 pb-12 sm:pt-16 sm:pb-10"
+      className="mx-auto max-w-4xl px-6 py-16 sm:py-24"
       aria-labelledby="building-in-public-heading"
     >
       <Reveal>
-        <Eyebrow>Building in public</Eyebrow>
+        <Eyebrow variant="badge">TRANSPARENT ENGINEERING</Eyebrow>
       </Reveal>
 
       <Reveal delayMs={80}>
         <h2
           id="building-in-public-heading"
-          className="font-[var(--font-display)] mt-6 max-w-xl text-4xl font-bold leading-tight tracking-tight text-[var(--color-text-primary)] sm:text-5xl"
+          className="font-display mt-6 max-w-2xl text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[var(--color-text-primary)]"
         >
-          No users yet. No fake reviews. <span className="text-[var(--color-neutral-500)]">Just honest progress.</span>
+          No fake reviews. No fabricated urgency.{" "}
+          <span className="text-[var(--color-text-muted)]">Just honest engineering.</span>
         </h2>
-        <p className="mt-4 max-w-md text-[var(--color-text-secondary)]">
-          We'd rather show you where we actually are than borrow credibility
-          we haven't earned. Here's the work, in the open.
+        <p className="mt-4 max-w-xl text-sm sm:text-base text-[var(--color-text-secondary)] leading-relaxed">
+          We'd rather show you exactly where we are than borrow synthetic credibility. Here is our engineering cadence, completely in the open.
         </p>
       </Reveal>
 
-      <ol className="mt-16 pl-8">
-        {ENTRIES.map((entry, i) => {
-          const isLast = i === ENTRIES.length - 1;
-          return (
-            <Reveal
-              key={entry.when}
-              delayMs={i * 80}
-              as="li"
-              className={`relative ${!isLast ? "pb-12" : ""}`}
-            >
-              {/* dot */}
-              <span
-                aria-hidden="true"
-                className="absolute -left-8 top-1.5 h-2 w-2 rounded-full bg-[var(--color-primary-600)]"
-              />
-              {/* connector: only between this dot and the next one, never past the last item */}
-              {!isLast && (
-                <span
-                  aria-hidden="true"
-                  className="absolute -left-8 top-3.5 bottom-0 ml-[3px] w-px bg-[var(--color-bg-surface)]"
-                />
-              )}
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="font-[var(--font-mono)] text-xs text-[var(--color-neutral-500)]">{entry.when}</span>
-                <span className="rounded-full border border-[var(--color-border-default)] px-2.5 py-0.5 font-[var(--font-mono)] text-[11px] uppercase tracking-wide text-[var(--color-text-secondary)]">
-                  {entry.tag}
-                </span>
-              </div>
-              <p className="mt-3 max-w-xl text-[var(--color-text-secondary)]">{entry.body}</p>
-            </Reveal>
-          );
-        })}
-      </ol>
+      <div className="mt-12 space-y-6">
+        {ENTRIES.map((entry, i) => (
+          <Reveal
+            key={entry.tag}
+            delayMs={i * 80}
+            className="kinetic-specular-box p-6 sm:p-7 rounded-2xl border border-[var(--color-border-default)]"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <span className="font-tech-mono text-xs uppercase tracking-wider text-[var(--color-text-primary)] font-bold">
+                {entry.when}
+              </span>
+              <span className="rounded-full border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] px-2.5 py-0.5 font-tech-mono text-[10px] uppercase tracking-wider text-[var(--color-text-secondary)]">
+                {entry.tag}
+              </span>
+            </div>
+            <h3 className="font-display text-lg sm:text-xl font-bold text-[var(--color-text-primary)]">
+              {entry.title}
+            </h3>
+            <p className="mt-2 text-xs sm:text-sm text-[var(--color-text-secondary)] leading-relaxed font-body">
+              {entry.body}
+            </p>
+          </Reveal>
+        ))}
+      </div>
     </section>
   );
 }
