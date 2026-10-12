@@ -1,24 +1,43 @@
+import { useState } from "react";
+import type { FormEvent } from "react";
 import { Eyebrow } from "./Eyebrow";
 import { Button } from "./Button";
 import { Reveal } from "./Reveal";
-import { TrajectoryVisualizer } from "./TrajectoryVisualizer";
-import { ShieldCheck, Lock, Target, Compass } from "./ui/Icons";
+import { DashboardMockup } from "./DashboardMockup";
+import { ShieldCheck, Lock, Check } from "./ui/Icons";
 import { useSoundEffects } from "../hooks/useSoundEffects";
 
-export function Hero() {
-  const { playTap } = useSoundEffects();
+interface HeroProps {
+  onFastSubmit?: (email: string) => void;
+}
 
-  const scrollToWaitlist = () => {
-    playTap();
+export function Hero({ onFastSubmit }: HeroProps) {
+  const [fastEmail, setFastEmail] = useState("");
+  const [fastJoined, setFastJoined] = useState(false);
+  const { playSuccess, playTap } = useSoundEffects();
+
+  const handleFastSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (!fastEmail.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fastEmail)) {
+      const el = document.getElementById("waitlist");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+
+    onFastSubmit?.(fastEmail.trim());
+    setFastJoined(true);
+    playSuccess();
+
+    // Also populate the main form if needed
     const el = document.getElementById("waitlist");
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 600);
     }
   };
 
-  const scrollToBuffer = () => {
+  const scrollToProof = () => {
     playTap();
-    const el = document.getElementById("buffer-engine");
+    const el = document.getElementById("buffer-proof");
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
@@ -27,23 +46,26 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative mx-auto max-w-6xl px-6 pt-24 sm:pt-32 pb-16"
+      className="relative mx-auto max-w-6xl px-6 pt-24 sm:pt-32 pb-12 sm:pb-16"
       aria-labelledby="hero-heading"
     >
       <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+        {/* Cohort Scarcity Telemetry Eyebrow */}
         <Reveal>
-          <Eyebrow variant="badge">KINETIC PROTOCOL // COHORT 01 PRE-LAUNCH</Eyebrow>
+          <Eyebrow variant="badge">COHORT 01 // 250 FOUNDING SEATS FORMING</Eyebrow>
         </Reveal>
 
+        {/* 3-Second Clarity Headline */}
         <Reveal delayMs={80}>
           <h1
             id="hero-heading"
-            className="font-display mt-6 text-4xl sm:text-6xl md:text-7xl font-extrabold leading-[1.08] tracking-tight text-[var(--color-text-primary)]"
+            className="font-display mt-6 text-4xl sm:text-6xl md:text-7xl font-extrabold leading-[1.06] tracking-tight text-[var(--color-text-primary)]"
           >
             A quieter way to become who you're trying to be.
           </h1>
         </Reveal>
 
+        {/* Value Proposition */}
         <Reveal delayMs={160}>
           <p className="mt-6 max-w-2xl text-base sm:text-xl text-[var(--color-text-secondary)] leading-relaxed font-body">
             Not another streak app that shames you for having a life. A local-first,
@@ -52,88 +74,61 @@ export function Hero() {
           </p>
         </Reveal>
 
-        <Reveal delayMs={240}>
-          <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Button
-              variant="primary"
-              size="lg"
-              icon
-              onClick={scrollToWaitlist}
-              className="group shadow-md"
-            >
-              Reserve Early Access
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={scrollToBuffer}
-            >
-              Simulate Buffer Math
-            </Button>
+        {/* Inline Fast Reservation Component */}
+        <Reveal delayMs={240} className="mt-8 sm:mt-10 w-full max-w-md">
+          {fastJoined ? (
+            <div className="p-3.5 rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] flex items-center justify-center gap-2 font-tech-mono text-xs text-[var(--color-text-primary)] shadow-xs">
+              <span className="flex size-5 items-center justify-center rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-950">
+                <Check size={12} strokeWidth={2.5} />
+              </span>
+              <span>Fast seat reserved. Scrolling to your digital pass...</span>
+            </div>
+          ) : (
+            <form onSubmit={handleFastSubmit} className="flex flex-col sm:flex-row gap-2">
+              <input
+                type="email"
+                required
+                placeholder="Enter your email to request access..."
+                value={fastEmail}
+                onChange={(e) => setFastEmail(e.target.value)}
+                className="flex-1 px-4 py-3 rounded-full border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-border-focus)] focus:ring-1 focus:ring-[var(--color-border-focus)] font-body shadow-xs transition-all"
+              />
+              <Button type="submit" variant="primary" size="md" icon className="shrink-0 shadow-md">
+                Reserve Seat
+              </Button>
+            </form>
+          )}
+
+          {/* Quiet Trust Line */}
+          <div className="mt-3 flex items-center justify-center gap-4 text-[11px] font-tech-mono text-[var(--color-text-muted)]">
+            <span className="flex items-center gap-1">
+              <Lock size={11} className="text-[var(--color-text-primary)]" /> Local-first vault
+            </span>
+            <span>·</span>
+            <span className="flex items-center gap-1">
+              <ShieldCheck size={11} className="text-[var(--color-text-primary)]" /> Zero data harvesting
+            </span>
+            <span>·</span>
+            <span>100% Free local tier</span>
           </div>
-          <p className="mt-3 font-tech-mono text-xs text-[var(--color-text-muted)]">
-            Cohort 01 Limited · Zero credit card · 100% Free forever local tier
-          </p>
         </Reveal>
 
-        {/* 4 Invariant Trust & Safety Badges */}
-        <Reveal delayMs={300} className="mt-10 sm:mt-12 w-full">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
-            <div className="p-3 sm:p-4 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] flex items-start gap-3 shadow-xs">
-              <Lock size={16} className="text-[var(--color-text-primary)] shrink-0 mt-0.5" />
-              <div>
-                <span className="font-display text-xs font-bold text-[var(--color-text-primary)] block">
-                  Local-First Vault
-                </span>
-                <span className="font-tech-mono text-[10px] text-[var(--color-text-muted)] block mt-0.5">
-                  Client-side encrypted
-                </span>
-              </div>
-            </div>
-
-            <div className="p-3 sm:p-4 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] flex items-start gap-3 shadow-xs">
-              <Compass size={16} className="text-[var(--color-text-primary)] shrink-0 mt-0.5" />
-              <div>
-                <span className="font-display text-xs font-bold text-[var(--color-text-primary)] block">
-                  ±10% Buffer Cone
-                </span>
-                <span className="font-tech-mono text-[10px] text-[var(--color-text-muted)] block mt-0.5">
-                  Absorbs off-days safely
-                </span>
-              </div>
-            </div>
-
-            <div className="p-3 sm:p-4 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] flex items-start gap-3 shadow-xs">
-              <Target size={16} className="text-[var(--color-text-primary)] shrink-0 mt-0.5" />
-              <div>
-                <span className="font-display text-xs font-bold text-[var(--color-text-primary)] block">
-                  1 Focus + 2 Routines
-                </span>
-                <span className="font-tech-mono text-[10px] text-[var(--color-text-muted)] block mt-0.5">
-                  Cognitive load capped
-                </span>
-              </div>
-            </div>
-
-            <div className="p-3 sm:p-4 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] flex items-start gap-3 shadow-xs">
-              <ShieldCheck size={16} className="text-[var(--color-text-primary)] shrink-0 mt-0.5" />
-              <div>
-                <span className="font-display text-xs font-bold text-[var(--color-text-primary)] block">
-                  Zero Telemetry
-                </span>
-                <span className="font-tech-mono text-[10px] text-[var(--color-text-muted)] block mt-0.5">
-                  No tracking pixels
-                </span>
-              </div>
-            </div>
-          </div>
+        {/* Secondary Exploration Link */}
+        <Reveal delayMs={300} className="mt-4">
+          <button
+            type="button"
+            onClick={scrollToProof}
+            className="font-tech-mono text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors underline underline-offset-4"
+          >
+            See how the ±10% buffer prevents streak burnout ↓
+          </button>
         </Reveal>
       </div>
 
-      {/* Trajectory Simulation Engine */}
-      <div id="buffer-engine" className="mt-14 sm:mt-20">
+      {/* Hero Visual Anchor: Pristine Neoskeuomorphic Dashboard Preview */}
+      <div className="mt-12 sm:mt-16">
         <Reveal delayMs={360}>
-          <TrajectoryVisualizer />
+          <DashboardMockup />
         </Reveal>
       </div>
     </section>

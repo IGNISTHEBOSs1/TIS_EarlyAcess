@@ -1,26 +1,31 @@
+import { useState } from "react";
 import { MonochromaticMeshBackground } from "./MonochromaticMeshBackground";
 import { Navbar } from "./Navbar";
 import { Hero } from "./Hero";
 import { MarqueeBelt } from "./MarqueeBelt";
-import { Philosophy } from "./Philosophy";
-import { ComparisonTable } from "./ComparisonTable";
+import { TrajectoryVisualizer } from "./TrajectoryVisualizer";
 import { FourBeliefs } from "./FourBeliefs";
-import { MomentsShowcase } from "./MomentsShowcase";
 import { DataSafetySection } from "./DataSafetySection";
-import { BuildingInPublic } from "./BuildingInPublic";
 import { WaitlistForm } from "./WaitlistForm";
 import { FAQ } from "./FAQ";
 import { ClosingStatement } from "./ClosingStatement";
 import { Footer } from "./Footer";
 
 /**
- * Kinetic · The Improvement System — Early Access Waitlist & Safety Showcase
- * Composes the complete neoskeuomorphic, monochromatic product landing experience.
+ * Kinetic · The Improvement System — Early Access Waitlist
+ * Decluttered, high-converting 6-act narrative arc:
+ * Act 1: The Hook & Fast Inline Reservation + Product Dashboard Preview
+ * Act 2: Architectural Contrast & Interactive ±10% Buffer Cone Proof
+ * Act 3: The 3 Daily Invariants (1 Focus + 2 Routines + Buffer)
+ * Act 4: Verifiable Data Sovereignty & Local-First Vault
+ * Act 5: Cohort 01 Enrollment Terminal
+ * Act 6: Architectural Q&A and Minimalist Close
  */
 export default function LandingPage() {
+  const [fastEmail, setFastEmail] = useState("");
+
   const handleWaitlistSubmit = async (email: string, context: string) => {
     try {
-      // Attempt backend API if available
       await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -29,6 +34,11 @@ export default function LandingPage() {
     } catch {
       // Gracefully continue to local client-side confirmation
     }
+  };
+
+  const handleFastSubmit = (email: string) => {
+    setFastEmail(email);
+    handleWaitlistSubmit(email, "Fast reservation from hero");
   };
 
   return (
@@ -44,17 +54,27 @@ export default function LandingPage() {
       {/* Floating Glass Island Navbar */}
       <Navbar />
 
-      {/* Main Content Flow */}
+      {/* Main Content: 6-Act Decluttered Flow */}
       <main id="main-content" className="relative z-10">
-        <Hero />
+        {/* Act 1: Hero Hook + Fast Inline Reservation + Dashboard Preview */}
+        <Hero onFastSubmit={handleFastSubmit} />
+
+        {/* Technical Ticker */}
         <MarqueeBelt />
-        <Philosophy />
-        <ComparisonTable />
+
+        {/* Act 2: Streaks Shatter. Trajectory Absorbs (Interactive Buffer Proof) */}
+        <TrajectoryVisualizer />
+
+        {/* Act 3: The 3 Invariants (1 Focus + 2 Routines + Buffer Cone) */}
         <FourBeliefs />
-        <MomentsShowcase />
+
+        {/* Act 4: Data Sovereignty Architecture & Local Vault */}
         <DataSafetySection />
-        <BuildingInPublic />
-        <WaitlistForm onSubmit={handleWaitlistSubmit} />
+
+        {/* Act 5: Cohort 01 Enrollment Terminal & Digital Access Pass */}
+        <WaitlistForm initialEmail={fastEmail} onSubmit={handleWaitlistSubmit} />
+
+        {/* Act 6: High-Signal Q&A & Quiet Close */}
         <FAQ />
         <ClosingStatement />
       </main>

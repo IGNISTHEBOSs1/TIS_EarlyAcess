@@ -18,11 +18,12 @@ interface StoredTicket {
 const TICKET_STORAGE_KEY = "kinetic-cohort-ticket";
 
 interface WaitlistFormProps {
+  initialEmail?: string;
   onSubmit?: (email: string, context: string) => Promise<void> | void;
 }
 
-export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
-  const [email, setEmail] = useState("");
+export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps) {
+  const [email, setEmail] = useState(initialEmail);
   const [context, setContext] = useState("");
   const [showOptional, setShowOptional] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
@@ -45,6 +46,12 @@ export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
       // Ignore private mode
     }
   }, []);
+
+  useEffect(() => {
+    if (initialEmail && !ticket) {
+      setEmail(initialEmail);
+    }
+  }, [initialEmail, ticket]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -110,13 +117,22 @@ export function WaitlistForm({ onSubmit }: WaitlistFormProps) {
       aria-labelledby="waitlist-heading"
     >
       <Reveal>
-        <Eyebrow variant="badge">EARLY ACCESS PROTOCOL // COHORT 01</Eyebrow>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <Eyebrow variant="badge">ACT 05 // COHORT 01 ENROLLMENT</Eyebrow>
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-[11px] font-tech-mono text-[var(--color-text-secondary)] shadow-xs">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-400 dark:bg-zinc-200 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-zinc-900 dark:bg-zinc-100" />
+            </span>
+            <span>250 SEATS · 184 CLAIMED</span>
+          </div>
+        </div>
       </Reveal>
 
       <Reveal delayMs={80}>
         <h2
           id="waitlist-heading"
-          className="font-display mt-6 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-text-primary)] leading-[1.12]"
+          className="font-display mt-6 text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--color-text-primary)] leading-[1.1]"
         >
           Reserve your place. Shape the v1 release.
         </h2>
