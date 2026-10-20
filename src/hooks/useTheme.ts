@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export type Theme = "light" | "dark";
 
-const STORAGE_KEY = "tis-theme";
+const STORAGE_KEY = "kinetic-theme";
 
 function getInitialTheme(): Theme {
   if (typeof window === "undefined") return "light";

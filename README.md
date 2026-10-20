@@ -1,4 +1,4 @@
-# The Improvement System — Landing Page
+# Kinetic — Early Access Waitlist
 
 ## Run it
 

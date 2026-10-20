@@ -24,12 +24,12 @@ export function ThemeToggle() {
       aria-checked={isDark}
       aria-label={`Switch to ${isDark ? "light (solar)" : "dark (lunar)"} mode`}
       onClick={handleToggle}
-      className={`relative flex items-center h-8 sm:h-9 w-[76px] sm:w-[82px] p-1 rounded-full cursor-pointer select-none transition-all duration-300 border border-black/10 dark:border-white/15 bg-zinc-200/90 dark:bg-zinc-900/90 shadow-[inset_0_2px_4px_rgba(0,0,0,0.14),0_1px_2px_rgba(255,255,255,0.8)] dark:shadow-[inset_0_2px_5px_rgba(0,0,0,0.6),0_1px_1px_rgba(255,255,255,0.08)] hover:border-black/30 dark:hover:border-white/30 active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring-color)] ${
-        isDark ? "justify-end" : "justify-start"
+      className={`relative flex items-center h-8 sm:h-9 w-8 sm:w-[82px] p-0.5 sm:p-1 rounded-full cursor-pointer select-none transition-all duration-300 border border-black/10 dark:border-white/15 bg-zinc-200/90 dark:bg-zinc-900/90 shadow-[inset_0_2px_4px_rgba(0,0,0,0.14),0_1px_2px_rgba(255,255,255,0.8)] dark:shadow-[inset_0_2px_5px_rgba(0,0,0,0.6),0_1px_1px_rgba(255,255,255,0.08)] hover:border-black/30 dark:hover:border-white/30 active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring-color)] ${
+        isDark ? "justify-center sm:justify-end" : "justify-center sm:justify-start"
       }`}
     >
-      {/* Background mechanical track indicators */}
-      <div className="absolute inset-0 flex items-center justify-between px-2.5 pointer-events-none select-none">
+      {/* Background mechanical track indicators (visible on tablet/desktop) */}
+      <div className="hidden sm:flex absolute inset-0 items-center justify-between px-2.5 pointer-events-none select-none">
         <span
           className={`text-[8px] sm:text-[9px] font-[var(--font-mono)] font-bold tracking-widest transition-opacity duration-200 ${
             isDark ? "opacity-100 text-zinc-400" : "opacity-0"

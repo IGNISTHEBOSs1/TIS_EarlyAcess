@@ -17,7 +17,7 @@ const FAQS = [
   {
     question: "Why the strict limit of 1 Primary Focus + 2 Routines?",
     answer:
-      "Cognitive overload is the number one reason personal improvement systems collapse. Sustained personal velocity comes from executing one decisive high-leverage move each day and anchoring two low-friction foundation rituals — not managing a demoralizing 20-item checklist.",
+      "Cognitive overload is the number one reason traditional habit and goal systems collapse. Sustained personal velocity comes from executing one decisive high-leverage move each day and anchoring two low-friction foundation rituals — not managing a demoralizing 20-item checklist.",
   },
   {
     question: "Is Kinetic gamified? Are there XP bars, levels, or avatar ranks?",

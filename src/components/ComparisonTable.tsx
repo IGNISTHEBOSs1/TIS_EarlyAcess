@@ -79,7 +79,7 @@ export function ComparisonTable() {
               <span className="flex size-4 items-center justify-center rounded-sm bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
                 <Check size={12} />
               </span>
-              Kinetic Improvement System
+              Kinetic Trajectory Engine
             </div>
           </div>
 

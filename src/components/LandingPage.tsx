@@ -12,7 +12,7 @@ import { ClosingStatement } from "./ClosingStatement";
 import { Footer } from "./Footer";
 
 /**
- * Kinetic · The Improvement System — Early Access Waitlist
+ * Kinetic · Personal Trajectory Engine — Early Access Waitlist
  * Decluttered, high-converting 6-act narrative arc:
  * Act 1: The Hook & Fast Inline Reservation + Product Dashboard Preview
  * Act 2: Architectural Contrast & Interactive ±10% Buffer Cone Proof
