@@ -1,6 +1,5 @@
 import { Eyebrow } from "./Eyebrow";
 import { Reveal } from "./Reveal";
-import { DashboardMockup } from "./DashboardMockup";
 
 export function MomentsShowcase() {
   return (
@@ -31,8 +30,12 @@ export function MomentsShowcase() {
           <p className="mt-2 text-xs sm:text-sm text-[var(--color-text-secondary)] max-w-md leading-relaxed">
             Each morning resolves into exactly 1 decisive Focus and 2 lightweight Routines. The rest stays completely invisible until needed.
           </p>
-          <div className="mt-6">
-            <DashboardMockup />
+          <div className="mt-6 rounded-xl overflow-hidden border border-[var(--color-border-default)] shadow-xs">
+            <img
+              src="/assets/app-demo-fallback.png"
+              alt="Kinetic authentic in-app view"
+              className="w-full h-auto object-cover max-h-[340px]"
+            />
           </div>
         </Reveal>
 

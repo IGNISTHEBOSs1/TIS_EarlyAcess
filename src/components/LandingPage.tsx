@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, useScroll } from "framer-motion";
 import { MonochromaticMeshBackground } from "./MonochromaticMeshBackground";
 import { Navbar } from "./Navbar";
 import { Hero } from "./Hero";
@@ -23,6 +24,7 @@ import { Footer } from "./Footer";
  */
 export default function LandingPage() {
   const [fastEmail, setFastEmail] = useState("");
+  const { scrollYProgress } = useScroll();
 
   const handleWaitlistSubmit = async (email: string, context: string) => {
     try {
@@ -42,7 +44,16 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="relative min-h-screen text-[var(--color-text-primary)] antialiased bg-[var(--color-bg-page)] selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-950">
+    <div className="relative min-h-screen text-[var(--color-text-primary)] antialiased bg-[var(--color-bg-page)] selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-950 overflow-x-clip">
+      {/* Scroll Scrub Progress Indicator from Kinetic Design System */}
+      <motion.div
+        style={{ scaleX: scrollYProgress, transformOrigin: "0%" }}
+        className="fixed top-0 inset-x-0 h-[2.5px] bg-zinc-900 dark:bg-white z-[70] pointer-events-none opacity-90 shadow-[0_0_10px_rgba(255,255,255,0.6)] dark:shadow-[0_0_10px_rgba(255,255,255,0.35)]"
+      />
+
+      {/* Progressive Top Glass Blur Wash (Content fades smoothly under navbar) */}
+      <div className="fixed top-0 inset-x-0 h-20 pointer-events-none z-40 bg-gradient-to-b from-[var(--color-bg-page)]/85 via-[var(--color-bg-page)]/40 to-transparent backdrop-blur-[3px]" />
+
       {/* Accessible Skip Link */}
       <a href="#main-content" className="skip-link font-tech-mono text-xs">
         Skip to main content

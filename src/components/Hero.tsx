@@ -3,7 +3,8 @@ import type { FormEvent } from "react";
 import { Eyebrow } from "./Eyebrow";
 import { Button } from "./Button";
 import { Reveal } from "./Reveal";
-import { DashboardMockup } from "./DashboardMockup";
+import { ProductSneakPeek } from "./ProductSneakPeek";
+import { MysteriousClipReveal, AtmosphericLift } from "./motion";
 import { ShieldCheck, Lock, Check } from "./ui/Icons";
 import { useSoundEffects } from "../hooks/useSoundEffects";
 
@@ -50,32 +51,43 @@ export function Hero({ onFastSubmit }: HeroProps) {
       aria-labelledby="hero-heading"
     >
       <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-        {/* Cohort Scarcity Telemetry Eyebrow */}
-        <Reveal>
+        {/* Cohort Scarcity Telemetry Eyebrow with Atmospheric Lift */}
+        <AtmosphericLift yOffset={12} blurAmount={4}>
           <Eyebrow variant="badge">COHORT 01 // 250 FOUNDING SEATS FORMING</Eyebrow>
-        </Reveal>
+        </AtmosphericLift>
 
-        {/* 3-Second Clarity Headline */}
-        <Reveal delayMs={80}>
+        {/* 3-Second Clarity Headline with Mysterious Clip Reveal & Monochromatic Gradient */}
+        <MysteriousClipReveal
+          direction="horizontal"
+          duration={0.88}
+          delay={0.08}
+          showLaserGlint={true}
+          className="max-w-4xl mx-auto mt-6"
+        >
           <h1
             id="hero-heading"
-            className="font-display mt-6 text-4xl sm:text-6xl md:text-7xl font-extrabold leading-[1.06] tracking-tight text-[var(--color-text-primary)]"
+            className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold leading-[1.06] tracking-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]"
           >
-            A quieter way to become who you're trying to be.
+            <span className="bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-950 dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-400 bg-clip-text text-transparent block sm:inline">
+              A quieter way to become
+            </span>{" "}
+            <span className="bg-gradient-to-b from-black via-zinc-950 to-black dark:from-white dark:via-zinc-50 dark:to-zinc-200 bg-clip-text text-transparent font-black block sm:inline">
+              who you're trying to be.
+            </span>
           </h1>
-        </Reveal>
+        </MysteriousClipReveal>
 
-        {/* Value Proposition */}
-        <Reveal delayMs={160}>
+        {/* Value Proposition with Atmospheric Lift */}
+        <AtmosphericLift yOffset={16} blurAmount={6} duration={0.65} delay={0.16}>
           <p className="mt-6 max-w-2xl text-base sm:text-xl text-[var(--color-text-secondary)] leading-relaxed font-body">
-            Not another streak app that shames you for having a life. A local-first,
+            Not another streak app that shames you for having a life. A quiet,
             mathematically buffered trajectory engine that absorbs life's volatility and
             proves your cumulative velocity.
           </p>
-        </Reveal>
+        </AtmosphericLift>
 
         {/* Inline Fast Reservation Component */}
-        <Reveal delayMs={240} className="mt-8 sm:mt-10 w-full max-w-md">
+        <AtmosphericLift yOffset={18} blurAmount={6} duration={0.65} delay={0.24} className="mt-8 sm:mt-10 w-full max-w-md">
           {fastJoined ? (
             <div className="p-3.5 rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] flex items-center justify-center gap-2 font-tech-mono text-xs text-[var(--color-text-primary)] shadow-xs">
               <span className="flex size-5 items-center justify-center rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-950">
@@ -100,18 +112,20 @@ export function Hero({ onFastSubmit }: HeroProps) {
           )}
 
           {/* Quiet Trust Line */}
-          <div className="mt-3 flex items-center justify-center gap-4 text-[11px] font-tech-mono text-[var(--color-text-muted)]">
-            <span className="flex items-center gap-1">
-              <Lock size={11} className="text-[var(--color-text-primary)]" /> Local-first vault
+          <div className="mt-3 flex items-center justify-center gap-3 text-[11px] font-tech-mono text-[var(--color-text-muted)]">
+            <span className="flex items-center gap-1 font-semibold text-[var(--color-text-primary)]">
+              <Check size={12} strokeWidth={2.5} /> Free Forever
             </span>
-            <span>·</span>
+            <span>•</span>
             <span className="flex items-center gap-1">
-              <ShieldCheck size={11} className="text-[var(--color-text-primary)]" /> Zero data harvesting
+              <Lock size={11} className="text-[var(--color-text-primary)]" /> 100% Private Offline Vault
             </span>
-            <span>·</span>
-            <span>100% Free local tier</span>
+            <span>•</span>
+            <span className="flex items-center gap-1">
+              <ShieldCheck size={11} className="text-[var(--color-text-primary)]" /> Zero Telemetry
+            </span>
           </div>
-        </Reveal>
+        </AtmosphericLift>
 
         {/* Secondary Exploration Link */}
         <Reveal delayMs={300} className="mt-4">
@@ -125,11 +139,9 @@ export function Hero({ onFastSubmit }: HeroProps) {
         </Reveal>
       </div>
 
-      {/* Hero Visual Anchor: Pristine Neoskeuomorphic Dashboard Preview */}
-      <div className="mt-12 sm:mt-16">
-        <Reveal delayMs={360}>
-          <DashboardMockup />
-        </Reveal>
+      {/* Hero Visual Anchor: Authentic In-App Product Preview Console */}
+      <div className="mt-12 sm:mt-16 w-full">
+        <ProductSneakPeek />
       </div>
     </section>
   );
