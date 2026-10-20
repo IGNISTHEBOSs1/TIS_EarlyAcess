@@ -49,14 +49,14 @@ export function DataSafetySection() {
             <Reveal
               key={pillar.title}
               delayMs={i * 70}
-              className="kinetic-specular-box p-6 sm:p-7 rounded-2xl border border-[var(--color-border-default)] flex flex-col justify-between"
+              className="kinetic-specular-box p-6 sm:p-7 rounded-2xl flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="size-9 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] flex items-center justify-center text-[var(--color-text-primary)] shadow-xs">
+                  <div className="size-9 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-white/[0.04] flex items-center justify-center text-[var(--color-text-primary)] [box-shadow:inset_0_1px_1px_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.05)] dark:[box-shadow:inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_2px_rgba(0,0,0,0.3)]">
                     <Icon size={16} />
                   </div>
-                  <span className="font-tech-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border border-[var(--color-border-default)] text-[var(--color-text-muted)] bg-[var(--color-bg-surface)]">
+                  <span className="stat-chip px-2.5 py-0.5 font-tech-mono text-[10px] uppercase tracking-wider text-[var(--color-text-muted)]">
                     {pillar.tag}
                   </span>
                 </div>
@@ -68,7 +68,7 @@ export function DataSafetySection() {
                 </p>
               </div>
 
-              <div className="mt-6 pt-3.5 border-t border-[var(--color-border-default)] flex items-center justify-between text-[10px] font-tech-mono text-[var(--color-text-muted)]">
+              <div className="mt-6 pt-3.5 border-t border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between text-[10px] font-tech-mono text-[var(--color-text-muted)]">
                 <span>CLIENT-SIDE AUDITABLE</span>
                 <span className="text-[var(--color-text-primary)] font-semibold">100% PRIVATE</span>
               </div>
@@ -79,7 +79,7 @@ export function DataSafetySection() {
 
       {/* Export & Purge Sovereignty Bar */}
       <Reveal delayMs={240} className="mt-6">
-        <div className="p-4 rounded-xl border border-[var(--color-border-default)] bg-black/[0.02] dark:bg-white/[0.02] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-tech-mono text-[var(--color-text-secondary)]">
+        <div className="p-4 rounded-xl debossed-well flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-tech-mono text-[var(--color-text-secondary)]">
           <div className="flex items-center gap-2">
             <Database size={14} className="text-[var(--color-text-primary)] shrink-0" />
             <span>DATA PORTABILITY: 1-click JSON export & 1-click complete zero-trace local device wipe.</span>

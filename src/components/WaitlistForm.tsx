@@ -119,7 +119,7 @@ export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps)
       <Reveal>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <Eyebrow variant="badge">ACT 05 // COHORT 01 ENROLLMENT</Eyebrow>
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-[11px] font-tech-mono text-[var(--color-text-secondary)] shadow-xs">
+          <div className="stat-chip px-3 py-1 text-[11px] font-tech-mono text-[var(--color-text-secondary)]">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-400 dark:bg-zinc-200 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-zinc-900 dark:bg-zinc-100" />
@@ -142,13 +142,13 @@ export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps)
       </Reveal>
 
       <Reveal delayMs={160} className="mt-10">
-        <div className="kinetic-specular-box p-6 sm:p-10 rounded-2xl md:rounded-3xl border border-[var(--color-border-default)]">
+        <div className="kinetic-specular-box p-6 sm:p-10 rounded-2xl md:rounded-3xl">
           {status === "success" && ticket ? (
             /* Secured Cohort Pass State */
             <div className="space-y-6">
-              <div className="flex items-center justify-between pb-4 border-b border-[var(--color-border-default)]">
+              <div className="flex items-center justify-between pb-4 border-b border-black/[0.08] dark:border-white/[0.08]">
                 <div className="flex items-center gap-2">
-                  <span className="flex size-6 items-center justify-center rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
+                  <span className="flex size-6 items-center justify-center rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-xs">
                     <Check size={14} strokeWidth={2.5} />
                   </span>
                   <span className="font-tech-mono text-xs uppercase tracking-widest text-[var(--color-text-primary)] font-bold">
@@ -161,7 +161,7 @@ export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps)
               </div>
 
               {/* Digital Access Pass Voucher */}
-              <div className="p-6 rounded-2xl border border-black/15 dark:border-white/20 bg-black/[0.03] dark:bg-white/[0.03] flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="p-6 rounded-2xl border border-black/15 dark:border-white/20 bg-linear-to-br from-white via-zinc-50 to-zinc-100 dark:from-zinc-900 dark:via-zinc-900/90 dark:to-zinc-950 [box-shadow:inset_0_1px_1px_rgba(255,255,255,1),0_4px_16px_-2px_rgba(0,0,0,0.06)] dark:[box-shadow:inset_0_1px_1px_rgba(255,255,255,0.18),0_8px_24px_rgba(0,0,0,0.5)] flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div>
                   <span className="font-tech-mono text-[10px] uppercase tracking-wider text-[var(--color-text-muted)]">
                     FOUNDING COHORT TICKET
@@ -196,7 +196,7 @@ export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps)
 
               {/* Safety Guarantees Confirmation */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                <div className="p-3 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-xs">
+                <div className="p-3 rounded-xl debossed-well text-xs">
                   <span className="font-display font-bold text-[var(--color-text-primary)] block">
                     Zero Marketing Drips
                   </span>
@@ -204,7 +204,7 @@ export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps)
                     1 single launch email only
                   </span>
                 </div>
-                <div className="p-3 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-xs">
+                <div className="p-3 rounded-xl debossed-well text-xs">
                   <span className="font-display font-bold text-[var(--color-text-primary)] block">
                     Local-First Tier Included
                   </span>
@@ -212,7 +212,7 @@ export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps)
                     100% Free forever
                   </span>
                 </div>
-                <div className="p-3 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-xs">
+                <div className="p-3 rounded-xl debossed-well text-xs">
                   <span className="font-display font-bold text-[var(--color-text-primary)] block">
                     Data Sovereignty
                   </span>
@@ -253,7 +253,7 @@ export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps)
                     onChange={(e) => setEmail(e.target.value)}
                     aria-invalid={!!error}
                     aria-describedby={error ? `${emailId}-error` : undefined}
-                    className="w-full px-4 py-3.5 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-border-focus)] focus:ring-1 focus:ring-[var(--color-border-focus)] font-body text-base transition-all"
+                    className="w-full px-4 py-3.5 rounded-xl tactile-input text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-border-focus)] focus:ring-1 focus:ring-[var(--color-border-focus)] font-body text-base transition-all"
                   />
                 </div>
                 {error && (
@@ -283,7 +283,7 @@ export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps)
                       placeholder="e.g., Streak apps always reset when I travel or get sick, which ruins my motivation..."
                       value={context}
                       onChange={(e) => setContext(e.target.value)}
-                      className="w-full p-3.5 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-border-focus)] text-xs sm:text-sm font-body resize-none transition-all"
+                      className="w-full p-3.5 rounded-xl tactile-input text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-border-focus)] text-xs sm:text-sm font-body resize-none transition-all"
                     />
                   </div>
                 )}

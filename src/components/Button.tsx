@@ -36,11 +36,11 @@ export function Button({
 
   const variantClasses = {
     primary:
-      "bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 shadow-[0_2px_8px_rgba(0,0,0,0.15),inset_0_1px_1px_rgba(255,255,255,0.25)] dark:shadow-[0_4px_16px_rgba(255,255,255,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:opacity-95 hover:shadow-md",
+      "bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 shadow-[0_2px_8px_rgba(0,0,0,0.18),inset_0_1px_1px_rgba(255,255,255,0.25)] dark:shadow-[0_4px_16px_rgba(255,255,255,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:opacity-95 hover:shadow-md",
     secondary:
-      "bg-zinc-200/80 text-zinc-900 dark:bg-zinc-800/80 dark:text-zinc-100 border border-black/5 dark:border-white/10 hover:bg-zinc-300/80 dark:hover:bg-zinc-700/80",
+      "bg-zinc-200/90 text-zinc-900 dark:bg-zinc-800/80 dark:text-zinc-100 border border-black/10 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_2px_rgba(0,0,0,0.3)] hover:bg-zinc-300/80 dark:hover:bg-zinc-700/80",
     outline:
-      "bg-transparent text-[var(--color-text-primary)] border border-[var(--color-border-default)] hover:border-[var(--color-text-primary)] hover:bg-black/[0.03] dark:hover:bg-white/[0.04]",
+      "bg-white dark:bg-transparent text-[var(--color-text-primary)] border border-black/12 dark:border-[var(--color-border-default)] shadow-[0_1px_2px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,1)] dark:shadow-none hover:border-[var(--color-text-primary)] hover:bg-black/[0.03] dark:hover:bg-white/[0.04]",
     ghost:
       "bg-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-black/[0.04] dark:hover:bg-white/[0.05]",
   }[variant];

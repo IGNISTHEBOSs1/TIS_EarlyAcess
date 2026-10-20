@@ -117,16 +117,16 @@
 
 /* Floating Glass Island (Navbar / Island Docks) */
 .kinetic-glass-island {
-  backdrop-filter: blur(28px) saturate(200%);
-  -webkit-backdrop-filter: blur(28px) saturate(200%);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(245, 245, 248, 0.82) 100%);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(246, 247, 250, 0.84) 100%);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-top-color: rgba(255, 255, 255, 0.95);
+  border-top-color: rgba(255, 255, 255, 1);
   box-shadow:
     inset 0 1px 1px 0 rgba(255, 255, 255, 1),
-    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.03),
     0 12px 32px -4px rgba(0, 0, 0, 0.07),
-    0 1px 3px 0 rgba(0, 0, 0, 0.04);
+    0 1px 3px 0 rgba(0, 0, 0, 0.03);
 }
 
 [data-theme="dark"] .kinetic-glass-island,
@@ -143,12 +143,14 @@
 
 /* Neoskeuomorphic Specular Box (Cards & Interactive Modules) */
 .kinetic-specular-box {
-  background-color: var(--color-bg-elevated);
-  border: 1px solid var(--color-border-default);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 251, 253, 0.92) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top-color: rgba(255, 255, 255, 1);
   box-shadow:
-    0 12px 32px -4px rgba(0, 0, 0, 0.06),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
-    0 1px 2px 0 rgba(0, 0, 0, 0.04);
+    inset 0 1px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.02),
+    0 12px 32px -4px rgba(0, 0, 0, 0.07),
+    0 1px 3px 0 rgba(0, 0, 0, 0.03);
   border-radius: var(--radius-lg);
   position: relative;
   transition: all var(--duration-base) var(--easing-standard);
@@ -156,11 +158,74 @@
 
 [data-theme="dark"] .kinetic-specular-box,
 .dark .kinetic-specular-box {
-  background-color: var(--color-bg-surface);
+  background: linear-gradient(180deg, rgba(20, 23, 31, 0.95) 0%, rgba(15, 17, 23, 0.90) 100%);
   border: 1px solid rgba(148, 163, 184, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.22);
   box-shadow:
-    0 16px 40px -4px rgba(0, 0, 0, 0.55),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.35),
+    0 16px 40px -4px rgba(0, 0, 0, 0.60);
+}
+
+/* Debossed Wells (Sub-panels, tracks, recessed sections inside cards) */
+.debossed-well {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow:
+    inset 0 1px 2px 0 rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.02),
+    0 1px 0 0 rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .debossed-well,
+.dark .debossed-well {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 2px 5px 0 rgba(0, 0, 0, 0.5),
+    0 1px 0 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Stat Chips & Micro Badges */
+.stat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: var(--radius-full);
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.85),
+    0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  transition: all var(--duration-fast) var(--easing-standard);
+}
+
+[data-theme="dark"] .stat-chip,
+.dark .stat-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+    0 1px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Tactile Input Fields */
+.tactile-input {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow:
+    inset 0 1px 2px 0 rgba(0, 0, 0, 0.06),
+    0 1px 0 0 rgba(255, 255, 255, 0.9);
+  transition: all var(--duration-fast) var(--easing-standard);
+}
+
+[data-theme="dark"] .tactile-input,
+.dark .tactile-input {
+  background-color: var(--color-bg-surface);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  box-shadow:
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.45),
+    0 1px 0 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Obsidian Card Layer */
@@ -173,19 +238,22 @@
 
 /* Frosted Liquid Glass Card */
 .liquid-glass {
-  backdrop-filter: blur(24px) saturate(185%);
-  -webkit-backdrop-filter: blur(24px) saturate(185%);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(245, 245, 248, 0.65) 100%);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.90) 0%, rgba(246, 247, 250, 0.72) 100%);
   border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top-color: rgba(255, 255, 255, 1);
   box-shadow:
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.9),
-    0 12px 36px -6px rgba(0, 0, 0, 0.06);
+    inset 0 1px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.03),
+    0 12px 36px -6px rgba(0, 0, 0, 0.07);
 }
 
 [data-theme="dark"] .liquid-glass,
 .dark .liquid-glass {
   background: linear-gradient(180deg, rgba(22, 25, 34, 0.78) 0%, rgba(14, 16, 22, 0.62) 100%);
   border: 1px solid rgba(148, 163, 184, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.22);
   box-shadow:
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.14),
     inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4),

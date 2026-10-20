@@ -20,7 +20,7 @@ export function AccordionItem({ question, answer, isOpen, onToggle }: AccordionI
   };
 
   return (
-    <div className="border-b border-[var(--color-border-default)] transition-colors">
+    <div className="border-b border-black/[0.08] dark:border-white/[0.08] transition-colors">
       <h3>
         <button
           id={buttonId}
@@ -32,7 +32,7 @@ export function AccordionItem({ question, answer, isOpen, onToggle }: AccordionI
         >
           <span>{question}</span>
           <span
-            className={`flex size-7 items-center justify-center rounded-full border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-[var(--color-text-secondary)] shrink-0 transition-transform duration-200 ${
+            className={`flex size-7 items-center justify-center rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-zinc-800 text-[var(--color-text-secondary)] shrink-0 transition-transform duration-200 [box-shadow:inset_0_1px_1px_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.06)] dark:[box-shadow:inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_2px_rgba(0,0,0,0.4)] ${
               isOpen ? "rotate-180" : ""
             }`}
           >

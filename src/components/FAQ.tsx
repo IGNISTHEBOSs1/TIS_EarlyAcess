@@ -58,7 +58,7 @@ export function FAQ() {
       </Reveal>
 
       <Reveal delayMs={160} className="mt-10">
-        <div className="kinetic-specular-box p-6 sm:p-10 rounded-2xl md:rounded-3xl border border-[var(--color-border-default)]">
+        <div className="kinetic-specular-box p-6 sm:p-10 rounded-2xl md:rounded-3xl">
           {FAQS.map((item, i) => (
             <AccordionItem
               key={item.question}

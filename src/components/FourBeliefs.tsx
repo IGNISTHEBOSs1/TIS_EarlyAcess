@@ -68,11 +68,11 @@ export function FourBeliefs() {
             <Reveal
               key={rule.num}
               delayMs={i * 80}
-              className="kinetic-specular-box p-6 sm:p-7 rounded-2xl border border-[var(--color-border-default)] flex flex-col justify-between"
+              className="kinetic-specular-box p-6 sm:p-7 rounded-2xl flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="size-10 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] flex items-center justify-center text-[var(--color-text-primary)] shadow-xs">
+                  <div className="size-10 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-white/[0.04] flex items-center justify-center text-[var(--color-text-primary)] [box-shadow:inset_0_1px_1px_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.05)] dark:[box-shadow:inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_2px_rgba(0,0,0,0.3)]">
                     <Icon size={18} />
                   </div>
                   <span className="font-tech-mono font-bold text-xs text-[var(--color-text-muted)] tracking-wider">
@@ -91,13 +91,13 @@ export function FourBeliefs() {
                   {rule.what}
                 </p>
 
-                <div className="mt-4 p-3 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-[11px] leading-relaxed text-[var(--color-text-secondary)] font-body">
+                <div className="mt-4 p-3 rounded-xl debossed-well text-[11px] leading-relaxed text-[var(--color-text-secondary)] font-body">
                   <strong className="text-[var(--color-text-primary)] font-semibold">Prevents: </strong>
                   {rule.prevents}
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-[var(--color-border-default)] flex items-center justify-between font-tech-mono text-[10px] text-[var(--color-text-muted)]">
+              <div className="mt-6 pt-4 border-t border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between font-tech-mono text-[10px] text-[var(--color-text-muted)]">
                 <span>ENFORCED AT RUNTIME</span>
                 <span className="text-[var(--color-text-primary)] font-bold">100% DETERMINISTIC</span>
               </div>

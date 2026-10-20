@@ -76,13 +76,13 @@ export function TrajectoryVisualizer() {
             </div>
 
             {/* Interactive Scenario Switcher */}
-            <div className="flex items-center gap-1.5 p-1 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] self-start sm:self-auto">
+            <div className="flex items-center gap-1.5 p-1 rounded-xl debossed-well self-start sm:self-auto">
               <button
                 type="button"
                 onClick={() => handleSelectScenario("normal")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-tech-mono transition-all tactile-press ${
                   scenario === "normal"
-                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-xs font-semibold"
+                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-[0_2px_6px_rgba(0,0,0,0.18),inset_0_1px_1px_rgba(255,255,255,0.25)] font-semibold"
                     : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
@@ -93,7 +93,7 @@ export function TrajectoryVisualizer() {
                 onClick={() => handleSelectScenario("missed")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-tech-mono transition-all tactile-press ${
                   scenario === "missed"
-                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-xs font-semibold"
+                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-[0_2px_6px_rgba(0,0,0,0.18),inset_0_1px_1px_rgba(255,255,255,0.25)] font-semibold"
                     : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
@@ -104,7 +104,7 @@ export function TrajectoryVisualizer() {
                 onClick={() => handleSelectScenario("recovering")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-tech-mono transition-all tactile-press ${
                   scenario === "recovering"
-                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-xs font-semibold"
+                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-[0_2px_6px_rgba(0,0,0,0.18),inset_0_1px_1px_rgba(255,255,255,0.25)] font-semibold"
                     : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
@@ -116,13 +116,13 @@ export function TrajectoryVisualizer() {
           {/* Side-by-Side Reality Matrix */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
             {/* Conventional Streak App Outcome */}
-            <div className="p-5 sm:p-6 rounded-xl border border-[var(--color-border-default)] bg-black/[0.02] dark:bg-white/[0.02] flex flex-col justify-between">
+            <div className="p-5 sm:p-6 rounded-xl debossed-well flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5 text-xs font-tech-mono text-[var(--color-text-muted)] uppercase tracking-wider">
                     <X size={13} /> Conventional Streak App
                   </span>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-tech-mono uppercase tracking-wide border border-[var(--color-border-default)] text-[var(--color-text-muted)]">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-tech-mono uppercase tracking-wide border border-black/10 dark:border-white/10 text-[var(--color-text-muted)] bg-black/[0.02] dark:bg-white/[0.04]">
                     Day 0 Reset Penalty
                   </span>
                 </div>
@@ -153,15 +153,15 @@ export function TrajectoryVisualizer() {
                 </p>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-[var(--color-border-default)] flex items-center justify-between text-[11px] font-tech-mono text-[var(--color-text-muted)]">
+              <div className="mt-5 pt-3 border-t border-black/10 dark:border-white/10 flex items-center justify-between text-[11px] font-tech-mono text-[var(--color-text-muted)]">
                 <span>Psychological Cost: Shame & Guilt</span>
                 <span>Mechanism: Binary 1 or 0</span>
               </div>
             </div>
 
             {/* Kinetic Trajectory Engine Outcome */}
-            <div className="p-5 sm:p-6 rounded-xl border border-black/15 dark:border-white/20 bg-black/[0.04] dark:bg-white/[0.04] shadow-sm flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 right-0 px-3 py-1 bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-[10px] font-tech-mono font-bold tracking-widest uppercase rounded-bl-lg">
+            <div className="p-5 sm:p-6 rounded-xl border border-black/12 dark:border-white/20 bg-white/95 dark:bg-zinc-900/90 [box-shadow:inset_0_1px_1px_0_rgba(255,255,255,1),0_8px_24px_-4px_rgba(0,0,0,0.08)] dark:[box-shadow:inset_0_1px_1px_0_rgba(255,255,255,0.18),0_12px_32px_rgba(0,0,0,0.6)] flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 right-0 px-3 py-1 bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-[10px] font-tech-mono font-bold tracking-widest uppercase rounded-bl-lg shadow-xs">
                 BUFFER PROTECTED
               </div>
 
@@ -198,7 +198,7 @@ export function TrajectoryVisualizer() {
                 </p>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-[var(--color-border-default)] flex items-center justify-between text-[11px] font-tech-mono text-[var(--color-text-primary)] font-semibold">
+              <div className="mt-5 pt-3 border-t border-black/10 dark:border-white/10 flex items-center justify-between text-[11px] font-tech-mono text-[var(--color-text-primary)] font-semibold">
                 <span className="flex items-center gap-1">
                   <ShieldCheck size={13} /> Vector Unbroken
                 </span>
@@ -215,7 +215,7 @@ export function TrajectoryVisualizer() {
               <span>DAY 14 // RECENT VECTOR</span>
             </div>
 
-            <div className="relative h-32 sm:h-36 w-full rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] p-2 overflow-hidden flex items-end">
+            <div className="relative h-32 sm:h-36 w-full rounded-xl debossed-well p-2 overflow-hidden flex items-end">
               {/* Shaded Corridor */}
               <svg className="absolute inset-0 h-full w-full" preserveAspectRatio="none" viewBox="0 0 100 100">
                 <polygon

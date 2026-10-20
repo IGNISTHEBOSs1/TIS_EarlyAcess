@@ -18,7 +18,7 @@ export function ProductSneakPeek({ className = "" }: ProductSneakPeekProps) {
       aria-label="Kinetic in-app preview console"
     >
       {/* Anchored Floating Telemetry Chips */}
-      <div className="hidden md:flex absolute -top-5 left-4 items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-black/[0.08] dark:border-white/[0.08] bg-[var(--color-bg-elevated)]/90 backdrop-blur-xl text-[11px] text-[var(--color-text-secondary)] shadow-sm pointer-events-none z-20 font-tech-mono">
+      <div className="hidden md:flex absolute -top-5 left-4 stat-chip px-3.5 py-1.5 text-[11px] text-[var(--color-text-secondary)] pointer-events-none z-20 font-tech-mono backdrop-blur-xl">
         <span className="size-2 rounded-full bg-[var(--color-text-primary)] animate-pulse" />
         <span className="text-[var(--color-text-primary)] font-bold">
           Velocity: 1.25x
@@ -26,7 +26,7 @@ export function ProductSneakPeek({ className = "" }: ProductSneakPeekProps) {
         <span className="text-[var(--color-text-muted)]">• +16d Margin</span>
       </div>
 
-      <div className="hidden md:flex absolute -top-5 right-4 items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-black/[0.08] dark:border-white/[0.08] bg-[var(--color-bg-elevated)]/90 backdrop-blur-xl text-[11px] text-[var(--color-text-secondary)] shadow-sm pointer-events-none z-20 font-tech-mono">
+      <div className="hidden md:flex absolute -top-5 right-4 stat-chip px-3.5 py-1.5 text-[11px] text-[var(--color-text-secondary)] pointer-events-none z-20 font-tech-mono backdrop-blur-xl">
         <ShieldCheck size={14} className="text-[var(--color-text-primary)]" />
         <span className="text-[var(--color-text-primary)] font-bold">
           ±10% Safety Buffer
@@ -42,7 +42,7 @@ export function ProductSneakPeek({ className = "" }: ProductSneakPeekProps) {
         showLaserGlint={true}
         className="rounded-2xl md:rounded-3xl"
       >
-        <div className="relative rounded-2xl md:rounded-3xl border border-black/[0.1] dark:border-white/[0.12] bg-[var(--color-bg-surface)]/85 backdrop-blur-2xl shadow-xl overflow-hidden kinetic-specular-box">
+        <div className="relative rounded-2xl md:rounded-3xl overflow-hidden kinetic-specular-box">
           {/* Top Bar HUD Chrome */}
           <div className="flex items-center justify-between px-3.5 sm:px-6 py-2.5 sm:py-3 border-b border-[var(--color-border-default)] bg-black/[0.02] dark:bg-white/[0.02] text-xs backdrop-blur-md">
             <div className="flex items-center gap-2">
@@ -55,7 +55,7 @@ export function ProductSneakPeek({ className = "" }: ProductSneakPeekProps) {
             </div>
 
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border-default)] text-[10px] font-tech-mono text-[var(--color-text-secondary)] shadow-xs">
+              <div className="stat-chip px-2.5 py-1 text-[10px] font-tech-mono text-[var(--color-text-secondary)]">
                 <span className="size-1.5 rounded-full bg-[var(--color-text-primary)]" />
                 <span className="uppercase tracking-wider">In-App View</span>
               </div>
@@ -69,7 +69,7 @@ export function ProductSneakPeek({ className = "" }: ProductSneakPeekProps) {
               alt="Kinetic actual app interface preview"
               width={1024}
               height={580}
-              className="w-full h-auto object-cover max-h-[580px] rounded-xl border border-[var(--color-border-default)] shadow-xs"
+              className="w-full h-auto object-cover max-h-[580px] rounded-xl border border-black/[0.08] dark:border-white/[0.1] shadow-xs"
               loading="eager"
             />
           </div>

@@ -89,8 +89,8 @@ export function Hero({ onFastSubmit }: HeroProps) {
         {/* Inline Fast Reservation Component */}
         <AtmosphericLift yOffset={18} blurAmount={6} duration={0.65} delay={0.24} className="mt-8 sm:mt-10 w-full max-w-md">
           {fastJoined ? (
-            <div className="p-3.5 rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] flex items-center justify-center gap-2 font-tech-mono text-xs text-[var(--color-text-primary)] shadow-xs">
-              <span className="flex size-5 items-center justify-center rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-950">
+            <div className="p-3.5 rounded-2xl debossed-well flex items-center justify-center gap-2 font-tech-mono text-xs text-[var(--color-text-primary)]">
+              <span className="flex size-5 items-center justify-center rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 shadow-xs">
                 <Check size={12} strokeWidth={2.5} />
               </span>
               <span>Fast seat reserved. Scrolling to your digital pass...</span>
@@ -103,7 +103,7 @@ export function Hero({ onFastSubmit }: HeroProps) {
                 placeholder="Enter your email to request access..."
                 value={fastEmail}
                 onChange={(e) => setFastEmail(e.target.value)}
-                className="flex-1 px-4 py-3 rounded-full border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-border-focus)] focus:ring-1 focus:ring-[var(--color-border-focus)] font-body shadow-xs transition-all"
+                className="flex-1 px-4 py-3 rounded-full tactile-input text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-border-focus)] focus:ring-1 focus:ring-[var(--color-border-focus)] font-body transition-all"
               />
               <Button type="submit" variant="primary" size="md" icon className="shrink-0 shadow-md">
                 Reserve Seat
