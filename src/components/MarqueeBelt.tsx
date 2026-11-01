@@ -17,7 +17,8 @@ export function MarqueeBelt() {
 
   return (
     <div
-      className="relative overflow-hidden border-y border-[var(--color-border-default)] py-8 bg-black/[0.01] dark:bg-white/[0.01]"
+      className="relative w-full max-w-full overflow-hidden border-y border-[var(--color-border-default)] py-8 bg-black/[0.01] dark:bg-white/[0.01]"
+      style={{ overflow: "hidden", maxWidth: "100vw" }}
       aria-hidden="true"
     >
       <div className="flex w-max animate-marquee gap-12 sm:gap-16">

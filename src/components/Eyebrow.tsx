@@ -14,10 +14,10 @@ export function Eyebrow({ children, variant = "line", className = "" }: EyebrowP
   if (variant === "badge") {
     return (
       <div
-        className={`stat-chip px-3 py-1 font-[var(--font-mono)] text-xs text-[var(--color-text-secondary)] ${className}`}
+        className={`stat-chip px-3 py-1 font-[var(--font-mono)] text-[11px] sm:text-xs text-[var(--color-text-secondary)] ${className}`}
       >
         <span className="h-1.5 w-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100" />
-        <span className="uppercase tracking-widest">{children}</span>
+        <span className="uppercase tracking-wider">{children}</span>
       </div>
     );
   }

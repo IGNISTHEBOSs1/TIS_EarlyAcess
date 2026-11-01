@@ -168,19 +168,21 @@ export function MonochromaticMeshBackground() {
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-100" />
       )}
 
-      {/* Ambient Volumetric Parallax Diffusions */}
-      <motion.div
-        style={{ y: orb1Y }}
-        className="absolute -top-32 -left-24 w-[520px] h-[520px] rounded-full bg-zinc-400/[0.14] dark:bg-white/[0.05] blur-[140px] pointer-events-none"
-      />
-      <motion.div
-        style={{ y: orb2Y }}
-        className="absolute top-1/2 -right-32 w-[480px] h-[480px] rounded-full bg-zinc-500/[0.12] dark:bg-zinc-700/15 blur-[150px] pointer-events-none"
-      />
-      <motion.div
-        style={{ y: orb3Y }}
-        className="absolute -bottom-32 left-1/3 w-[460px] h-[460px] rounded-full bg-zinc-400/[0.14] dark:bg-white/[0.04] blur-[140px] pointer-events-none"
-      />
+      {/* Ambient Volumetric Parallax Diffusions (Strictly clipped to viewport) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          style={{ y: orb1Y }}
+          className="absolute -top-32 -left-24 w-[360px] sm:w-[520px] h-[360px] sm:h-[520px] rounded-full bg-zinc-400/[0.14] dark:bg-white/[0.05] blur-[100px] sm:blur-[140px] pointer-events-none"
+        />
+        <motion.div
+          style={{ y: orb2Y }}
+          className="absolute top-1/2 -right-32 w-[340px] sm:w-[480px] h-[340px] sm:h-[480px] rounded-full bg-zinc-500/[0.12] dark:bg-zinc-700/15 blur-[100px] sm:blur-[150px] pointer-events-none"
+        />
+        <motion.div
+          style={{ y: orb3Y }}
+          className="absolute -bottom-32 left-1/3 w-[320px] sm:w-[460px] h-[320px] sm:h-[460px] rounded-full bg-zinc-400/[0.14] dark:bg-white/[0.04] blur-[100px] sm:blur-[140px] pointer-events-none"
+        />
+      </div>
     </div>
   );
 }

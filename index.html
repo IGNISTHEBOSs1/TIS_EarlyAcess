@@ -37,7 +37,9 @@
     <script>
       (function () {
         try {
-          var stored = localStorage.getItem("kinetic-theme");
+          var params = new URLSearchParams(window.location.search);
+          var queryTheme = params.get("theme");
+          var stored = queryTheme || localStorage.getItem("kinetic-theme");
           var theme =
             stored === "light" || stored === "dark"
               ? stored

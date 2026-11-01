@@ -47,39 +47,38 @@ export function Hero({ onFastSubmit }: HeroProps) {
   return (
     <section
       id="top"
-      className="relative mx-auto max-w-6xl px-6 pt-24 sm:pt-32 pb-12 sm:pb-16"
+      className="relative mx-auto w-full max-w-6xl px-3.5 sm:px-6 pt-20 sm:pt-32 pb-12 sm:pb-16"
       aria-labelledby="hero-heading"
     >
       <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
         {/* Cohort Scarcity Telemetry Eyebrow with Atmospheric Lift */}
-        <AtmosphericLift yOffset={12} blurAmount={4}>
-          <Eyebrow variant="badge">COHORT 01 // 250 FOUNDING SEATS FORMING</Eyebrow>
+        <AtmosphericLift yOffset={6}>
+          <Eyebrow variant="badge">
+            <span className="hidden sm:inline">COHORT 01 // 250 FOUNDING SEATS FORMING</span>
+            <span className="sm:hidden">COHORT 01 // 250 SEATS FORMING</span>
+          </Eyebrow>
         </AtmosphericLift>
 
-        {/* 3-Second Clarity Headline with Mysterious Clip Reveal & Monochromatic Gradient */}
+        {/* 3-Second Clarity Headline with Mysterious Clip Reveal */}
         <MysteriousClipReveal
           direction="horizontal"
-          duration={0.88}
-          delay={0.08}
-          showLaserGlint={true}
+          duration={0.32}
+          delay={0.04}
+          showLaserGlint={false}
           className="max-w-4xl mx-auto mt-6"
         >
           <h1
             id="hero-heading"
-            className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold leading-[1.06] tracking-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]"
+            className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight text-[var(--color-text-primary)]"
           >
-            <span className="bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-950 dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-400 bg-clip-text text-transparent block sm:inline">
-              A quieter way to become
-            </span>{" "}
-            <span className="bg-gradient-to-b from-black via-zinc-950 to-black dark:from-white dark:via-zinc-50 dark:to-zinc-200 bg-clip-text text-transparent font-black block sm:inline">
-              who you're trying to be.
-            </span>
+            A quieter way to become{" "}
+            <span className="block sm:inline">who you're trying to be.</span>
           </h1>
         </MysteriousClipReveal>
 
         {/* Value Proposition with Atmospheric Lift */}
-        <AtmosphericLift yOffset={16} blurAmount={6} duration={0.65} delay={0.16}>
-          <p className="mt-6 max-w-2xl text-base sm:text-xl text-[var(--color-text-secondary)] leading-relaxed font-body">
+        <AtmosphericLift yOffset={8} duration={0.28} delay={0.08}>
+          <p className="mt-5 max-w-2xl text-sm sm:text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed font-body">
             Not another streak app that shames you for having a life. A quiet,
             mathematically buffered trajectory engine that absorbs life's volatility and
             proves your cumulative velocity.
@@ -87,7 +86,7 @@ export function Hero({ onFastSubmit }: HeroProps) {
         </AtmosphericLift>
 
         {/* Inline Fast Reservation Component */}
-        <AtmosphericLift yOffset={18} blurAmount={6} duration={0.65} delay={0.24} className="mt-8 sm:mt-10 w-full max-w-md">
+        <AtmosphericLift yOffset={8} duration={0.28} delay={0.12} className="mt-8 sm:mt-10 w-full max-w-md">
           {fastJoined ? (
             <div className="p-3.5 rounded-2xl debossed-well flex items-center justify-center gap-2 font-tech-mono text-xs text-[var(--color-text-primary)]">
               <span className="flex size-5 items-center justify-center rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 shadow-xs">
@@ -112,7 +111,7 @@ export function Hero({ onFastSubmit }: HeroProps) {
           )}
 
           {/* Quiet Trust Line */}
-          <div className="mt-3 flex items-center justify-center gap-3 text-[11px] font-tech-mono text-[var(--color-text-muted)]">
+          <div className="mt-3.5 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-tech-mono text-[var(--color-text-muted)]">
             <span className="flex items-center gap-1 font-semibold text-[var(--color-text-primary)]">
               <Check size={12} strokeWidth={2.5} /> Free Forever
             </span>
@@ -120,8 +119,8 @@ export function Hero({ onFastSubmit }: HeroProps) {
             <span className="flex items-center gap-1">
               <Lock size={11} className="text-[var(--color-text-primary)]" /> 100% Private Offline Vault
             </span>
-            <span>•</span>
-            <span className="flex items-center gap-1">
+            <span className="hidden sm:inline">•</span>
+            <span className="hidden sm:flex items-center gap-1">
               <ShieldCheck size={11} className="text-[var(--color-text-primary)]" /> Zero Telemetry
             </span>
           </div>

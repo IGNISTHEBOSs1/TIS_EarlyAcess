@@ -6,6 +6,8 @@ const STORAGE_KEY = "kinetic-theme";
 
 function getInitialTheme(): Theme {
   if (typeof window === "undefined") return "light";
+  const urlParam = new URLSearchParams(window.location.search).get("theme");
+  if (urlParam === "light" || urlParam === "dark") return urlParam;
   const stored = window.localStorage.getItem(STORAGE_KEY);
   if (stored === "light" || stored === "dark") return stored;
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";

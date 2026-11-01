@@ -5,6 +5,7 @@ import { Navbar } from "./Navbar";
 import { Hero } from "./Hero";
 import { MarqueeBelt } from "./MarqueeBelt";
 import { TrajectoryVisualizer } from "./TrajectoryVisualizer";
+import { ComparisonTable } from "./ComparisonTable";
 import { FourBeliefs } from "./FourBeliefs";
 import { DataSafetySection } from "./DataSafetySection";
 import { WaitlistForm } from "./WaitlistForm";
@@ -44,7 +45,10 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="relative min-h-screen text-[var(--color-text-primary)] antialiased bg-[var(--color-bg-page)] selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-950 overflow-x-clip">
+    <div className="relative min-h-screen w-full max-w-full text-[var(--color-text-primary)] antialiased bg-[var(--color-bg-page)] selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-950 overflow-x-hidden">
+      {/* Environmental Shared Lighting & Noise Grain Layer */}
+      <div className="env-light-layer" />
+
       {/* Scroll Scrub Progress Indicator from Kinetic Design System */}
       <motion.div
         style={{ scaleX: scrollYProgress, transformOrigin: "0%" }}
@@ -75,6 +79,9 @@ export default function LandingPage() {
 
         {/* Act 2: Streaks Shatter. Trajectory Absorbs (Interactive Buffer Proof) */}
         <TrajectoryVisualizer />
+
+        {/* Act 2.5: Architectural Safety Comparison Table */}
+        <ComparisonTable />
 
         {/* Act 3: The 3 Invariants (1 Focus + 2 Routines + Buffer Cone) */}
         <FourBeliefs />

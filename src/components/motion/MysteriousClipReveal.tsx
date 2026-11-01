@@ -14,7 +14,7 @@ interface MysteriousClipRevealProps {
 export function MysteriousClipReveal({
   children,
   delay = 0,
-  duration = 0.42,
+  duration = 0.35,
   direction = "horizontal",
   className = "",
   showLaserGlint = false,
@@ -42,13 +42,12 @@ export function MysteriousClipReveal({
       <motion.div
         initial={{
           clipPath: initialClip,
-          opacity: 0.12,
+          opacity: 0.2,
         }}
-        whileInView={{
+        animate={{
           clipPath: animateClip,
           opacity: 1,
         }}
-        viewport={{ once: true, margin: "-6% 0px" }}
         transition={{
           duration,
           delay,
@@ -62,8 +61,7 @@ export function MysteriousClipReveal({
       {showLaserGlint && (
         <motion.div
           initial={{ left: "-30%", opacity: 0 }}
-          whileInView={{ left: "130%", opacity: [0, 0.85, 0] }}
-          viewport={{ once: true, margin: "-6% 0px" }}
+          animate={{ left: "130%", opacity: [0, 0.85, 0] }}
           transition={{
             duration: duration * 1.35,
             delay: delay + 0.05,

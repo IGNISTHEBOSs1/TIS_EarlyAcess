@@ -32,7 +32,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="fixed top-2.5 sm:top-4 inset-x-2.5 sm:inset-x-6 max-w-5xl mx-auto z-50 transition-all duration-300">
+    <header className="fixed top-2.5 sm:top-4 left-1/2 -translate-x-1/2 w-[calc(100%-1.25rem)] sm:w-[calc(100%-3rem)] max-w-5xl z-50 transition-all duration-300">
       <nav
         aria-label="Main Navigation"
         className={`kinetic-glass-island rounded-full px-3 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-4 transition-all duration-200 ${
@@ -52,30 +52,34 @@ export function Navbar() {
             <span className="font-display font-extrabold text-sm sm:text-base tracking-tight text-[var(--color-text-primary)] leading-none">
               KINETIC
             </span>
-            <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 stat-chip text-[9px] font-tech-mono uppercase tracking-wider text-[var(--color-text-muted)]">
-              <span className="size-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100" />
-              Trajectory Engine
+            <span className="hidden sm:inline-flex items-center">
+              <span className="stat-chip px-2 py-0.5 text-[9px] font-tech-mono uppercase tracking-wider text-[var(--color-text-muted)]">
+                <span className="size-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100" />
+                Trajectory Engine
+              </span>
             </span>
           </div>
         </a>
 
-        {/* Live Cohort Radar Chip (strictly monochromatic on medium+ screens) */}
-        <div className="hidden md:flex stat-chip px-3 py-1 text-[11px] font-tech-mono text-[var(--color-text-secondary)]">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-400 dark:bg-zinc-200 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-zinc-900 dark:bg-zinc-100" />
-          </span>
-          <span className="tracking-wider uppercase">COHORT 01 // FORMING</span>
+        {/* Live Cohort Radar Chip (strictly monochromatic on desktop screens) */}
+        <div className="hidden md:flex items-center">
+          <div className="stat-chip px-3 py-1 text-[11px] font-tech-mono text-[var(--color-text-secondary)]">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-400 dark:bg-zinc-200 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-zinc-900 dark:bg-zinc-100" />
+            </span>
+            <span className="tracking-wider uppercase">COHORT 01 // FORMING</span>
+          </div>
         </div>
 
         {/* Interactive Controls & Tactile Mobile-Responsive CTA */}
         <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-          {/* Sound Toggle */}
+          {/* Sound Toggle (hidden on mobile, visible on tablet/desktop) */}
           <button
             type="button"
             onClick={toggleSound}
             aria-label={soundEnabled ? "Mute interface audio" : "Enable interface audio"}
-            className="flex items-center justify-center size-8 sm:size-9 rounded-full border border-black/10 dark:border-white/12 bg-white dark:bg-white/[0.05] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] tactile-press transition-colors [box-shadow:inset_0_1px_1px_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.05)] dark:[box-shadow:inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_2px_rgba(0,0,0,0.3)]"
+            className="hidden sm:flex items-center justify-center size-8 sm:size-9 rounded-full border border-black/10 dark:border-white/12 bg-white dark:bg-white/[0.05] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] tactile-press transition-colors [box-shadow:inset_0_1px_1px_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.05)] dark:[box-shadow:inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_2px_rgba(0,0,0,0.3)]"
           >
             {soundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
           </button>

@@ -15,11 +15,10 @@ interface AtmosphericLiftProps {
 export function AtmosphericLift({
   children,
   delay = 0,
-  duration = 0.38,
-  yOffset = 8,
-  blurAmount = 4,
+  duration = 0.24,
+  yOffset = 6,
+  blurAmount = 0,
   className = "",
-  triggerOnce = true,
 }: AtmosphericLiftProps) {
   const shouldReduce = useReducedMotion();
 
@@ -32,14 +31,13 @@ export function AtmosphericLift({
       initial={{
         opacity: 0,
         y: yOffset,
-        filter: `blur(${blurAmount}px)`,
+        filter: blurAmount > 0 ? `blur(${blurAmount}px)` : undefined,
       }}
-      whileInView={{
+      animate={{
         opacity: 1,
         y: 0,
         filter: "blur(0px)",
       }}
-      viewport={{ once: triggerOnce, margin: "-6% 0px" }}
       transition={{
         duration,
         delay,
