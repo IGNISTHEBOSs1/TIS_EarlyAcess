@@ -70,7 +70,7 @@ export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps)
       const newTicket: StoredTicket = {
         ticketId: `KNT-01-${randomSeq}`,
         email: email.trim(),
-        cohort: "COHORT 01 // FOUNDING TIER",
+        cohort: "Cohort 01 // Founding tier",
         registeredAt: new Date().toLocaleDateString(undefined, {
           month: "short",
           day: "numeric",
@@ -118,13 +118,13 @@ export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps)
     >
       <Reveal>
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <Eyebrow variant="badge">ACT 05 // COHORT 01 ENROLLMENT</Eyebrow>
+          <Eyebrow variant="badge">Act 05 // Cohort 01 enrollment</Eyebrow>
           <div className="stat-chip px-3 py-1 text-[11px] font-tech-mono text-[var(--color-text-secondary)]">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-400 dark:bg-zinc-200 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-zinc-900 dark:bg-zinc-100" />
             </span>
-            <span>250 SEATS · 184 CLAIMED</span>
+            <span>250 seats · 184 claimed</span>
           </div>
         </div>
       </Reveal>
@@ -151,8 +151,8 @@ export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps)
                   <span className="flex size-6 items-center justify-center rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-xs">
                     <Check size={14} strokeWidth={2.5} />
                   </span>
-                  <span className="font-tech-mono text-xs uppercase tracking-widest text-[var(--color-text-primary)] font-bold">
-                    RESERVATION SECURED
+                  <span className="font-tech-mono text-xs text-[var(--color-text-primary)] font-bold">
+                    Reservation secured
                   </span>
                 </div>
                 <span className="font-tech-mono text-xs text-[var(--color-text-muted)]">
@@ -163,8 +163,8 @@ export function WaitlistForm({ initialEmail = "", onSubmit }: WaitlistFormProps)
               {/* Digital Access Pass Voucher */}
               <div className="p-6 rounded-2xl border border-black/15 dark:border-white/20 bg-linear-to-br from-white via-zinc-50 to-zinc-100 dark:from-zinc-900 dark:via-zinc-900/90 dark:to-zinc-950 [box-shadow:inset_0_1px_1px_rgba(255,255,255,1),0_4px_16px_-2px_rgba(0,0,0,0.06)] dark:[box-shadow:inset_0_1px_1px_rgba(255,255,255,0.18),0_8px_24px_rgba(0,0,0,0.5)] flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div>
-                  <span className="font-tech-mono text-[10px] uppercase tracking-wider text-[var(--color-text-muted)]">
-                    FOUNDING COHORT TICKET
+                  <span className="font-tech-mono text-[10px] text-[var(--color-text-muted)]">
+                    Founding cohort ticket
                   </span>
                   <h3 className="font-display text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--color-text-primary)] mt-1 tnum">
                     {ticket.ticketId}

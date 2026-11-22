@@ -50,12 +50,12 @@ export function Navbar() {
           </div>
           <div className="flex items-center gap-2 min-w-0">
             <span className="font-display font-extrabold text-sm sm:text-base tracking-tight text-[var(--color-text-primary)] leading-none">
-              KINETIC
+              Kinetic
             </span>
             <span className="hidden sm:inline-flex items-center">
-              <span className="stat-chip px-2 py-0.5 text-[9px] font-tech-mono uppercase tracking-wider text-[var(--color-text-muted)]">
+              <span className="stat-chip px-2 py-0.5 text-[9px] font-tech-mono text-[var(--color-text-muted)]">
                 <span className="size-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100" />
-                Trajectory Engine
+                Trajectory engine
               </span>
             </span>
           </div>
@@ -68,7 +68,7 @@ export function Navbar() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-400 dark:bg-zinc-200 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-zinc-900 dark:bg-zinc-100" />
             </span>
-            <span className="tracking-wider uppercase">COHORT 01 // FORMING</span>
+            <span>Cohort 01 // Forming</span>
           </div>
         </div>
 

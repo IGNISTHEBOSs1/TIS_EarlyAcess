@@ -25,7 +25,7 @@ export function MarqueeBelt() {
         {[...loop, ...loop].map((word, i) => (
           <span
             key={i}
-            className="flex items-center gap-12 sm:gap-16 font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[var(--color-text-primary)]/20 transition-colors"
+            className="flex items-center gap-12 sm:gap-16 font-display text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-text-primary)]/20 transition-colors"
           >
             <span>{word}</span>
             <span className="font-tech-mono text-sm text-[var(--color-text-primary)]/10">

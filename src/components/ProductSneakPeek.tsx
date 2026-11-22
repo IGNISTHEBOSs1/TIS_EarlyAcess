@@ -239,7 +239,7 @@ export function ProductSneakPeek({ className = "" }: ProductSneakPeekProps) {
             <div className="flex items-center gap-2 shrink-0">
               <div className="stat-chip px-2 py-0.5 sm:px-2.5 sm:py-1 text-[9px] sm:text-[10px] font-tech-mono text-[var(--color-text-secondary)]">
                 <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="uppercase tracking-wider font-bold text-[var(--color-text-primary)]">
+                <span className="font-bold text-[var(--color-text-primary)]">
                   Simulation
                 </span>
               </div>
@@ -252,20 +252,20 @@ export function ProductSneakPeek({ className = "" }: ProductSneakPeekProps) {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 sm:p-4 rounded-xl debossed-well">
               <div className="flex items-center gap-2.5">
                 <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="font-tech-mono text-xs font-bold text-[var(--color-text-primary)]">
-                  CYCLE 01 // DAY {activeDay} OF 90
+                <span className="font-tech-mono text-xs font-bold text-[var(--color-text-primary)] tnum">
+                  Cycle 01 // Day {activeDay} of 90
                 </span>
                 <span className="hidden sm:inline text-xs font-tech-mono text-[var(--color-text-muted)]">
-                  • 90-Day Trajectory Locked
+                  • 90-day trajectory locked
                 </span>
               </div>
 
               <div className="flex items-center gap-2 font-tech-mono text-xs text-[var(--color-text-secondary)]">
                 <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-semibold text-[10px] sm:text-[11px]">
-                  ±10% BUFFER CONE ACTIVE
+                  ±10% buffer cone active
                 </span>
                 <span className="hidden sm:inline text-[var(--color-text-muted)]">
-                  • 9 Flex Days Intact
+                  • 9 flex days intact
                 </span>
               </div>
             </div>
@@ -346,13 +346,13 @@ export function ProductSneakPeek({ className = "" }: ProductSneakPeekProps) {
                   {/* Origin Marker */}
                   <circle cx="40" cy="185" r="5" fill="currentColor" />
                   <text x="45" y="205" fill="currentColor" fillOpacity="0.5" fontSize="10" fontFamily="monospace">
-                    DAY 01 (Origin)
+                    Day 01 (Origin)
                   </text>
 
                   {/* Horizon Target Marker */}
                   <circle cx="720" cy="38" r="6" fill="#10b981" />
                   <text x="630" y="25" fill="#10b981" fontWeight="bold" fontSize="11" fontFamily="monospace">
-                    DAY 90 (Horizon)
+                    Day 90 (Horizon)
                   </text>
 
                   {/* Active Scrub Crosshair */}
@@ -409,7 +409,7 @@ export function ProductSneakPeek({ className = "" }: ProductSneakPeekProps) {
               <div className="lg:col-span-7 p-5 rounded-2xl kinetic-specular-box border border-[var(--color-border-default)] flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="flex items-center gap-1.5 text-xs font-tech-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                    <span className="flex items-center gap-1.5 text-xs font-tech-mono font-bold text-emerald-600 dark:text-emerald-400">
                       <Target size={14} /> Today's Focus · 45 min
                     </span>
                     <span className="stat-chip px-2 py-0.5 text-[10px] font-tech-mono text-[var(--color-text-secondary)]">
@@ -490,10 +490,10 @@ export function ProductSneakPeek({ className = "" }: ProductSneakPeekProps) {
               <div className="lg:col-span-5 p-5 rounded-2xl debossed-well flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-tech-mono text-xs font-bold text-[var(--color-text-primary)] uppercase tracking-wider">
-                      2 ROUTINE STABILIZERS
+                    <span className="font-tech-mono text-xs font-bold text-[var(--color-text-primary)]">
+                      2 routine stabilizers
                     </span>
-                    <span className="text-[10px] font-tech-mono text-[var(--color-text-muted)]">
+                    <span className="text-[10px] font-tech-mono text-[var(--color-text-muted)] tnum">
                       {(routine1 ? 1 : 0) + (routine2 ? 1 : 0)}/2 Active
                     </span>
                   </div>
@@ -531,7 +531,7 @@ export function ProductSneakPeek({ className = "" }: ProductSneakPeekProps) {
                         </div>
                       </div>
                       <span className="text-[10px] font-tech-mono text-emerald-600 dark:text-emerald-400 font-bold">
-                        {routine1 ? "LOCKED" : "PENDING"}
+                        {routine1 ? "Locked" : "Pending"}
                       </span>
                     </div>
 
@@ -567,7 +567,7 @@ export function ProductSneakPeek({ className = "" }: ProductSneakPeekProps) {
                         </div>
                       </div>
                       <span className="text-[10px] font-tech-mono text-emerald-600 dark:text-emerald-400 font-bold">
-                        {routine2 ? "LOCKED" : "PENDING"}
+                        {routine2 ? "Locked" : "Pending"}
                       </span>
                     </div>
                   </div>

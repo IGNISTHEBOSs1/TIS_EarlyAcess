@@ -20,13 +20,13 @@ export function ClosingStatement() {
     >
       <div className="mx-auto max-w-4xl flex flex-col items-center">
         <Reveal>
-          <span className="font-tech-mono text-xs uppercase tracking-widest text-[var(--color-text-muted)] border-t border-[var(--color-border-default)] pt-2 inline-block">
-            TRAJECTORY OVER STREAKS
+          <span className="font-tech-mono text-xs tracking-wider text-[var(--color-text-muted)] border-t border-[var(--color-border-default)] pt-2 inline-block">
+            Trajectory over streaks
           </span>
           <h2 className="font-display mt-6 text-3xl sm:text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-text-primary)]">
             You've started over enough.
             <br />
-            <span className="text-[var(--color-text-muted)]">
+            <span className="font-serif italic font-normal text-[var(--color-text-muted)]">
               This time, let a calm system hold the line with you.
             </span>
           </h2>

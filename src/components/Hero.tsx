@@ -54,8 +54,8 @@ export function Hero({ onFastSubmit }: HeroProps) {
         {/* Cohort Scarcity Telemetry Eyebrow with Atmospheric Lift */}
         <AtmosphericLift yOffset={6}>
           <Eyebrow variant="badge">
-            <span className="hidden sm:inline">COHORT 01 // 250 FOUNDING SEATS FORMING</span>
-            <span className="sm:hidden">COHORT 01 // 250 SEATS FORMING</span>
+            <span className="hidden sm:inline">Cohort 01 // 250 founding seats forming</span>
+            <span className="sm:hidden">Cohort 01 // 250 seats forming</span>
           </Eyebrow>
         </AtmosphericLift>
 
@@ -113,15 +113,15 @@ export function Hero({ onFastSubmit }: HeroProps) {
           {/* Quiet Trust Line */}
           <div className="mt-3.5 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-tech-mono text-[var(--color-text-muted)]">
             <span className="flex items-center gap-1 font-semibold text-[var(--color-text-primary)]">
-              <Check size={12} strokeWidth={2.5} /> Free Forever
+              <Check size={12} strokeWidth={2.5} /> Free forever
             </span>
             <span>•</span>
             <span className="flex items-center gap-1">
-              <Lock size={11} className="text-[var(--color-text-primary)]" /> 100% Private Offline Vault
+              <Lock size={11} className="text-[var(--color-text-primary)]" /> 100% private offline vault
             </span>
             <span className="hidden sm:inline">•</span>
             <span className="hidden sm:flex items-center gap-1">
-              <ShieldCheck size={11} className="text-[var(--color-text-primary)]" /> Zero Telemetry
+              <ShieldCheck size={11} className="text-[var(--color-text-primary)]" /> Zero telemetry
             </span>
           </div>
         </AtmosphericLift>

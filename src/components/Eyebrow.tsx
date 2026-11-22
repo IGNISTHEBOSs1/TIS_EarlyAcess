@@ -17,14 +17,14 @@ export function Eyebrow({ children, variant = "line", className = "" }: EyebrowP
         className={`stat-chip px-3 py-1 font-[var(--font-mono)] text-[11px] sm:text-xs text-[var(--color-text-secondary)] ${className}`}
       >
         <span className="h-1.5 w-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100" />
-        <span className="uppercase tracking-wider">{children}</span>
+        <span className="tracking-wide font-medium">{children}</span>
       </div>
     );
   }
 
   return (
     <div
-      className={`inline-flex items-center gap-2 font-[var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-text-secondary)] border-t border-[var(--color-border-default)] pt-2 ${className}`}
+      className={`inline-flex items-center gap-2 font-[var(--font-mono)] text-xs tracking-wide text-[var(--color-text-secondary)] border-t border-[var(--color-border-default)] pt-2 ${className}`}
     >
       <span className="h-1 w-1 rounded-full bg-[var(--color-text-secondary)]" />
       <span>{children}</span>

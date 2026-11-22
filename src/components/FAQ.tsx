@@ -42,7 +42,7 @@ export function FAQ() {
   return (
     <section className="mx-auto max-w-4xl px-6 py-16 sm:py-24" aria-labelledby="faq-heading">
       <Reveal>
-        <Eyebrow variant="badge">ARCHITECTURAL QUESTIONS</Eyebrow>
+        <Eyebrow variant="badge">Architectural questions</Eyebrow>
       </Reveal>
 
       <Reveal delayMs={80}>

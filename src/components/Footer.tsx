@@ -20,24 +20,24 @@ export function Footer() {
               <KineticLogo size={20} />
             </div>
             <span className="font-display font-extrabold text-base tracking-tight text-[var(--color-text-primary)]">
-              KINETIC
+              Kinetic
             </span>
           </div>
           <p className="font-tech-mono text-xs text-[var(--color-text-muted)]">
-            The Deterministic Personal Trajectory Engine
+            The deterministic personal trajectory engine
           </p>
         </div>
 
         {/* System Invariant Badges */}
         <div className="flex flex-wrap items-center gap-4 text-xs font-tech-mono text-[var(--color-text-muted)]">
           <span className="flex items-center gap-1.5">
-            <Lock size={12} className="text-[var(--color-text-primary)]" /> Local-First Vault
+            <Lock size={12} className="text-[var(--color-text-primary)]" /> Local-first vault
           </span>
           <span className="flex items-center gap-1.5">
-            <ShieldCheck size={12} className="text-[var(--color-text-primary)]" /> Zero Telemetry
+            <ShieldCheck size={12} className="text-[var(--color-text-primary)]" /> Zero telemetry
           </span>
-          <span>±10% Buffer Cone</span>
-          <span>1 Focus + 2 Routines</span>
+          <span>±10% buffer cone</span>
+          <span>1 focus + 2 routines</span>
         </div>
 
         {/* Copyright & Top Scroll */}

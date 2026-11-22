@@ -46,7 +46,7 @@ export function ComparisonTable() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-16 sm:py-24" aria-labelledby="comparison-heading">
       <Reveal>
-        <Eyebrow variant="badge">ARCHITECTURAL SAFETY COMPARISON</Eyebrow>
+        <Eyebrow variant="badge">Architectural safety comparison</Eyebrow>
       </Reveal>
 
       <Reveal delayMs={80}>
@@ -66,20 +66,20 @@ export function ComparisonTable() {
         <div className="kinetic-specular-box rounded-2xl md:rounded-3xl border border-[var(--color-border-default)] overflow-hidden">
           {/* Header row */}
           <div className="grid grid-cols-1 md:grid-cols-12 border-b border-[var(--color-border-default)] bg-[var(--color-bg-surface)] py-4 px-6 text-xs font-tech-mono">
-            <div className="md:col-span-4 uppercase tracking-wider text-[var(--color-text-muted)]">
+            <div className="md:col-span-4 text-[var(--color-text-muted)]">
               Dimension // Criteria
             </div>
-            <div className="hidden md:flex md:col-span-4 items-center gap-2 uppercase tracking-wider text-[var(--color-text-muted)]">
+            <div className="hidden md:flex md:col-span-4 items-center gap-2 text-[var(--color-text-muted)]">
               <span className="flex size-4 items-center justify-center rounded-sm bg-black/5 dark:bg-white/10 text-[var(--color-text-muted)]">
                 <X size={12} />
               </span>
-              Conventional Streak Apps
+              Conventional streak apps
             </div>
-            <div className="hidden md:flex md:col-span-4 items-center gap-2 uppercase tracking-wider text-[var(--color-text-primary)] font-bold">
+            <div className="hidden md:flex md:col-span-4 items-center gap-2 text-[var(--color-text-primary)] font-bold">
               <span className="flex size-4 items-center justify-center rounded-sm bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
                 <Check size={12} />
               </span>
-              Kinetic Trajectory Engine
+              Kinetic trajectory engine
             </div>
           </div>
 
@@ -106,8 +106,8 @@ export function ComparisonTable() {
                     <span className="flex size-3.5 items-center justify-center rounded bg-black/5 dark:bg-white/10 text-[var(--color-text-muted)]">
                       <X size={10} />
                     </span>
-                    <span className="font-tech-mono text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider">
-                      Streak Apps
+                    <span className="font-tech-mono text-[10px] text-[var(--color-text-muted)]">
+                      Streak apps
                     </span>
                   </div>
                   <p className="text-xs sm:text-sm text-[var(--color-text-muted)] leading-relaxed">
@@ -121,8 +121,8 @@ export function ComparisonTable() {
                     <span className="flex size-3.5 items-center justify-center rounded bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
                       <Check size={10} />
                     </span>
-                    <span className="font-tech-mono text-[10px] text-[var(--color-text-primary)] font-bold uppercase tracking-wider">
-                      Kinetic System
+                    <span className="font-tech-mono text-[10px] text-[var(--color-text-primary)] font-bold">
+                      Kinetic system
                     </span>
                   </div>
                   <p className="text-xs sm:text-sm text-[var(--color-text-primary)] font-medium leading-relaxed">
@@ -137,10 +137,10 @@ export function ComparisonTable() {
           <div className="border-t border-[var(--color-border-default)] bg-[var(--color-bg-surface)] p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-tech-mono text-[var(--color-text-secondary)]">
             <span className="flex items-center gap-2">
               <ShieldCheck size={15} className="text-[var(--color-text-primary)]" />
-              <span>DETERMINISTIC VELOCITY OVER ARBITRARY GAMIFICATION</span>
+              <span>Deterministic velocity over arbitrary gamification</span>
             </span>
             <span className="text-[var(--color-text-muted)]">
-              ZERO DARK PATTERNS // ZERO PAYWALLS
+              Zero dark patterns // Zero paywalls
             </span>
           </div>
         </div>

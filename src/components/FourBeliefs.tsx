@@ -15,7 +15,7 @@ interface InvariantRule {
 const INVARIANTS: InvariantRule[] = [
   {
     num: "01",
-    tag: "DECISION CLARITY",
+    tag: "Decision clarity",
     title: "Strict 1 Focus Cap",
     what: "Lock in your single highest-leverage outcome each morning in under 60 seconds before touching email or notifications.",
     why: "Cognitive bandwidth is finite. Real velocity comes from finishing one decisive outcome, not managing 20 trivial errands.",
@@ -24,7 +24,7 @@ const INVARIANTS: InvariantRule[] = [
   },
   {
     num: "02",
-    tag: "HABIT STABILITY",
+    tag: "Habit stability",
     title: "Strict 2 Routine Anchors",
     what: "Anchor two lightweight, non-negotiable rituals that protect your energy without depleting your daily willpower.",
     why: "Routines preserve stability on high-energy days and chaotic, exhausting ones alike with zero cognitive friction.",
@@ -33,7 +33,7 @@ const INVARIANTS: InvariantRule[] = [
   },
   {
     num: "03",
-    tag: "RESILIENT VECTOR",
+    tag: "Resilient vector",
     title: "The ±10% Buffer Cone",
     what: "A mathematical tolerance corridor calibrated continuously across your cumulative 90-day trajectory.",
     why: "Streaks are static tallies that shatter on an off-day. Trajectory is dynamic velocity that measures cumulative achievement.",
@@ -46,7 +46,7 @@ export function FourBeliefs() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-16 sm:py-24" aria-labelledby="invariants-heading">
       <Reveal>
-        <Eyebrow variant="badge">ACT 03 // THE THREE INVARIANTS</Eyebrow>
+        <Eyebrow variant="badge">Act 03 // The three invariants</Eyebrow>
       </Reveal>
 
       <Reveal delayMs={80}>
@@ -75,12 +75,12 @@ export function FourBeliefs() {
                   <div className="size-10 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-white/[0.04] flex items-center justify-center text-[var(--color-text-primary)] [box-shadow:inset_0_1px_1px_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.05)] dark:[box-shadow:inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_2px_rgba(0,0,0,0.3)]">
                     <Icon size={18} />
                   </div>
-                  <span className="font-tech-mono font-bold text-xs text-[var(--color-text-muted)] tracking-wider">
-                    RULE {rule.num}
+                  <span className="font-tech-mono font-bold text-xs text-[var(--color-text-muted)] tracking-wider tnum">
+                    Rule {rule.num}
                   </span>
                 </div>
 
-                <span className="font-tech-mono text-[10px] uppercase tracking-widest text-[var(--color-text-muted)]">
+                <span className="font-tech-mono text-[10px] text-[var(--color-text-muted)]">
                   {rule.tag}
                 </span>
                 <h3 className="font-display text-xl font-bold text-[var(--color-text-primary)] mt-1 tracking-tight">
@@ -98,8 +98,8 @@ export function FourBeliefs() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between font-tech-mono text-[10px] text-[var(--color-text-muted)]">
-                <span>ENFORCED AT RUNTIME</span>
-                <span className="text-[var(--color-text-primary)] font-bold">100% DETERMINISTIC</span>
+                <span>Enforced at runtime</span>
+                <span className="text-[var(--color-text-primary)] font-bold">100% deterministic</span>
               </div>
             </Reveal>
           );
@@ -111,10 +111,10 @@ export function FourBeliefs() {
         <div className="p-4 rounded-xl border border-[var(--color-border-default)] bg-black/[0.02] dark:bg-white/[0.02] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-tech-mono text-[var(--color-text-secondary)]">
           <div className="flex items-center gap-2">
             <ShieldCheck size={14} className="text-[var(--color-text-primary)] shrink-0" />
-            <span>ANTI-GAMIFICATION CONTRACT: No XP bars, no fantasy hunter ranks, no cartoon badges.</span>
+            <span>Anti-gamification contract: No XP bars, no fantasy hunter ranks, no cartoon badges.</span>
           </div>
-          <span className="text-[var(--color-text-muted)] uppercase tracking-wider text-[11px]">
-            REAL LIFE // REAL SERIOUSNESS
+          <span className="text-[var(--color-text-muted)] text-[11px]">
+            Real life // Real seriousness
           </span>
         </div>
       </Reveal>

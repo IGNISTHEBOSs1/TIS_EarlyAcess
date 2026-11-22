@@ -43,7 +43,7 @@ export function TrajectoryVisualizer() {
       aria-labelledby="proof-heading"
     >
       <Reveal>
-        <Eyebrow variant="badge">ACT 02 // ARCHITECTURAL CONTRAST</Eyebrow>
+        <Eyebrow variant="badge">Act 02 // Architectural contrast</Eyebrow>
       </Reveal>
 
       <Reveal delayMs={80}>
@@ -70,8 +70,8 @@ export function TrajectoryVisualizer() {
               <span className="p-1 rounded-md border border-[var(--color-border-default)] bg-[var(--color-bg-surface)]">
                 <Compass size={16} className="text-[var(--color-text-primary)]" />
               </span>
-              <span className="font-tech-mono text-xs uppercase tracking-widest text-[var(--color-text-muted)]">
-                SIMULATION SCENARIOS //
+              <span className="font-tech-mono text-xs text-[var(--color-text-muted)]">
+                Simulation scenarios
               </span>
             </div>
 
@@ -119,11 +119,11 @@ export function TrajectoryVisualizer() {
             <div className="p-5 sm:p-6 rounded-xl debossed-well flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-xs font-tech-mono text-[var(--color-text-muted)] uppercase tracking-wider">
-                    <X size={13} /> Conventional Streak App
+                  <span className="flex items-center gap-1.5 text-xs font-tech-mono text-[var(--color-text-muted)]">
+                    <X size={13} /> Conventional streak app
                   </span>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-tech-mono uppercase tracking-wide border border-black/10 dark:border-white/10 text-[var(--color-text-muted)] bg-black/[0.02] dark:bg-white/[0.04]">
-                    Day 0 Reset Penalty
+                  <span className="px-2 py-0.5 rounded text-[10px] font-tech-mono border border-black/10 dark:border-white/10 text-[var(--color-text-muted)] bg-black/[0.02] dark:bg-white/[0.04]">
+                    Day 0 reset penalty
                   </span>
                 </div>
 
@@ -161,14 +161,14 @@ export function TrajectoryVisualizer() {
 
             {/* Kinetic Trajectory Engine Outcome */}
             <div className="p-5 sm:p-6 rounded-xl border border-black/12 dark:border-white/20 bg-white/95 dark:bg-zinc-900/90 [box-shadow:inset_0_1px_1px_0_rgba(255,255,255,1),0_8px_24px_-4px_rgba(0,0,0,0.08)] dark:[box-shadow:inset_0_1px_1px_0_rgba(255,255,255,0.18),0_12px_32px_rgba(0,0,0,0.6)] flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 right-0 px-3 py-1 bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-[10px] font-tech-mono font-bold tracking-widest uppercase rounded-bl-lg shadow-xs">
-                BUFFER PROTECTED
+              <div className="absolute top-0 right-0 px-3 py-1 bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-[10px] font-tech-mono font-bold tracking-wide rounded-bl-lg shadow-xs">
+                Buffer protected
               </div>
 
               <div>
                 <div className="flex items-center justify-between pr-24">
-                  <span className="flex items-center gap-1.5 text-xs font-tech-mono text-[var(--color-text-primary)] font-bold uppercase tracking-wider">
-                    <Check size={13} strokeWidth={2.5} /> Kinetic Trajectory Engine
+                  <span className="flex items-center gap-1.5 text-xs font-tech-mono text-[var(--color-text-primary)] font-bold">
+                    <Check size={13} strokeWidth={2.5} /> Kinetic trajectory engine
                   </span>
                 </div>
 
@@ -210,9 +210,9 @@ export function TrajectoryVisualizer() {
           {/* SVG Buffer Cone Graph */}
           <div className="mt-6 pt-6 border-t border-[var(--color-border-default)]">
             <div className="flex items-center justify-between text-xs font-tech-mono text-[var(--color-text-muted)] mb-3">
-              <span>DAY 01 // HORIZON START</span>
-              <span className="hidden sm:inline">±10% BUFFER CONE CORRIDOR (SHADED TOLERANCE)</span>
-              <span>DAY 14 // RECENT VECTOR</span>
+              <span>Day 01 // Horizon start</span>
+              <span className="hidden sm:inline">±10% buffer corridor (shaded tolerance)</span>
+              <span>Day 14 // Recent vector</span>
             </div>
 
             <div className="relative h-32 sm:h-36 w-full rounded-xl debossed-well p-2 overflow-hidden flex items-end">

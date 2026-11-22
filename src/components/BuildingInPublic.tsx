@@ -10,20 +10,20 @@ interface TimelineEntry {
 
 const ENTRIES: TimelineEntry[] = [
   {
-    when: "PHASE 01 // NOW",
-    tag: "COHORT 01 ENROLLMENT",
+    when: "Phase 01 // Now",
+    tag: "Cohort 01 enrollment",
     title: "Waitlist validation & architecture audit",
     body: "We're validating our core invariants before shipping the desktop and web builds. If this philosophy resonates with you, your early feedback directly shapes our v1 engine.",
   },
   {
-    when: "PHASE 02 // IN PROGRESS",
-    tag: "CORE RUNTIME ALPHA",
+    when: "Phase 02 // In progress",
+    tag: "Core runtime alpha",
     title: "1 Focus + 2 Routines + Buffer cone engine",
     body: "Implementing the mathematical buffer corridor: calculating velocity curves, quiet morning focus selection, and evening capture without scoreboard gamification.",
   },
   {
-    when: "PHASE 03 // UPCOMING",
-    tag: "SECURITY VAULT",
+    when: "Phase 03 // Upcoming",
+    tag: "Security vault",
     title: "Client-side WebCrypto & offline zero-leak vault",
     body: "Finalizing encrypted browser storage (IndexedDB) with zero external telemetry endpoints. Verifiable through open developer tools before broad public distribution.",
   },
@@ -36,7 +36,7 @@ export function BuildingInPublic() {
       aria-labelledby="building-in-public-heading"
     >
       <Reveal>
-        <Eyebrow variant="badge">TRANSPARENT ENGINEERING</Eyebrow>
+        <Eyebrow variant="badge">Transparent engineering</Eyebrow>
       </Reveal>
 
       <Reveal delayMs={80}>
@@ -60,10 +60,10 @@ export function BuildingInPublic() {
             className="kinetic-specular-box p-6 sm:p-7 rounded-2xl border border-[var(--color-border-default)]"
           >
             <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <span className="font-tech-mono text-xs uppercase tracking-wider text-[var(--color-text-primary)] font-bold">
+              <span className="font-tech-mono text-xs text-[var(--color-text-primary)] font-bold">
                 {entry.when}
               </span>
-              <span className="rounded-full border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] px-2.5 py-0.5 font-tech-mono text-[10px] uppercase tracking-wider text-[var(--color-text-secondary)]">
+              <span className="rounded-full border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] px-2.5 py-0.5 font-tech-mono text-[10px] text-[var(--color-text-secondary)]">
                 {entry.tag}
               </span>
             </div>
