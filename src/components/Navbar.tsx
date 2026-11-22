@@ -45,7 +45,7 @@ export function Navbar() {
           className="flex items-center gap-2 sm:gap-2.5 group tactile-press shrink-0 min-w-0"
           aria-label="Kinetic - Personal Trajectory Engine"
         >
-          <div className="relative flex items-center justify-center size-8 sm:size-9 rounded-xl border border-black/10 dark:border-white/15 bg-white dark:bg-white/[0.04] p-1 [box-shadow:inset_0_1px_1px_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.06)] dark:[box-shadow:inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_2px_rgba(0,0,0,0.3)] shrink-0">
+          <div className="relative flex items-center justify-center size-8 sm:size-9 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] p-1 shadow-xs shrink-0">
             <KineticLogo size={20} />
           </div>
           <div className="flex items-center gap-2 min-w-0">
@@ -54,19 +54,19 @@ export function Navbar() {
             </span>
             <span className="hidden sm:inline-flex items-center">
               <span className="stat-chip px-2 py-0.5 text-[9px] font-tech-mono text-[var(--color-text-muted)]">
-                <span className="size-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100" />
+                <span className="size-1.5 rounded-full bg-[var(--color-text-primary)]" />
                 Trajectory engine
               </span>
             </span>
           </div>
         </a>
 
-        {/* Live Cohort Radar Chip (strictly monochromatic on desktop screens) */}
+        {/* Live Cohort Radar Chip (monochromatic indicator) */}
         <div className="hidden md:flex items-center">
           <div className="stat-chip px-3 py-1 text-[11px] font-tech-mono text-[var(--color-text-secondary)]">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-400 dark:bg-zinc-200 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-zinc-900 dark:bg-zinc-100" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-text-muted)] opacity-50" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-text-primary)]" />
             </span>
             <span>Cohort 01 // Forming</span>
           </div>
@@ -79,19 +79,19 @@ export function Navbar() {
             type="button"
             onClick={toggleSound}
             aria-label={soundEnabled ? "Mute interface audio" : "Enable interface audio"}
-            className="hidden sm:flex items-center justify-center size-8 sm:size-9 rounded-full border border-black/10 dark:border-white/12 bg-white dark:bg-white/[0.05] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] tactile-press transition-colors [box-shadow:inset_0_1px_1px_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.05)] dark:[box-shadow:inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_2px_rgba(0,0,0,0.3)]"
+            className="hidden sm:flex items-center justify-center size-8 sm:size-9 rounded-full border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] tactile-press transition-colors shadow-xs"
           >
             {soundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
           </button>
 
-          {/* Theme Toggle (Adaptive: 32px dial on mobile, 82px analog track on tablet/desktop) */}
+          {/* Theme Toggle (Circular tactile switch) */}
           <ThemeToggle />
 
-          {/* Waitlist CTA (Visible and perfectly proportioned on both mobile & desktop) */}
+          {/* Waitlist CTA */}
           <button
             type="button"
             onClick={scrollToWaitlist}
-            className="h-8 sm:h-9 px-3 sm:px-4 rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-display font-semibold text-xs tracking-tight shadow-[0_2px_6px_rgba(0,0,0,0.18),inset_0_1px_1px_rgba(255,255,255,0.25)] dark:shadow-[0_4px_12px_rgba(255,255,255,0.12),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:opacity-95 active:scale-[0.96] transition-all flex items-center justify-center gap-1 shrink-0"
+            className="h-8 sm:h-9 px-3 sm:px-4 rounded-full bg-[var(--color-text-primary)] text-[var(--color-bg-page)] font-display font-semibold text-xs tracking-tight shadow-xs hover:opacity-90 active:scale-[0.96] transition-opacity flex items-center justify-center gap-1 shrink-0"
           >
             <span className="sm:hidden">Join</span>
             <span className="hidden sm:inline">Request Access</span>

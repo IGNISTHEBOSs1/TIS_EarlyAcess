@@ -76,7 +76,7 @@ export function ComparisonTable() {
               Conventional streak apps
             </div>
             <div className="hidden md:flex md:col-span-4 items-center gap-2 text-[var(--color-text-primary)] font-bold">
-              <span className="flex size-4 items-center justify-center rounded-sm bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
+              <span className="flex size-4 items-center justify-center rounded-sm bg-[var(--color-text-primary)] text-[var(--color-bg-page)]">
                 <Check size={12} />
               </span>
               Kinetic trajectory engine
@@ -118,7 +118,7 @@ export function ComparisonTable() {
                 {/* Kinetic text */}
                 <div className="md:col-span-4 p-3.5 rounded-xl border border-black/15 dark:border-white/20 bg-black/[0.04] dark:bg-white/[0.04]">
                   <div className="flex items-center gap-1.5 md:hidden mb-2">
-                    <span className="flex size-3.5 items-center justify-center rounded bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
+                    <span className="flex size-3.5 items-center justify-center rounded bg-[var(--color-text-primary)] text-[var(--color-bg-page)]">
                       <Check size={10} />
                     </span>
                     <span className="font-tech-mono text-[10px] text-[var(--color-text-primary)] font-bold">

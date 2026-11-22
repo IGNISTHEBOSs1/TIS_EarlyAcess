@@ -72,7 +72,7 @@ export function Hero({ onFastSubmit }: HeroProps) {
             className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight text-[var(--color-text-primary)]"
           >
             A quieter way to become{" "}
-            <span className="block sm:inline">who you're trying to be.</span>
+            <span className="block sm:inline">who you’re trying to be.</span>
           </h1>
         </MysteriousClipReveal>
 
@@ -80,7 +80,7 @@ export function Hero({ onFastSubmit }: HeroProps) {
         <AtmosphericLift yOffset={8} duration={0.28} delay={0.08}>
           <p className="mt-5 max-w-2xl text-sm sm:text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed font-body">
             Not another streak app that shames you for having a life. A quiet,
-            mathematically buffered trajectory engine that absorbs life's volatility and
+            mathematically buffered trajectory engine that absorbs life’s volatility and
             proves your cumulative velocity.
           </p>
         </AtmosphericLift>
@@ -89,7 +89,7 @@ export function Hero({ onFastSubmit }: HeroProps) {
         <AtmosphericLift yOffset={8} duration={0.28} delay={0.12} className="mt-8 sm:mt-10 w-full max-w-md">
           {fastJoined ? (
             <div className="p-3.5 rounded-2xl debossed-well flex items-center justify-center gap-2 font-tech-mono text-xs text-[var(--color-text-primary)]">
-              <span className="flex size-5 items-center justify-center rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 shadow-xs">
+              <span className="flex size-5 items-center justify-center rounded-full bg-[var(--color-text-primary)] text-[var(--color-bg-page)] shadow-xs">
                 <Check size={12} strokeWidth={2.5} />
               </span>
               <span>Fast seat reserved. Scrolling to your digital pass...</span>

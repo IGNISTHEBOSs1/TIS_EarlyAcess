@@ -48,7 +48,7 @@ export function BuildingInPublic() {
           <span className="text-[var(--color-text-muted)]">Just honest engineering.</span>
         </h2>
         <p className="mt-4 max-w-xl text-sm sm:text-base text-[var(--color-text-secondary)] leading-relaxed">
-          We'd rather show you exactly where we are than borrow synthetic credibility. Here is our engineering cadence, completely in the open.
+          We’d rather show you exactly where we are than borrow synthetic credibility. Here is our engineering cadence, completely in the open.
         </p>
       </Reveal>
 

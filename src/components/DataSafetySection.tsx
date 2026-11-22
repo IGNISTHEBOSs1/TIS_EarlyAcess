@@ -13,7 +13,7 @@ const SAFETY_PILLARS = [
     icon: Eye,
     tag: "Verifiable silence",
     title: "Zero Third-Party Telemetry",
-    desc: "No Meta pixels, no Google Analytics, no session recorders. Verify this yourself at any time by opening your browser's Network Inspector. Total client silence.",
+    desc: "No Meta pixels, no Google Analytics, no session recorders. Verify this yourself at any time by opening your browser’s Network Inspector. Total client silence.",
   },
   {
     icon: Shield,
@@ -35,7 +35,7 @@ export function DataSafetySection() {
           id="safety-heading"
           className="font-display mt-6 max-w-2xl text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--color-text-primary)] leading-[1.1]"
         >
-          Engineered to feel safe. Built so we can't see your life.
+          Engineered to feel safe. Built so we can’t see your life.
         </h2>
         <p className="mt-4 max-w-xl text-sm sm:text-base text-[var(--color-text-secondary)] leading-relaxed font-body">
           Most habit software monetizes your psychological data in the cloud. Kinetic is engineered with local-first mathematical integrity: your trajectory belongs entirely to your machine.
@@ -53,7 +53,7 @@ export function DataSafetySection() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="size-9 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-white/[0.04] flex items-center justify-center text-[var(--color-text-primary)] [box-shadow:inset_0_1px_1px_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.05)] dark:[box-shadow:inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_2px_rgba(0,0,0,0.3)]">
+                  <div className="size-9 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] shadow-xs flex items-center justify-center text-[var(--color-text-primary)]">
                     <Icon size={16} />
                   </div>
                   <span className="stat-chip px-2.5 py-0.5 font-tech-mono text-[10px] text-[var(--color-text-muted)]">

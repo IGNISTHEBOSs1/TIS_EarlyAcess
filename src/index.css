@@ -1,6 +1,8 @@
 @import "./theme.css";
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, .dark, .dark *));
+
 @theme {
   --animate-marquee: marquee 32s linear infinite;
 
@@ -180,7 +182,9 @@
     0 1px 3px 0 rgba(0, 0, 0, 0.03);
   border-radius: var(--radius-lg);
   position: relative;
-  transition: all var(--duration-base) var(--easing-standard);
+  transition: background-color var(--duration-base) var(--easing-standard),
+    border-color var(--duration-base) var(--easing-standard),
+    box-shadow var(--duration-base) var(--easing-standard);
 }
 
 [data-theme="dark"] .kinetic-specular-box,
@@ -224,7 +228,8 @@
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.85),
     0 1px 2px 0 rgba(0, 0, 0, 0.04);
-  transition: all var(--duration-fast) var(--easing-standard);
+  transition: background-color var(--duration-fast) var(--easing-standard),
+    border-color var(--duration-fast) var(--easing-standard);
 }
 
 [data-theme="dark"] .stat-chip,
@@ -238,12 +243,13 @@
 
 /* Tactile Input Fields */
 .tactile-input {
-  background-color: #ffffff;
+  background-color: var(--color-bg-elevated);
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow:
     inset 0 1px 2px 0 rgba(0, 0, 0, 0.06),
     0 1px 0 0 rgba(255, 255, 255, 0.9);
-  transition: all var(--duration-fast) var(--easing-standard);
+  transition: border-color var(--duration-fast) var(--easing-standard),
+    box-shadow var(--duration-fast) var(--easing-standard);
 }
 
 [data-theme="dark"] .tactile-input,

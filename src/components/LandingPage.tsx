@@ -45,14 +45,14 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="relative min-h-screen w-full max-w-full text-[var(--color-text-primary)] antialiased bg-[var(--color-bg-page)] selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-950 overflow-x-hidden">
+    <div className="relative min-h-screen w-full max-w-full text-[var(--color-text-primary)] antialiased bg-[var(--color-bg-page)] selection:bg-[var(--color-text-primary)] selection:text-[var(--color-bg-page)] overflow-x-clip">
       {/* Environmental Shared Lighting & Noise Grain Layer */}
       <div className="env-light-layer" />
 
       {/* Scroll Scrub Progress Indicator from Kinetic Design System */}
       <motion.div
         style={{ scaleX: scrollYProgress, transformOrigin: "0%" }}
-        className="fixed top-0 inset-x-0 h-[2.5px] bg-zinc-900 dark:bg-white z-[70] pointer-events-none opacity-90 shadow-[0_0_10px_rgba(255,255,255,0.6)] dark:shadow-[0_0_10px_rgba(255,255,255,0.35)]"
+        className="fixed top-0 inset-x-0 h-[2.5px] bg-[var(--color-text-primary)] z-[70] pointer-events-none opacity-90"
       />
 
       {/* Progressive Top Glass Blur Wash (Content fades smoothly under navbar) */}

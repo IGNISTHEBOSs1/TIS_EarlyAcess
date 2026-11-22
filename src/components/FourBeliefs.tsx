@@ -72,7 +72,7 @@ export function FourBeliefs() {
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="size-10 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-white/[0.04] flex items-center justify-center text-[var(--color-text-primary)] [box-shadow:inset_0_1px_1px_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.05)] dark:[box-shadow:inset_0_1px_1px_rgba(255,255,255,0.15),0_1px_2px_rgba(0,0,0,0.3)]">
+                  <div className="size-10 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-bg-surface)] shadow-xs flex items-center justify-center text-[var(--color-text-primary)]">
                     <Icon size={18} />
                   </div>
                   <span className="font-tech-mono font-bold text-xs text-[var(--color-text-muted)] tracking-wider tnum">

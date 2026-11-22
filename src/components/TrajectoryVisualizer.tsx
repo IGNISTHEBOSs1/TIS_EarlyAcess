@@ -54,11 +54,11 @@ export function TrajectoryVisualizer() {
           Streaks shatter at the first interruption.
           <br />
           <span className="text-[var(--color-text-muted)]">
-            Kinetic's ±10% buffer absorbs it.
+            Kinetic’s ±10% buffer absorbs it.
           </span>
         </h2>
         <p className="mt-4 max-w-2xl text-sm sm:text-base text-[var(--color-text-secondary)] leading-relaxed font-body">
-          You don't have a willpower problem. You have a fragile system problem. When illness, late flights, or family emergencies happen, conventional apps wipe out months of effort. Kinetic models your consistency as a resilient mathematical vector.
+          You don’t have a willpower problem. You have a fragile system problem. When illness, late flights, or family emergencies happen, conventional apps wipe out months of effort. Kinetic models your consistency as a resilient mathematical vector.
         </p>
       </Reveal>
 
@@ -80,9 +80,9 @@ export function TrajectoryVisualizer() {
               <button
                 type="button"
                 onClick={() => handleSelectScenario("normal")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-tech-mono transition-all tactile-press ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-tech-mono transition-colors tactile-press ${
                   scenario === "normal"
-                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-[0_2px_6px_rgba(0,0,0,0.18),inset_0_1px_1px_rgba(255,255,255,0.25)] font-semibold"
+                    ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)] shadow-xs font-semibold"
                     : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
@@ -91,9 +91,9 @@ export function TrajectoryVisualizer() {
               <button
                 type="button"
                 onClick={() => handleSelectScenario("missed")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-tech-mono transition-all tactile-press ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-tech-mono transition-colors tactile-press ${
                   scenario === "missed"
-                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-[0_2px_6px_rgba(0,0,0,0.18),inset_0_1px_1px_rgba(255,255,255,0.25)] font-semibold"
+                    ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)] shadow-xs font-semibold"
                     : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
@@ -102,9 +102,9 @@ export function TrajectoryVisualizer() {
               <button
                 type="button"
                 onClick={() => handleSelectScenario("recovering")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-tech-mono transition-all tactile-press ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-tech-mono transition-colors tactile-press ${
                   scenario === "recovering"
-                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-[0_2px_6px_rgba(0,0,0,0.18),inset_0_1px_1px_rgba(255,255,255,0.25)] font-semibold"
+                    ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)] shadow-xs font-semibold"
                     : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
@@ -160,9 +160,11 @@ export function TrajectoryVisualizer() {
             </div>
 
             {/* Kinetic Trajectory Engine Outcome */}
-            <div className="p-5 sm:p-6 rounded-xl border border-black/12 dark:border-white/20 bg-white/95 dark:bg-zinc-900/90 [box-shadow:inset_0_1px_1px_0_rgba(255,255,255,1),0_8px_24px_-4px_rgba(0,0,0,0.08)] dark:[box-shadow:inset_0_1px_1px_0_rgba(255,255,255,0.18),0_12px_32px_rgba(0,0,0,0.6)] flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 right-0 px-3 py-1 bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-[10px] font-tech-mono font-bold tracking-wide rounded-bl-lg shadow-xs">
-                Buffer protected
+            <div className="kinetic-specular-box p-5 sm:p-6 rounded-xl flex flex-col justify-between relative overflow-hidden border border-[var(--color-border-default)]">
+              <div className="absolute top-0 right-0 px-3 py-1 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-l border-b border-emerald-500/20 text-[10px] font-tech-mono font-bold tracking-wide rounded-bl-lg">
+                <span className="flex items-center gap-1">
+                  <Check size={11} strokeWidth={2.5} /> Buffer protected
+                </span>
               </div>
 
               <div>
@@ -181,10 +183,10 @@ export function TrajectoryVisualizer() {
                   </span>
                 </div>
 
-                <p className="mt-3 text-xs sm:text-sm text-[var(--color-text-primary)] leading-relaxed font-medium">
+                <p className="mt-3 text-xs sm:text-sm text-[var(--color-text-secondary)] leading-relaxed font-body">
                   {scenario === "missed" ? (
                     <span>
-                      The <strong>±10% mathematical buffer cone</strong> absorbs the disruption. Your 90-day trajectory vector remains unbroken. Zero shame, zero reset, pure momentum continuity.
+                      The <strong className="text-[var(--color-text-primary)]">±10% mathematical buffer cone</strong> absorbs the disruption. Your 90-day trajectory vector remains unbroken. Zero shame, zero reset, pure momentum continuity.
                     </span>
                   ) : scenario === "recovering" ? (
                     <span>
@@ -198,11 +200,11 @@ export function TrajectoryVisualizer() {
                 </p>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-black/10 dark:border-white/10 flex items-center justify-between text-[11px] font-tech-mono text-[var(--color-text-primary)] font-semibold">
+              <div className="mt-5 pt-3 border-t border-[var(--color-border-default)] flex items-center justify-between text-[11px] font-tech-mono text-[var(--color-text-primary)] font-semibold">
                 <span className="flex items-center gap-1">
                   <ShieldCheck size={13} /> Vector Unbroken
                 </span>
-                <span>±10% Corridor Active</span>
+                <span className="text-emerald-600 dark:text-emerald-400">±10% Corridor Active</span>
               </div>
             </div>
           </div>
@@ -254,8 +256,8 @@ export function TrajectoryVisualizer() {
                         transition={{ type: "spring", stiffness: 300, damping: 25 }}
                         className={`w-full rounded-sm transition-colors ${
                           isDisruptedDay && scenario === "missed"
-                            ? "bg-zinc-400 dark:bg-zinc-600"
-                            : "bg-zinc-900 dark:bg-zinc-100"
+                            ? "bg-[var(--color-text-muted)] opacity-50"
+                            : "bg-[var(--color-text-primary)]"
                         }`}
                       />
                       <span className="font-tech-mono text-[9px] text-[var(--color-text-muted)] tnum">

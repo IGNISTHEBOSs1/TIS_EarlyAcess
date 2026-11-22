@@ -15,16 +15,13 @@ export function ClosingStatement() {
 
   return (
     <section
-      className="border-t border-[var(--color-border-default)] px-6 py-20 sm:py-28 text-center relative overflow-hidden"
+      className="border-t border-[var(--color-border-default)] px-6 py-20 sm:py-28 text-center relative overflow-clip"
       aria-label="Closing statement"
     >
       <div className="mx-auto max-w-4xl flex flex-col items-center">
         <Reveal>
-          <span className="font-tech-mono text-xs tracking-wider text-[var(--color-text-muted)] border-t border-[var(--color-border-default)] pt-2 inline-block">
-            Trajectory over streaks
-          </span>
-          <h2 className="font-display mt-6 text-3xl sm:text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-text-primary)]">
-            You've started over enough.
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-text-primary)]">
+            You’ve started over enough.
             <br />
             <span className="font-serif italic font-normal text-[var(--color-text-muted)]">
               This time, let a calm system hold the line with you.
